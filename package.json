@@ -1,0 +1,25 @@
+{
+    "name": "sfcc-catalog-reducer",
+    "version": "1.0.0",
+    "description": "Module to make huge master catalog for SFCC platform smaller for dev/qa purpoes",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/acibilous/sfcc-catalog-reducer.git"
+    },
+    "keywords": [
+        "SFCC",
+        "Demandware",
+        "Catalog",
+        "Reducer"
+    ],
+    "author": "exMDM",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/acibilous/sfcc-catalog-reducer/issues"
+    },
+    "homepage": "https://github.com/acibilous/sfcc-catalog-reducer#readme"
+}

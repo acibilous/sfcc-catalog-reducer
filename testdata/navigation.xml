@@ -1,0 +1,960 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="http://www.demandware.com/xml/impex/catalog/2006-10-31" catalog-id="sitename-catalog">
+    <category category-id="root">
+        <display-name xml:lang="x-default">Storefront Catalog - EN</display-name>
+        <display-name xml:lang="fr-FR">Catalogue de boutique en ligne - FR</display-name>
+        <online-flag>true</online-flag>
+        <template/>
+        <page-attributes/>
+        <attribute-groups>
+            <attribute-group group-id="storefrontAttributes">
+                <display-name xml:lang="x-default">Storefront Attributes</display-name>
+                <display-name xml:lang="fr-FR">Attributs de la boutique en ligne</display-name>
+            </attribute-group>
+        </attribute-groups>
+        <refinement-definitions>
+            <refinement-definition type="category" bucket-type="none">
+                <display-name xml:lang="x-default">Category</display-name>
+                <display-name xml:lang="fr-FR">Catégorie</display-name>
+                <sort-mode>category-position</sort-mode>
+                <cutoff-threshold>5</cutoff-threshold>
+            </refinement-definition>
+            <refinement-definition type="attribute" bucket-type="none" attribute-id="color" system="false">
+                <display-name xml:lang="x-default">Color</display-name>
+                <display-name xml:lang="en-CA">Colour</display-name>
+                <value-set>search-result</value-set>
+                <sort-mode>value-count</sort-mode>
+                <sort-direction>ascending</sort-direction>
+                <cutoff-threshold>5</cutoff-threshold>
+            </refinement-definition>
+            <refinement-definition type="attribute" bucket-type="values" attribute-id="size" system="false">
+                <display-name xml:lang="x-default">Size</display-name>
+                <value-set>refinement-category</value-set>
+                <sort-mode>value-name</sort-mode>
+                <sort-direction>ascending</sort-direction>
+                <unbucketed-values-mode>show-values</unbucketed-values-mode>
+                <cutoff-threshold>5</cutoff-threshold>
+                <bucket-definitions>
+                    <attribute-bucket>
+                        <display-name xml:lang="x-default">Small</display-name>
+                    </attribute-bucket>
+                    <attribute-bucket>
+                        <display-name xml:lang="x-default">Medium</display-name>
+                    </attribute-bucket>
+                    <attribute-bucket>
+                        <display-name xml:lang="x-default">Large</display-name>
+                    </attribute-bucket>
+                </bucket-definitions>
+            </refinement-definition>
+            <refinement-definition type="attribute" bucket-type="none" attribute-id="brand" system="true">
+                <display-name xml:lang="x-default">Brand</display-name>
+                <display-name xml:lang="fr-FR">Par marque</display-name>
+                <value-set>search-result</value-set>
+                <sort-mode>value-name</sort-mode>
+                <sort-direction>ascending</sort-direction>
+                <cutoff-threshold>5</cutoff-threshold>
+            </refinement-definition>
+            <refinement-definition type="price" bucket-type="thresholds">
+                <display-name xml:lang="x-default">Price</display-name>
+                <display-name xml:lang="fr-FR">Prix</display-name>
+                <sort-mode>value-name</sort-mode>
+                <sort-direction>ascending</sort-direction>
+                <cutoff-threshold>5</cutoff-threshold>
+                <bucket-definitions>
+                    <price-bucket currency="EUR">
+                        <display-name xml:lang="x-default">€0 - €19.99</display-name>
+                        <display-name xml:lang="fr-FR">0 € - 19,99 €</display-name>
+                        <threshold>20</threshold>
+                    </price-bucket>
+                    <price-bucket currency="EUR">
+                        <display-name xml:lang="x-default">€20 - €49.99</display-name>
+                        <display-name xml:lang="fr-FR">20 € - 49,99 €</display-name>
+                        <threshold>50</threshold>
+                    </price-bucket>
+                    <price-bucket currency="EUR">
+                        <display-name xml:lang="x-default">€50 - €99.99</display-name>
+                        <display-name xml:lang="fr-FR">50 € - 99,99 €</display-name>
+                        <threshold>100</threshold>
+                    </price-bucket>
+                    <price-bucket currency="EUR">
+                        <display-name xml:lang="x-default">€100 - €499.00</display-name>
+                        <display-name xml:lang="fr-FR">100 € - 499 €</display-name>
+                        <threshold>500</threshold>
+                    </price-bucket>
+                    <price-bucket currency="EUR">
+                        <display-name xml:lang="x-default">€500 - €999.99</display-name>
+                        <display-name xml:lang="fr-FR">500 € - 999,99 €</display-name>
+                        <threshold>1000</threshold>
+                    </price-bucket>
+                    <price-bucket currency="EUR">
+                        <display-name xml:lang="x-default">€1000 - €1499.99</display-name>
+                        <display-name xml:lang="fr-FR">1 000 € - 1499,99 €</display-name>
+                        <threshold>1500</threshold>
+                    </price-bucket>
+                    <price-bucket currency="EUR">
+                        <display-name xml:lang="x-default">€1500 - €1999.99</display-name>
+                        <display-name xml:lang="fr-FR">1 500 € - 1 999,99 €</display-name>
+                        <threshold>2000</threshold>
+                    </price-bucket>
+                    <price-bucket currency="EUR">
+                        <display-name xml:lang="x-default">€2000 - €2499.99</display-name>
+                        <display-name xml:lang="fr-FR">2 000 € - 2 499,99 €</display-name>
+                        <threshold>2500</threshold>
+                    </price-bucket>
+                    <price-bucket currency="EUR">
+                        <display-name xml:lang="x-default">€2500 - €4999.99</display-name>
+                        <display-name xml:lang="fr-FR">2 500 € - 4999,99 €</display-name>
+                        <threshold>5000</threshold>
+                    </price-bucket>
+                    <price-bucket currency="EUR">
+                        <display-name xml:lang="x-default">€5000 - €9999.99</display-name>
+                        <display-name xml:lang="fr-FR">5 000 € - 9999,99 €</display-name>
+                        <threshold>10000</threshold>
+                    </price-bucket>
+                    <price-bucket currency="USD">
+                        <display-name xml:lang="x-default">$0 - $19.99</display-name>
+                        <display-name xml:lang="fr-FR">0 $ - 19,99 $</display-name>
+                        <threshold>20</threshold>
+                    </price-bucket>
+                    <price-bucket currency="USD">
+                        <display-name xml:lang="x-default">$20 - $49.99</display-name>
+                        <display-name xml:lang="fr-FR">20 $ - 49,99 $</display-name>
+                        <threshold>50</threshold>
+                    </price-bucket>
+                    <price-bucket currency="USD">
+                        <display-name xml:lang="x-default">$50 - $99.99</display-name>
+                        <display-name xml:lang="fr-FR">50 $ - 99,99 $</display-name>
+                        <threshold>100</threshold>
+                    </price-bucket>
+                    <price-bucket currency="USD">
+                        <display-name xml:lang="x-default">$100 - $499.99</display-name>
+                        <display-name xml:lang="fr-FR">100 $ - 499,99 $</display-name>
+                        <threshold>500</threshold>
+                    </price-bucket>
+                    <price-bucket currency="USD">
+                        <display-name xml:lang="x-default">$500 - $999.99</display-name>
+                        <display-name xml:lang="fr-FR">500 $ - 999,99 $</display-name>
+                        <threshold>1000</threshold>
+                    </price-bucket>
+                    <price-bucket currency="USD">
+                        <display-name xml:lang="x-default">$1,000 - $1,499.99</display-name>
+                        <display-name xml:lang="fr-FR">1 000 $ - 1 499,99 $</display-name>
+                        <threshold>1500</threshold>
+                    </price-bucket>
+                    <price-bucket currency="USD">
+                        <display-name xml:lang="x-default">$1,500 - $1,999.99</display-name>
+                        <display-name xml:lang="fr-FR">1 500 $ - 1 999;99 $</display-name>
+                        <threshold>2000</threshold>
+                    </price-bucket>
+                    <price-bucket currency="USD">
+                        <display-name xml:lang="x-default">$2,000 - $2,499.99</display-name>
+                        <display-name xml:lang="fr-FR">2 000 $ - 2 499,99 $</display-name>
+                        <threshold>2500</threshold>
+                    </price-bucket>
+                    <price-bucket currency="USD">
+                        <display-name xml:lang="x-default">$2,500 - $4,999.99</display-name>
+                        <display-name xml:lang="fr-FR">2 500 $ - 4 999,99 $</display-name>
+                        <threshold>5000</threshold>
+                    </price-bucket>
+                    <price-bucket currency="USD">
+                        <display-name xml:lang="x-default">$5,000 - $9,999.99</display-name>
+                        <display-name xml:lang="fr-FR">5 000 $ - 9 999,99 $</display-name>
+                        <threshold>10000</threshold>
+                    </price-bucket>
+                    <price-bucket currency="USD">
+                        <display-name xml:lang="x-default">$10,000 - $14,999.99</display-name>
+                        <display-name xml:lang="fr-FR">10 000 $ - 14 999,99 $</display-name>
+                        <threshold>15000</threshold>
+                    </price-bucket>
+                    <price-bucket currency="USD">
+                        <display-name xml:lang="x-default">$15,000 +</display-name>
+                        <display-name xml:lang="fr-FR">+ 15 000 $</display-name>
+                        <threshold>100000</threshold>
+                    </price-bucket>
+                </bucket-definitions>
+            </refinement-definition>
+        </refinement-definitions>
+        <product-detail-page-meta-tag-rules>
+            <page-meta-tag-rule rule-id="Product Detail Page Description"/>
+            <page-meta-tag-rule rule-id="Product Detail Page Title"/>
+            <page-meta-tag-rule rule-id="Product Detail Page Robots"/>
+            <page-meta-tag-rule rule-id="Product Detail Page Open Graph URL"/>
+        </product-detail-page-meta-tag-rules>
+        <product-listing-page-meta-tag-rules>
+            <page-meta-tag-rule rule-id="Product Listing Page Open Graph URL"/>
+            <page-meta-tag-rule rule-id="Product Listing Page Robots - Global"/>
+            <page-meta-tag-rule rule-id="Product Listing Page Title"/>
+        </product-listing-page-meta-tag-rules>
+    </category>
+
+    <category category-id="category">
+        <display-name xml:lang="x-default">Category</display-name>
+        <online-flag>true</online-flag>
+        <parent>root</parent>
+        <position>0.0</position>
+        <page-attributes>
+            <page-title xml:lang="x-default">Category 0 page title</page-title>
+            <page-description xml:lang="x-default">Category 0 page description</page-description>
+            <page-keywords xml:lang="x-default">Category 0 keywords</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+
+    <category category-id="category-1">
+        <display-name xml:lang="x-default">Category 1</display-name>
+        <online-flag>true</online-flag>
+        <parent>root</parent>
+        <position>1.0</position>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Category 1 page titel</page-title>
+            <page-description xml:lang="x-default">Category 1 page description</page-description>
+            <page-keywords xml:lang="x-default">Category 1 keywords</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+        <refinement-definitions>
+            <blocked-refinement-definition type="attribute" attribute-id="size" system="false"/>
+        </refinement-definitions>
+    </category>
+
+    <category category-id="category-2">
+        <display-name xml:lang="x-default">Category 2</display-name>
+        <online-flag>true</online-flag>
+        <parent>root</parent>
+        <position>2.0</position>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Category 2 page title</page-title>
+            <page-description xml:lang="x-default">Category 2 page description</page-description>
+            <page-keywords xml:lang="x-default">Category 2 keywords</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+        <refinement-definitions>
+            <blocked-refinement-definition type="attribute" attribute-id="size" system="false"/>
+        </refinement-definitions>
+    </category>
+
+    <category category-id="category-3">
+        <display-name xml:lang="x-default">Category 3</display-name>
+        <online-flag>true</online-flag>
+        <parent>root</parent>
+        <position>3.0</position>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Category 3 page title</page-title>
+            <page-description xml:lang="x-default">Category 3 page description</page-description>
+            <page-keywords xml:lang="x-default">Category 3 keywords</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+        <refinement-definitions>
+            <blocked-refinement-definition type="attribute" attribute-id="size" system="false"/>
+        </refinement-definitions>
+    </category>
+
+    <category category-id="category-4">
+        <display-name xml:lang="x-default">Category 4</display-name>
+        <online-flag>true</online-flag>
+        <parent>root</parent>
+        <position>4.0</position>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Category 3 page title</page-title>
+            <page-description xml:lang="x-default">Category 3 page description</page-description>
+            <page-keywords xml:lang="x-default">Category 3 keywords</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+        <refinement-definitions>
+            <blocked-refinement-definition type="attribute" attribute-id="size" system="false"/>
+        </refinement-definitions>
+    </category>
+
+    <category category-id="category-5">
+        <display-name xml:lang="x-default">Category 5</display-name>
+        <online-flag>true</online-flag>
+        <parent>root</parent>
+        <position>5.0</position>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Category 3 page title</page-title>
+            <page-description xml:lang="x-default">Category 3 page description</page-description>
+            <page-keywords xml:lang="x-default">Category 3 keywords</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+        <refinement-definitions>
+            <blocked-refinement-definition type="attribute" attribute-id="size" system="false"/>
+        </refinement-definitions>
+    </category>
+
+    <category category-id="deals">
+        <display-name xml:lang="x-default">Deals</display-name>
+        <online-flag>true</online-flag>
+        <parent>root</parent>
+        <position>6.0</position>
+        <page-attributes>
+            <page-title xml:lang="x-default">Deals title</page-title>
+            <page-description xml:lang="x-default">Deals description</page-description>
+            <page-keywords xml:lang="x-default">Deails keywords</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner-1.jpg</custom-attribute>
+        </custom-attributes>
+        <refinement-definitions>
+            <blocked-refinement-definition type="attribute" attribute-id="size" system="false"/>
+        </refinement-definitions>
+    </category>
+
+    <category category-id="hidden">
+        <display-name xml:lang="x-default">Hidden Category</display-name>
+        <display-name xml:lang="fr-FR">Catégorie masquée</display-name>
+        <description xml:lang="x-default">Hidden Category to store categories such as sale, deals etc.</description>
+        <description xml:lang="fr-FR">Catégorie masquée (ex: soldes, etc.).</description>
+        <online-flag>false</online-flag>
+        <parent>root</parent>
+        <template/>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">false</custom-attribute>
+        </custom-attributes>
+    </category>
+
+
+    <category category-id="subcategory-1">
+        <display-name xml:lang="x-default">Sub category 1</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-2">
+        <display-name xml:lang="x-default">Sub category 2</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-3">
+        <display-name xml:lang="x-default">Sub category 3</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-4">
+        <display-name xml:lang="x-default">Sub category 4</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-5">
+        <display-name xml:lang="x-default">Sub category 5</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-6">
+        <display-name xml:lang="x-default">Sub category 6</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-7">
+        <display-name xml:lang="x-default">Sub category 7</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-8">
+        <display-name xml:lang="x-default">Sub category 8</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-9">
+        <display-name xml:lang="x-default">Sub category 9</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-10">
+        <display-name xml:lang="x-default">Sub category 10</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-11">
+        <display-name xml:lang="x-default">Sub category 11</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-12">
+        <display-name xml:lang="x-default">Sub category 12</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-13">
+        <display-name xml:lang="x-default">Sub category 13</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-14">
+        <display-name xml:lang="x-default">Sub category 14</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-15">
+        <display-name xml:lang="x-default">Sub category 15</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-16">
+        <display-name xml:lang="x-default">Sub category 16</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-17">
+        <display-name xml:lang="x-default">Sub category 17</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-18">
+        <display-name xml:lang="x-default">Sub category 18</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-19">
+        <display-name xml:lang="x-default">Sub category 19</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-20">
+        <display-name xml:lang="x-default">Sub category 20</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-21">
+        <display-name xml:lang="x-default">Sub category 21</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-22">
+        <display-name xml:lang="x-default">Sub category 22</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-23">
+        <display-name xml:lang="x-default">Sub category 23</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-24">
+        <display-name xml:lang="x-default">Sub category 24</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-25">
+        <display-name xml:lang="x-default">Sub category 25</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-26">
+        <display-name xml:lang="x-default">Sub category 26</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-27">
+        <display-name xml:lang="x-default">Sub category 27</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-28">
+        <display-name xml:lang="x-default">Sub category 28</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-29">
+        <display-name xml:lang="x-default">Sub category 29</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-30">
+        <display-name xml:lang="x-default">Sub category 30</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-31">
+        <display-name xml:lang="x-default">Sub category 31</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-32">
+        <display-name xml:lang="x-default">Sub category 32</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-33">
+        <display-name xml:lang="x-default">Sub category 33</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-34">
+        <display-name xml:lang="x-default">Sub category 34</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-35">
+        <display-name xml:lang="x-default">Sub category 35 with long long long name</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="alternative-shipping-price-category">
+        <display-name xml:lang="x-default">Sub category with alternative shipping price</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-2</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+
+    <category-assignment category-id="category-1" product-id="product-1"/>
+    <category-assignment category-id="category-2" product-id="product-1"/>
+    <category-assignment category-id="category-3" product-id="product-1"/>
+    <category-assignment category-id="category-4" product-id="product-1"/>
+    <category-assignment category-id="category-5" product-id="product-1"/>
+    <category-assignment category-id="subcategory-1" product-id="product-1"/>
+    <category-assignment category-id="subcategory-2" product-id="product-1"/>
+    <category-assignment category-id="subcategory-3" product-id="product-1"/>
+    <category-assignment category-id="subcategory-4" product-id="product-1"/>
+    <category-assignment category-id="subcategory-5" product-id="product-1"/>
+    <category-assignment category-id="subcategory-6" product-id="product-1"/>
+    <category-assignment category-id="subcategory-7" product-id="product-1"/>
+    <category-assignment category-id="subcategory-8" product-id="product-1"/>
+    <category-assignment category-id="subcategory-9" product-id="product-1"/>
+    <category-assignment category-id="subcategory-10" product-id="product-1"/>
+    <category-assignment category-id="subcategory-11" product-id="product-1"/>
+    <category-assignment category-id="subcategory-12" product-id="product-1"/>
+    <category-assignment category-id="subcategory-13" product-id="product-1"/>
+    <category-assignment category-id="subcategory-14" product-id="product-1"/>
+    <category-assignment category-id="subcategory-15" product-id="product-1"/>
+    <category-assignment category-id="subcategory-16" product-id="product-1"/>
+    <category-assignment category-id="subcategory-17" product-id="product-1"/>
+    <category-assignment category-id="subcategory-18" product-id="product-1"/>
+    <category-assignment category-id="subcategory-19" product-id="product-1"/>
+    <category-assignment category-id="subcategory-20" product-id="product-1"/>
+    <category-assignment category-id="subcategory-21" product-id="product-1"/>
+    <category-assignment category-id="subcategory-22" product-id="product-1"/>
+    <category-assignment category-id="subcategory-23" product-id="product-1"/>
+    <category-assignment category-id="subcategory-24" product-id="product-1"/>
+    <category-assignment category-id="subcategory-25" product-id="product-1"/>
+    <category-assignment category-id="subcategory-26" product-id="product-1"/>
+    <category-assignment category-id="subcategory-27" product-id="product-1"/>
+    <category-assignment category-id="subcategory-28" product-id="product-1"/>
+    <category-assignment category-id="subcategory-29" product-id="product-1"/>
+    <category-assignment category-id="subcategory-30" product-id="product-1"/>
+    <category-assignment category-id="subcategory-31" product-id="product-1"/>
+    <category-assignment category-id="subcategory-32" product-id="product-1"/>
+    <category-assignment category-id="subcategory-33" product-id="product-1"/>
+    <category-assignment category-id="subcategory-34" product-id="product-1"/>
+    <category-assignment category-id="subcategory-35" product-id="product-1"/>
+    <category-assignment category-id="subcategory-36" product-id="product-1"/>
+    <category-assignment category-id="alternative-shipping-price-category" product-id="product-1"/>
+    <category-assignment category-id="deals" product-id="product-1"/>
+    <category-assignment category-id="deals" product-id="product-2"/>
+    <category-assignment category-id="deals" product-id="product-3"/>
+    <category-assignment category-id="deals" product-id="product-4"/>
+    <category-assignment category-id="deals" product-id="product-5"/>
+    <category-assignment category-id="deals" product-id="product-bundle"/>
+    <category-assignment category-id="deals" product-id="product-bundle-2"/>
+    <category-assignment category-id="deals" product-id="product-bundle-3"/>
+    <category-assignment category-id="deals" product-id="product-bundle-4"/>
+    <category-assignment category-id="deals" product-id="product-bundle-5"/>
+    <category-assignment category-id="deals" product-id="product-variation-master"/>
+    <category-assignment category-id="deals" product-id="product-variation-master-5"/>
+    <category-assignment category-id="deals" product-id="product-variation-master-2"/>
+    <category-assignment category-id="deals" product-id="product-set"/>
+    <category-assignment category-id="deals" product-id="product-set-2"/>
+    <category-assignment category-id="deals" product-id="product-variation-1"/>
+    <category-assignment category-id="deals" product-id="product-variation-2"/>
+    <category-assignment category-id="deals" product-id="product-variation-3"/>
+    <category-assignment category-id="deals" product-id="product-variation-4"/>
+    <category-assignment category-id="deals" product-id="product-variation-5"/>
+    <category-assignment category-id="deals" product-id="product-variation-6"/>
+    <category-assignment category-id="deals" product-id="product-variation-7"/>
+
+
+
+    <recommendation source-id="product-1" source-type="product" target-id="product-2" type="1"/>
+    <recommendation source-id="product-1" source-type="product" target-id="product-3" type="1"/>
+    <recommendation source-id="product-1" source-type="product" target-id="product-4" type="1"/>
+    <recommendation source-id="product-1" source-type="product" target-id="product-5" type="1"/>
+    <recommendation source-id="product-1" source-type="product" target-id="product-variation-master" type="1"/>
+    <recommendation source-id="product-1" source-type="product" target-id="product-bundle" type="1"/>
+
+    <recommendation source-id="product-variation-master" source-type="product" target-id="product-2" type="1"/>
+    <recommendation source-id="product-variation-master" source-type="product" target-id="product-3" type="1"/>
+    <recommendation source-id="product-variation-master" source-type="product" target-id="product-4" type="1"/>
+    <recommendation source-id="product-variation-master" source-type="product" target-id="product-5" type="1"/>
+
+</catalog>

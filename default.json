@@ -1,0 +1,14 @@
+{
+    "src": {
+        "master": "./testdata/master.xml",
+        "navigation": "./testdata/navigation.xml"
+    },
+    "categoriesConfig": {
+        "default": {
+            "master": 1,
+            "set": 1,
+            "bundle": 1,
+            "standard": 10
+        }
+    }
+}
