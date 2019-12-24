@@ -1,8 +1,11 @@
 {
     "name": "sfcc-catalog-reducer",
-    "version": "1.0.0",
+    "version": "1.0.3",
     "description": "Module to make huge master catalog for SFCC platform smaller for dev/qa purpoes",
     "main": "index.js",
+    "bin": {
+        "sfcc-catalog-reducer": "./index.js"
+    },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },

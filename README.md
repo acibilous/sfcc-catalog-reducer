@@ -18,21 +18,24 @@ Please update your project `package.json` with configuration:
 {
     "catalogReducer": {
         "src": {
-            "master": "./testdata/master.xml",
-            "navigation": "./testdata/navigation.xml"
+            "master": "./testdata/real/master.xml", //master catalog file
+            "navigation": "./testdata/real/navigation.xml", //navigation catalog file, may be same as master if just one catalog
+            "minifiedMaster": "./testdata/real/master_minified.xml" // output master catalog file after finishing minification
         },
+        "enabledCache": true, // to read master and navigation catalog data from JSONs if existing
+        "cleanupData": false, // to remove master, navigation and minified master catalog data JSONs after processing 
         "categoriesConfig": {
+            "CATEGORY_ID_CUSTOM_CONFIGURATION": {
+                "master": 5,
+                "set": 5,
+                "bundle": 5,
+                "standard": 10
+            },
             "default": {
                 "master": 1,
                 "set": 1,
                 "bundle": 1,
-                "standard": 10
-            },
-            "YOUR_CUSTOM_CATEGORY_CONFIG": {
-                "master": 5,
-                "set": 4,
-                "bundle": 8,
-                "standard": 50
+                "standard": 0 // not included dependencies from master, set or bundle
             }
         }
     }

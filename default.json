@@ -1,14 +1,17 @@
 {
     "src": {
-        "master": "./testdata/master.xml",
-        "navigation": "./testdata/navigation.xml"
+        "master": "./testdata/real/master.xml",
+        "navigation": "./testdata/real/navigation.xml",
+        "minifiedMaster": "./testdata/real/master_minified.xml"
     },
+    "enabledCache": true,
+    "cleanupData": false,
     "categoriesConfig": {
         "default": {
             "master": 1,
             "set": 1,
             "bundle": 1,
-            "standard": 10
+            "standard": 0
         }
     }
 }
