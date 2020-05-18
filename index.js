@@ -10,6 +10,7 @@ const
     navigationCatalogFile = catalogReducer.src.navigation,
     navigationFolder = path.dirname(navigationCatalogFile),
     categoriesConfiguration = catalogReducer.categoriesConfig,
+    productsConfig = catalogReducer.productsConfig,
     NavigationCatalogWorker = require('./lib/catalog/workers/NavigationCatalogWorker'),
     MasterCatalogWorker = require('./lib/catalog/workers/MasterCatalogWorker'),
     MasterCatalogFilter = require('./lib/catalog/workers/MasterCatalogFilter'),
@@ -60,7 +61,7 @@ navigationWorker.on('end', () => {
     /**
      * Now we may reduce catalog data by configuration
      */
-    navigationWorker.registry.optimize(categoriesConfiguration);
+    navigationWorker.registry.optimize(categoriesConfiguration, productsConfig);
 
     /**
      * We have info about all products that we need in navigation worker.

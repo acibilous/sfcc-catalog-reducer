@@ -37,6 +37,11 @@ Please update your project `package.json` with configuration:
                 "bundle": 1,
                 "standard": 0 // not included dependencies from master, set or bundle
             }
+        },
+        "productsConfig": {
+            inclusions: [], // array of product ids needs to be included bypassing counter
+            includeIfDependency: false, // include parrent product if inclusion is dependency with all parrent dependencies
+            includeChildren: true // include dependencies
         }
     }
 }
