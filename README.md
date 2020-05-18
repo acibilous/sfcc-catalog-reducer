@@ -40,7 +40,7 @@ Please update your project `package.json` with configuration:
         },
         "productsConfig": {
             inclusions: [], // array of product ids needs to be included bypassing counter
-            includeIfDependency: false, // include parrent product if inclusion is dependency with all parrent dependencies
+            includeIfDependency: false, // include parent product if inclusion is dependency with all parent dependencies
             includeChildren: true // include dependencies
         }
     }
