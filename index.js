@@ -1,40 +1,44 @@
 #!/usr/bin/env node
 
-const
-    path = require('path'),
-    config = require(path.join(process.cwd(), 'package.json')),
-    catalogReducer = config.catalogReducer || require('./default'),
-    minifiedMaster = catalogReducer.src.minifiedMaster,
-    masterCatalogFile = catalogReducer.src.master,
-    masterFolder = path.dirname(masterCatalogFile),
-    navigationCatalogFile = catalogReducer.src.navigation,
-    navigationFolder = path.dirname(navigationCatalogFile),
-    categoriesConfiguration = catalogReducer.categoriesConfig,
-    productsConfig = catalogReducer.productsConfig,
-    NavigationCatalogWorker = require('./lib/catalog/workers/NavigationCatalogWorker'),
-    MasterCatalogWorker = require('./lib/catalog/workers/MasterCatalogWorker'),
-    MasterCatalogFilter = require('./lib/catalog/workers/MasterCatalogFilter'),
-    { removeFilesExcept } = require('./lib/tools/cleanup'),
-    { log } = require('./lib/tools/logger');
+const path = require('path');
+const config = require(path.join(process.cwd(), 'package.json'));
+
+const NavigationCatalogWorker = require('./lib/catalog/workers/NavigationCatalogWorker');
+const MasterCatalogWorker = require('./lib/catalog/workers/MasterCatalogWorker');
+const MasterCatalogFilter = require('./lib/catalog/workers/MasterCatalogFilter');
+const { removeFilesExcept } = require('./lib/tools/cleanup');
+const { log } = require('./lib/tools/logger');
+
+const catalogReducer = config.catalogReducer || require('./default.json');
+
+const {
+    productsConfig,
+    categoriesConfig,
+    src: {
+        minifiedMaster,
+        master: masterCatalogFile,
+        navigation: navigationCatalogFile
+    }
+} = catalogReducer;
+
+const masterFolder = path.dirname(masterCatalogFile);
+const navigationFolder = path.dirname(navigationCatalogFile);
 
 if (!catalogReducer.enabledCache) {
     cleanupFolders();
 }
 
-
-let
-    navigationWorker = new NavigationCatalogWorker(navigationCatalogFile),
-    masterWorker = new MasterCatalogWorker(masterCatalogFile),
-    masterCatalogFilter = new MasterCatalogFilter(masterCatalogFile, minifiedMaster + '.temp');
+const navigationWorker = new NavigationCatalogWorker(navigationCatalogFile);
+const masterWorker = new MasterCatalogWorker(masterCatalogFile);
+const masterCatalogFilter = new MasterCatalogFilter(masterCatalogFile, minifiedMaster + '.temp');
 
 /**
  * Filter product by final registry in navigation catalog
  */
 masterCatalogFilter.setMatchFilter(tag => {
-    let
-        id = tag.attributes['product-id'],
-        { finalProductList } = navigationWorker.registry;
-    
+    const id = tag.attributes['product-id'];
+    const { finalProductList } = navigationWorker.registry;
+
     return !!finalProductList[id];
 });
 
@@ -61,7 +65,7 @@ navigationWorker.on('end', () => {
     /**
      * Now we may reduce catalog data by configuration
      */
-    navigationWorker.registry.optimize(categoriesConfiguration, productsConfig);
+    navigationWorker.registry.optimize(categoriesConfig, productsConfig);
 
     /**
      * We have info about all products that we need in navigation worker.
@@ -69,12 +73,11 @@ navigationWorker.on('end', () => {
      * only products that existing in navigation catalog worker registry.
      */
     masterCatalogFilter.start().on('end', () => {
-        let masterCatalogAssignmentsFilter = new MasterCatalogFilter(minifiedMaster + '.temp', minifiedMaster);
+        const masterCatalogAssignmentsFilter = new MasterCatalogFilter(minifiedMaster + '.temp', minifiedMaster);
 
         masterCatalogAssignmentsFilter.setMatchFilter(tag => {
-            let
-                id = tag.attributes['product-id'],
-                { finalProductList } = navigationWorker.registry;
+            const id = tag.attributes['product-id'];
+            const { finalProductList } = navigationWorker.registry;
 
             return !!finalProductList[id];
         });
@@ -89,7 +92,7 @@ navigationWorker.on('end', () => {
     });
 });
 
-//first parsing master catalog to collect products with their dependencies
+// first parsing master catalog to collect products with their dependencies
 masterWorker.start();
 
 function cleanupFolders () {
