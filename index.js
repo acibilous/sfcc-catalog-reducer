@@ -6,7 +6,7 @@ const config = require(path.join(process.cwd(), 'package.json'));
 const NavigationCatalogWorker = require('./lib/catalog/workers/NavigationCatalogWorker');
 const MasterCatalogWorker = require('./lib/catalog/workers/MasterCatalogWorker');
 const MasterCatalogFilter = require('./lib/catalog/workers/MasterCatalogFilter');
-const { removeFilesExcept } = require('./lib/tools/cleanup');
+const { getCleaner } = require('./lib/tools/cleanup');
 const { log } = require('./lib/tools/logger');
 
 const catalogReducer = config.catalogReducer || require('./default.json');
@@ -21,8 +21,11 @@ const {
     }
 } = catalogReducer;
 
-const masterFolder = path.dirname(masterCatalogFile);
-const navigationFolder = path.dirname(navigationCatalogFile);
+const cleanupFolders = getCleaner({
+    masterCatalogFile,
+    navigationCatalogFile,
+    minifiedMaster
+});
 
 if (!catalogReducer.enabledCache) {
     cleanupFolders();
@@ -39,7 +42,7 @@ masterCatalogFilter.setMatchFilter(tag => {
     const id = tag.attributes['product-id'];
     const { finalProductList } = navigationWorker.registry;
 
-    return !!finalProductList[id];
+    return id in finalProductList;
 });
 
 /**
@@ -52,7 +55,7 @@ masterWorker.on('end', () => navigationWorker.start());
  */
 navigationWorker.on('end', () => {
     /**
-     * Adding dependendencies to navigation catalog registry. Product may be not category assignement
+     * Adding dependencies to navigation catalog registry. Product may be not category assignment
      * but his owner assigned to navigation catalog
      */
     navigationWorker.registry.updateProducts(masterWorker.registry.products);
@@ -92,11 +95,7 @@ navigationWorker.on('end', () => {
     });
 });
 
-// first parsing master catalog to collect products with their dependencies
+/**
+ * first parsing master catalog to collect products with their dependencies
+ */
 masterWorker.start();
-
-function cleanupFolders () {
-    log(`Cleanup folders ${masterFolder} and ${navigationFolder}`);
-    removeFilesExcept(masterFolder, [masterCatalogFile, navigationCatalogFile, minifiedMaster]);
-    removeFilesExcept(navigationFolder, [masterCatalogFile, navigationCatalogFile, minifiedMaster]);
-}
