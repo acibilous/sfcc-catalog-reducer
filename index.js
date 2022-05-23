@@ -35,17 +35,6 @@ const tempMinifiedMasterWithFilteredProducts = minifiedMasterPath + '.temp';
 
 const navigationWorker = new NavigationCatalogWorker(navigationPath);
 const masterWorker = new MasterCatalogWorker(masterPath);
-const masterCatalogFilter = new MasterCatalogFilter(masterPath, tempMinifiedMasterWithFilteredProducts);
-
-/**
- * Filter product by final registry in navigation catalog
- */
-masterCatalogFilter.setMatchFilter(tag => {
-    const id = tag.attributes['product-id'];
-    const { finalProductList } = navigationWorker.registry;
-
-    return id in finalProductList;
-});
 
 /**
  * when finished first parsing of master catalog we need to start parsing of navigation catalog
@@ -71,6 +60,18 @@ navigationWorker.on('end', () => {
      * Now we may reduce catalog data by configuration
      */
     navigationWorker.registry.optimize(categoriesConfig, productsConfig);
+
+    const masterCatalogFilter = new MasterCatalogFilter(masterPath, tempMinifiedMasterWithFilteredProducts);
+
+    /**
+     * Filter product by final registry in navigation catalog
+     */
+    masterCatalogFilter.setMatchFilter(tag => {
+        const id = tag.attributes['product-id'];
+        const { finalProductList } = navigationWorker.registry;
+
+        return id in finalProductList;
+    });
 
     /**
      * We have info about all products that we need in navigation worker.
