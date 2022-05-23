@@ -5,7 +5,7 @@ const config = require(path.join(process.cwd(), 'package.json'));
 
 const NavigationCatalogWorker = require('./lib/catalog/workers/NavigationCatalogWorker');
 const MasterCatalogWorker = require('./lib/catalog/workers/MasterCatalogWorker');
-const MasterCatalogFilter = require('./lib/catalog/workers/MasterCatalogFilter');
+const XMLFilterWriter = require('./lib/xml/XMLFilterWriter');
 const { getCleaner } = require('./lib/tools/cleanup');
 const { log } = require('./lib/tools/logger');
 
@@ -30,8 +30,6 @@ const cleanupFolders = getCleaner({
 if (!catalogReducer.enabledCache) {
     cleanupFolders();
 }
-
-const tempMinifiedMasterWithFilteredProducts = minifiedMasterPath + '.temp';
 
 const navigationWorker = new NavigationCatalogWorker(navigationPath);
 const masterWorker = new MasterCatalogWorker(masterPath);
@@ -61,12 +59,14 @@ navigationWorker.on('end', () => {
      */
     navigationWorker.registry.optimize(categoriesConfig, productsConfig);
 
-    const masterCatalogFilter = new MasterCatalogFilter(masterPath, tempMinifiedMasterWithFilteredProducts);
+    const tempMinifiedMasterWithFilteredProducts = minifiedMasterPath + '.temp';
+
+    const masterFilterByProduct = new XMLFilterWriter(masterPath, tempMinifiedMasterWithFilteredProducts);
 
     /**
      * Filter product by final registry in navigation catalog
      */
-    masterCatalogFilter.setMatchFilter(tag => {
+    masterFilterByProduct.setMatchFilter(tag => {
         const id = tag.attributes['product-id'];
         const { finalProductList } = navigationWorker.registry;
 
@@ -78,17 +78,17 @@ navigationWorker.on('end', () => {
      * Now we may read master catalog again and write to optimized file
      * only products that existing in navigation catalog worker registry.
      */
-    masterCatalogFilter.start().on('end', () => {
-        const masterCatalogAssignmentsFilter = new MasterCatalogFilter(tempMinifiedMasterWithFilteredProducts, minifiedMasterPath);
+    masterFilterByProduct.start().on('end', () => {
+        const masterFilterByAssignments = new XMLFilterWriter(tempMinifiedMasterWithFilteredProducts, minifiedMasterPath);
 
-        masterCatalogAssignmentsFilter.setMatchFilter(tag => {
+        masterFilterByAssignments.setMatchFilter(tag => {
             const id = tag.attributes['product-id'];
             const { finalProductList } = navigationWorker.registry;
 
             return !!finalProductList[id];
         });
 
-        masterCatalogAssignmentsFilter.start('category-assignment').on('end', () => {
+        masterFilterByAssignments.start('category-assignment').on('end', () => {
             if (catalogReducer.cleanupData) {
                 cleanupFolders();
             }
