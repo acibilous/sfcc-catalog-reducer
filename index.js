@@ -3,7 +3,9 @@
 const path = require('path');
 const config = require(path.join(process.cwd(), 'package.json'));
 
-const NavigationCatalogWorker = require('./lib/catalog/workers/NavigationCatalogWorker');
+const Types = require('./lib/types');
+
+const NavigationAssignmentsWorker = require('./lib/catalog/workers/NavigationAssignmentsWorker');
 const MasterCatalogWorker = require('./lib/catalog/workers/MasterCatalogWorker');
 const XMLFilterWriter = require('./lib/xml/XMLFilterWriter');
 const { getCleaner } = require('./lib/tools/cleanup');
@@ -17,37 +19,46 @@ const {
     src: {
         master: masterPath,
         minifiedMaster: minifiedMasterPath,
-        navigation: navigationPath
+        navigation: navigationPath,
+        minifiedNavigation: minifiedNavigationPath
     }
 } = catalogReducer;
 
 const cleanupFolders = getCleaner({
     masterPath,
     navigationPath,
-    minifiedMasterPath
+    minifiedMasterPath,
+    minifiedNavigationPath
 });
 
 if (!catalogReducer.enabledCache) {
     cleanupFolders();
 }
 
-const navigationWorker = new NavigationCatalogWorker(navigationPath);
+const assignmentsWorker = new NavigationAssignmentsWorker(navigationPath);
 const masterWorker = new MasterCatalogWorker(masterPath);
+
+const filterProductByNavigationRegistry = (/** @type {Types.XMLTag} */ tag) => {
+    const id = tag.attributes['product-id'];
+    const { finalProductList } = assignmentsWorker.registry;
+
+    return id in finalProductList;
+}
 
 /**
  * when finished first parsing of master catalog we need to start parsing of navigation catalog
  */
-masterWorker.on('end', () => navigationWorker.start());
+masterWorker.on('end', () => assignmentsWorker.start());
 
 /**
  * when finished parsing of navigation catalog we know which products assigned to which categories
  */
-navigationWorker.on('end', () => {
+assignmentsWorker.on('end', () => {
     /**
      * Adding dependencies to navigation catalog registry. Product may be not category assignment
      * but his owner assigned to navigation catalog
      */
-    navigationWorker.registry.updateProducts(masterWorker.registry.products);
+    assignmentsWorker.registry.updateProducts(masterWorker.registry.products);
 
     /**
      * We have all needed data, so we don't need master catalog registry
@@ -57,7 +68,7 @@ navigationWorker.on('end', () => {
     /**
      * Now we may reduce catalog data by configuration
      */
-    navigationWorker.registry.optimize(categoriesConfig, productsConfig);
+    assignmentsWorker.registry.optimize(categoriesConfig, productsConfig);
 
     const tempMinifiedMasterWithFilteredProducts = minifiedMasterPath + '.temp';
 
@@ -66,12 +77,7 @@ navigationWorker.on('end', () => {
     /**
      * Filter product by final registry in navigation catalog
      */
-    masterFilterByProduct.setMatchFilter(tag => {
-        const id = tag.attributes['product-id'];
-        const { finalProductList } = navigationWorker.registry;
-
-        return id in finalProductList;
-    });
+    masterFilterByProduct.setMatchFilter(filterProductByNavigationRegistry);
 
     /**
      * We have info about all products that we need in navigation worker.
@@ -81,19 +87,41 @@ navigationWorker.on('end', () => {
     masterFilterByProduct.start().on('end', () => {
         const masterFilterByAssignments = new XMLFilterWriter(tempMinifiedMasterWithFilteredProducts, minifiedMasterPath);
 
-        masterFilterByAssignments.setMatchFilter(tag => {
-            const id = tag.attributes['product-id'];
-            const { finalProductList } = navigationWorker.registry;
-
-            return !!finalProductList[id];
-        });
+        masterFilterByAssignments.setMatchFilter(filterProductByNavigationRegistry);
 
         masterFilterByAssignments.start('category-assignment').on('end', () => {
-            if (catalogReducer.cleanupData) {
-                cleanupFolders();
-            }
+            const tempMinifiedNavigationWithFilteredProducts = minifiedNavigationPath + '.temp';
 
-            log('Done');
+            const navigationFilterByProducts = new XMLFilterWriter(navigationPath, tempMinifiedNavigationWithFilteredProducts);
+
+            navigationFilterByProducts.setMatchFilter(tag => {
+                const id = tag.attributes['product-id'];
+                const { finalProductList } = assignmentsWorker.registry;
+
+                return !!finalProductList[id];
+            });
+
+            navigationFilterByProducts
+                .start('category-assignment')
+                .on('end', () => {
+                    const navigationFilterByProducts = new XMLFilterWriter(tempMinifiedNavigationWithFilteredProducts, minifiedNavigationPath);
+
+                    navigationFilterByProducts.setMatchFilter(tag => {
+                        // TODO
+
+                        return true;
+                    });
+
+                    navigationFilterByProducts
+                        .start('category')
+                        .on('end', () => {
+                            if (catalogReducer.cleanupData) {
+                                cleanupFolders();
+                            }
+
+                            log('Done');
+                        });
+                });
         });
     });
 });
