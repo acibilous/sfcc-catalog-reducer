@@ -1,8 +1,5 @@
 #!/usr/bin/env node
 
-const path = require('path');
-const config = require(path.join(process.cwd(), 'package.json'));
-
 const Types = require('./lib/types');
 
 const NavigationAssignmentsWorker = require('./lib/catalog/workers/NavigationAssignmentsWorker');
@@ -11,7 +8,7 @@ const XMLFilterWriter = require('./lib/xml/XMLFilterWriter');
 const { getCleaner } = require('./lib/tools/cleanup');
 const { log } = require('./lib/tools/logger');
 
-const catalogReducer = config.catalogReducer || require('./default.json');
+const catalogReducer = require('./constants').catalogReducer;
 
 const {
     productsConfig,
@@ -40,7 +37,7 @@ const masterWorker = new MasterCatalogWorker(masterPath);
 
 const filterProductByNavigationRegistry = (/** @type {Types.XMLTag} */ tag) => {
     const id = tag.attributes['product-id'];
-    const { finalProductList } = assignmentsWorker.registry;
+    const { finalProductList } = assignmentsWorker.registry.cache;
 
     return id in finalProductList;
 }
@@ -58,7 +55,7 @@ assignmentsWorker.on('end', () => {
      * Adding dependencies to navigation catalog registry. Product may be not category assignment
      * but his owner assigned to navigation catalog
      */
-    assignmentsWorker.registry.updateProducts(masterWorker.registry.products);
+    assignmentsWorker.registry.updateProducts(masterWorker.registry.cache.products);
 
     /**
      * We have all needed data, so we don't need master catalog registry
@@ -96,7 +93,7 @@ assignmentsWorker.on('end', () => {
 
             navigationFilterByProducts.setMatchFilter(tag => {
                 const id = tag.attributes['product-id'];
-                const { finalProductList } = assignmentsWorker.registry;
+                const { finalProductList } = assignmentsWorker.registry.cache;
 
                 return !!finalProductList[id];
             });
