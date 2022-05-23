@@ -15,8 +15,8 @@ const {
     productsConfig,
     categoriesConfig,
     src: {
-        minifiedMaster: minifiedMasterPath,
         master: masterPath,
+        minifiedMaster: minifiedMasterPath,
         navigation: navigationPath
     }
 } = catalogReducer;
@@ -31,9 +31,11 @@ if (!catalogReducer.enabledCache) {
     cleanupFolders();
 }
 
+const tempMinifiedMasterWithFilteredProducts = minifiedMasterPath + '.temp';
+
 const navigationWorker = new NavigationCatalogWorker(navigationPath);
 const masterWorker = new MasterCatalogWorker(masterPath);
-const masterCatalogFilter = new MasterCatalogFilter(masterPath, minifiedMasterPath + '.temp');
+const masterCatalogFilter = new MasterCatalogFilter(masterPath, tempMinifiedMasterWithFilteredProducts);
 
 /**
  * Filter product by final registry in navigation catalog
@@ -76,7 +78,7 @@ navigationWorker.on('end', () => {
      * only products that existing in navigation catalog worker registry.
      */
     masterCatalogFilter.start().on('end', () => {
-        const masterCatalogAssignmentsFilter = new MasterCatalogFilter(minifiedMasterPath + '.temp', minifiedMasterPath);
+        const masterCatalogAssignmentsFilter = new MasterCatalogFilter(tempMinifiedMasterWithFilteredProducts, minifiedMasterPath);
 
         masterCatalogAssignmentsFilter.setMatchFilter(tag => {
             const id = tag.attributes['product-id'];
