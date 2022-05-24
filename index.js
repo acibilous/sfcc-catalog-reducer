@@ -47,8 +47,14 @@ const filterProductByNavigationRegistry = (/** @type {Types.XMLTag} */ tag) => {
 (async () => {
     console.time('Done in');
 
-    await masterWorker.startAsync();
-    await assignmentsWorker.startAsync();
+    /**
+     * Parsing all required data
+     */
+    await Promise.all([
+        masterWorker.startAsync(),
+        assignmentsWorker.startAsync(),
+        categoriesWorker.startAsync()
+    ]);
 
     /**
      * Adding dependencies to navigation catalog registry. Product may be not category assignment
@@ -73,25 +79,17 @@ const filterProductByNavigationRegistry = (/** @type {Types.XMLTag} */ tag) => {
     /**
      * Filter product by final registry in navigation catalog
      */
-    masterFilterByProduct.setMatchFilter(filterProductByNavigationRegistry);
-
-    await masterFilterByProduct.startAsync();
+    await masterFilterByProduct.startAsync('product', filterProductByNavigationRegistry);
 
     const masterFilterByAssignments = new XMLFilterWriter(tempMinifiedMasterWithFilteredProducts, minifiedMasterPath);
 
-    masterFilterByAssignments.setMatchFilter(filterProductByNavigationRegistry);
-
-    masterFilterByAssignments.startAsync('category-assignment');
+    masterFilterByAssignments.startAsync('category-assignment', filterProductByNavigationRegistry);
 
     const tempMinifiedNavigationWithFilteredProducts = minifiedNavigationPath + '.temp';
 
     const navigationFilterByProducts = new XMLFilterWriter(navigationPath, tempMinifiedNavigationWithFilteredProducts);
 
-    navigationFilterByProducts.setMatchFilter(filterProductByNavigationRegistry);
-
-    await navigationFilterByProducts.startAsync('category-assignment');
-
-    await categoriesWorker.startAsync();
+    await navigationFilterByProducts.startAsync('category-assignment', filterProductByNavigationRegistry);
 
     const navigationFilterByCategories = new XMLFilterWriter(tempMinifiedNavigationWithFilteredProducts, minifiedNavigationPath);
 
@@ -99,13 +97,11 @@ const filterProductByNavigationRegistry = (/** @type {Types.XMLTag} */ tag) => {
 
     const usedCategoriesWithParents = categoriesWorker.registry.filterCategories(onlyUsedCategories);
 
-    navigationFilterByCategories.setMatchFilter(tag => {
+    await navigationFilterByCategories.startAsync('category', tag => {
         const categoryId = tag.attributes['category-id'];
 
         return usedCategoriesWithParents.includes(categoryId);
     });
-
-    await navigationFilterByCategories.startAsync('category');
 
     if (catalogReducer.cleanupData) {
         cleanupFolders();
