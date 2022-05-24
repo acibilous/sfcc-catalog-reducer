@@ -5,8 +5,9 @@ const NavigationAssignmentsWorker = require('./lib/catalog/workers/NavigationAss
 const MasterCatalogWorker = require('./lib/catalog/workers/MasterCatalogWorker');
 const XMLFilterWriter = require('./lib/xml/XMLFilterWriter');
 const { getCleaner } = require('./lib/tools/cleanup');
+const { getXMLFilesList, getMinifieldFile } = require('./lib/tools/files');
 
-const catalogReducer = require('./constants').catalogReducer;
+const { catalogReducer, defaultMinEnding } = require('./constants');
 
 const {
     productsConfig,
@@ -76,6 +77,18 @@ const generateMinifiedInventory = async () => {
     await inventoryFilterByProduct.startAsync('record', filterProductByOptimizedRegistry);
 }
 
+const generatePriceBooks = async () => {
+    const priceBooks = await getXMLFilesList(src.pricebooksDir, f => !f.includes(defaultMinEnding));
+
+    return Promise.all(priceBooks.map((file) => {
+        const minFile = getMinifieldFile(file, defaultMinEnding);
+
+        const priceFilterByProduct = new XMLFilterWriter(file, minFile);
+
+        return priceFilterByProduct.startAsync('price-table', filterProductByOptimizedRegistry);
+    }));
+}
+
 /**
  * @description Entry point
  */
@@ -112,6 +125,8 @@ const generateMinifiedInventory = async () => {
     await generanaMinifiedNavigatoin(assignmentsWorker, categoriesWorker);
 
     await generateMinifiedInventory();
+
+    await generatePriceBooks();
 
     if (catalogReducer.cleanupData) {
         cleanupFolders();
