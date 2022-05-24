@@ -1,8 +1,8 @@
 {
+    "outPostfix": "_min",
     "src": {
         "master": "./testdata/real/master.xml",
-        "navigation": "./testdata/real/navigation.xml",
-        "minifiedMaster": "./testdata/real/master_minified.xml"
+        "navigation": "./testdata/real/navigation.xml"
     },
     "enabledCache": true,
     "cleanupData": false,
