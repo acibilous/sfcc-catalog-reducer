@@ -2,6 +2,7 @@
 
 const Types = require('./lib/types');
 
+const NavigationCategoriesWorker = require('./lib/catalog/workers/NavigationCategoriesWorker');
 const NavigationAssignmentsWorker = require('./lib/catalog/workers/NavigationAssignmentsWorker');
 const MasterCatalogWorker = require('./lib/catalog/workers/MasterCatalogWorker');
 const XMLFilterWriter = require('./lib/xml/XMLFilterWriter');
@@ -32,6 +33,7 @@ if (!catalogReducer.enabledCache) {
     cleanupFolders();
 }
 
+const categoriesWorker = new NavigationCategoriesWorker(navigationPath);
 const assignmentsWorker = new NavigationAssignmentsWorker(navigationPath);
 const masterWorker = new MasterCatalogWorker(masterPath);
 
@@ -101,23 +103,31 @@ assignmentsWorker.on('end', () => {
             navigationFilterByProducts
                 .start('category-assignment')
                 .on('end', () => {
-                    const navigationFilterByProducts = new XMLFilterWriter(tempMinifiedNavigationWithFilteredProducts, minifiedNavigationPath);
+                    categoriesWorker.on('end', () => {
+                        const navigationFilterByCategories = new XMLFilterWriter(tempMinifiedNavigationWithFilteredProducts, minifiedNavigationPath);
 
-                    navigationFilterByProducts.setMatchFilter(tag => {
-                        // TODO
+                        const onlyUsedCategories = assignmentsWorker.registry.getFinalUsedCategories();
 
-                        return true;
+                        const usedCategoriesWithParents = categoriesWorker.registry.filterCategories(onlyUsedCategories);
+        
+                        navigationFilterByCategories.setMatchFilter(tag => {
+                            const categoryId = tag.attributes['category-id'];
+
+                            return usedCategoriesWithParents.includes(categoryId);
+                        });
+
+                        navigationFilterByCategories
+                            .start('category')
+                            .on('end', () => {
+                                if (catalogReducer.cleanupData) {
+                                    cleanupFolders();
+                                }
+
+                                log('Done');
+                            });
                     });
 
-                    navigationFilterByProducts
-                        .start('category')
-                        .on('end', () => {
-                            if (catalogReducer.cleanupData) {
-                                cleanupFolders();
-                            }
-
-                            log('Done');
-                        });
+                    categoriesWorker.start();
                 });
         });
     });
