@@ -11,28 +11,18 @@ const catalogReducer = require('./constants').catalogReducer;
 const {
     productsConfig,
     categoriesConfig,
-    src: {
-        master: masterPath,
-        minifiedMaster: minifiedMasterPath,
-        navigation: navigationPath,
-        minifiedNavigation: minifiedNavigationPath
-    }
+    src
 } = catalogReducer;
 
-const cleanupFolders = getCleaner({
-    masterPath,
-    navigationPath,
-    minifiedMasterPath,
-    minifiedNavigationPath
-});
+const cleanupFolders = getCleaner(src);
 
 if (!catalogReducer.enabledCache) {
     cleanupFolders();
 }
 
-const categoriesWorker = new NavigationCategoriesWorker(navigationPath);
-const assignmentsWorker = new NavigationAssignmentsWorker(navigationPath);
-const masterWorker = new MasterCatalogWorker(masterPath);
+const categoriesWorker = new NavigationCategoriesWorker(src.navigation);
+const assignmentsWorker = new NavigationAssignmentsWorker(src.navigation);
+const masterWorker = new MasterCatalogWorker(src.master);
 
 const filterProductByNavigationRegistry = (/** @type {Types.XMLTag} */ tag) => {
     const id = tag.attributes['product-id'];
@@ -72,26 +62,26 @@ const filterProductByNavigationRegistry = (/** @type {Types.XMLTag} */ tag) => {
      */
     assignmentsWorker.registry.optimize(categoriesConfig, productsConfig);
 
-    const tempMinifiedMasterWithFilteredProducts = minifiedMasterPath + '.temp';
+    const tempMinifiedMasterWithFilteredProducts = src.minifiedMaster + '.temp';
 
-    const masterFilterByProduct = new XMLFilterWriter(masterPath, tempMinifiedMasterWithFilteredProducts);
+    const masterFilterByProduct = new XMLFilterWriter(src.master, tempMinifiedMasterWithFilteredProducts);
 
     /**
      * Filter product by final registry in navigation catalog
      */
     await masterFilterByProduct.startAsync('product', filterProductByNavigationRegistry);
 
-    const masterFilterByAssignments = new XMLFilterWriter(tempMinifiedMasterWithFilteredProducts, minifiedMasterPath);
+    const masterFilterByAssignments = new XMLFilterWriter(tempMinifiedMasterWithFilteredProducts, src.minifiedMaster);
 
     masterFilterByAssignments.startAsync('category-assignment', filterProductByNavigationRegistry);
 
-    const tempMinifiedNavigationWithFilteredProducts = minifiedNavigationPath + '.temp';
+    const tempMinifiedNavigationWithFilteredProducts = src.minifiedNavigation + '.temp';
 
-    const navigationFilterByProducts = new XMLFilterWriter(navigationPath, tempMinifiedNavigationWithFilteredProducts);
+    const navigationFilterByProducts = new XMLFilterWriter(src.navigation, tempMinifiedNavigationWithFilteredProducts);
 
     await navigationFilterByProducts.startAsync('category-assignment', filterProductByNavigationRegistry);
 
-    const navigationFilterByCategories = new XMLFilterWriter(tempMinifiedNavigationWithFilteredProducts, minifiedNavigationPath);
+    const navigationFilterByCategories = new XMLFilterWriter(tempMinifiedNavigationWithFilteredProducts, src.minifiedNavigation);
 
     const onlyUsedCategories = assignmentsWorker.registry.getFinalUsedCategories();
 
