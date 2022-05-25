@@ -1,5 +1,5 @@
 {
-    "outPostfix": "_min",
+    "outPostfix": "_reduced",
     "src": {
         "master": "./testdata/real/master.xml",
         "navigation": "./testdata/real/navigation.xml"
