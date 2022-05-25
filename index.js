@@ -58,13 +58,12 @@ const masterWorker = new MasterCatalogWorker(src.master);
 
     const reducers = getReducers(assignmentsWorker.registry.cache.finalProductList, src);
 
-    await reducers.master();
-
-    await reducers.navigation(assignmentsWorker, categoriesWorker);
-
-    await reducers.inventory();
-
-    await reducers.priceBook();
+    await Promise.all([
+        reducers.master(),
+        reducers.navigation(assignmentsWorker, categoriesWorker),
+        reducers.inventory(),
+        reducers.priceBook()
+    ]);
 
     if (catalogReducer.cleanupData) {
         cleanupFolders();
