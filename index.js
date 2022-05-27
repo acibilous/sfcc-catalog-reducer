@@ -4,7 +4,7 @@ const NavigationCategoriesWorker = require('./lib/catalog/workers/NavigationCate
 const NavigationAssignmentsWorker = require('./lib/catalog/workers/NavigationAssignmentsWorker');
 const MasterCatalogWorker = require('./lib/catalog/workers/MasterCatalogWorker');
 
-const { getCleaner } = require('./lib/tools/cleanup');
+const { getCleaner, renameReducedToOriginal } = require('./lib/tools/cleanup');
 
 const { catalogReducer } = require('./constants');
 const getReducers = require('./lib/tools/reducers');
@@ -64,6 +64,10 @@ const masterWorker = new MasterCatalogWorker(src.master);
         reducers.inventory(),
         reducers.priceBook()
     ]);
+
+    if (catalogReducer.behaviour === 'updateExisting') {
+        await renameReducedToOriginal(src);
+    }
 
     if (catalogReducer.cleanupData) {
         cleanupFolders();
