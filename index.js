@@ -15,12 +15,6 @@ const {
     src
 } = catalogReducer;
 
-const cleanupFolders = getCleaner(src);
-
-if (!catalogReducer.enabledCache) {
-    cleanupFolders();
-}
-
 const categoriesWorker = new NavigationCategoriesWorker(src.navigation);
 const assignmentsWorker = new NavigationAssignmentsWorker(src.navigation);
 const masterWorker = new MasterCatalogWorker(src.master);
@@ -30,6 +24,12 @@ const masterWorker = new MasterCatalogWorker(src.master);
  */
 (async () => {
     console.time('Done in');
+
+    const cleanupFolders = await getCleaner(src);
+
+    if (!catalogReducer.enabledCache) {
+        cleanupFolders();
+    }
 
     /**
      * Parsing all required data

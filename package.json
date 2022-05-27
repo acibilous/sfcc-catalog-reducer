@@ -7,6 +7,9 @@
         "sfcc-catalog-reducer": "./index.js"
     },
     "type": "module",
+    "peerDependencies": {
+        "globby": "13.1.1"
+    },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
