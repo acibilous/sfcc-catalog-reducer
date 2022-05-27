@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 
-const NavigationCategoriesWorker = require('./lib/catalog/workers/NavigationCategoriesWorker');
-const NavigationAssignmentsWorker = require('./lib/catalog/workers/NavigationAssignmentsWorker');
-const MasterCatalogWorker = require('./lib/catalog/workers/MasterCatalogWorker');
+import NavigationCategoriesWorker from './lib/catalog/workers/NavigationCategoriesWorker.js';
+import NavigationAssignmentsWorker from './lib/catalog/workers/NavigationAssignmentsWorker.js';
+import MasterCatalogWorker from './lib/catalog/workers/MasterCatalogWorker.js';
 
-const { getCleaner, renameReducedToOriginal } = require('./lib/tools/cleanup');
+import { getCleaner, renameReducedToOriginal } from './lib/tools/cleanup.js';
 
-const { catalogReducer } = require('./constants');
-const getReducers = require('./lib/tools/reducers');
+import { catalogReducer } from './constants.js';
+import getReducers from './lib/tools/reducers.js';
 
 const {
     productsConfig,
