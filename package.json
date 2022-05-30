@@ -1,12 +1,15 @@
 {
     "name": "sfcc-catalog-reducer",
-    "version": "1.1.1",
+    "version": "2.0",
     "description": "Module to make huge master catalog for SFCC platform smaller for dev/qa purpoes",
     "main": "index.js",
     "bin": {
         "sfcc-catalog-reducer": "./index.js"
     },
     "type": "module",
+    "imports": {
+        "#types": "./lib/types.ts"
+    },
     "peerDependencies": {
         "globby": "13.1.1"
     },

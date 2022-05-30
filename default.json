@@ -1,5 +1,5 @@
 {
-    "behaviour": "createNew",
+    "behavior": "createNew",
     "outPostfix": "_reduced",
     "src": {
         "master": "./testdata/real/master.xml",

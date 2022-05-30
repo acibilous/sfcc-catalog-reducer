@@ -65,7 +65,7 @@ const masterWorker = new MasterCatalogWorker(src.master);
         reducers.priceBook()
     ]);
 
-    if (catalogReducer.behaviour === 'updateExisting') {
+    if (catalogReducer.behavior === 'updateExisting') {
         await renameReducedToOriginal(src);
     }
 
