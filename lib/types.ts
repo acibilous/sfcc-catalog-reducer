@@ -29,7 +29,7 @@ export type CategoriesConfig = {
 
 export type SrcConfig = {
     master: string;
-    navigation: string;
+    navigations: Array<string>;
     inventories: Array<string>;
     pricebooks: Array<string>;
 };
