@@ -28,10 +28,10 @@ export type CategoriesConfig = {
 };
 
 export type SrcConfig = {
-    master: string;
+    masters: Array<string>;
     navigations: Array<string>;
     inventories: Array<string>;
-    pricebooks: Array<string>;
+    priceBooks: Array<string>;
 };
 
 export type CatalogReducerConfig = {

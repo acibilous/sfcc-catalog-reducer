@@ -4,14 +4,16 @@ import NavigationCategoriesWorker from './lib/catalog/workers/NavigationCategori
 import NavigationAssignmentsWorker from './lib/catalog/workers/NavigationAssignmentsWorker.js';
 import MasterCatalogWorker from './lib/catalog/workers/MasterCatalogWorker.js';
 
+import MasterCatalogRegistry from './lib/catalog/registry/MasterCatalogRegistry.js';
 import NavigationAssignmentsRegistry from './lib/catalog/registry/NavigationAssignmentsRegistry.js';
 import NavigationCategoriesRegistry from './lib/catalog/registry/NavigationCategoriesRegistry.js';
 
+import reducers from './lib/tools/reducers/index.js';
 import { getCleaner, renameReducedToOriginal } from './lib/tools/cleanup.js';
 import { getFilesByPatterns } from './lib/tools/files.js';
+import { getFilterByProductID } from './lib/tools/filters.js';
 
 import { catalogReducer } from './constants.js';
-import getReducers from './lib/tools/reducers.js';
 
 const {
     productsConfig,
@@ -19,68 +21,85 @@ const {
     src
 } = catalogReducer;
 
-const masterWorker = new MasterCatalogWorker(src.master);
-
 /**
  * @description Entry point
  */
 (async () => {
     console.time('Done in');
 
-    const cleanupFolders = await getCleaner(src);
+    const [masterFiles, navigationFiles, inventoryFiles, priceBookFiles] = await Promise.all([
+        getFilesByPatterns(src.masters),
+        getFilesByPatterns(src.navigations),
+        getFilesByPatterns(src.inventories),
+        getFilesByPatterns(src.priceBooks)
+    ]);
+
+    const inputFiles = [
+        ...masterFiles,
+        ...navigationFiles,
+        ...inventoryFiles,
+        ...priceBookFiles
+    ];
+
+    const cleanupFolders = await getCleaner(inputFiles);
 
     if (!catalogReducer.enabledCache) {
         cleanupFolders();
     }
 
-    const categoriesWorkers = (await getFilesByPatterns(src.navigations)).map(file => new NavigationCategoriesWorker(file));
-    const assignmentsWorkers = (await getFilesByPatterns(src.navigations)).map(file => new NavigationAssignmentsWorker(file));
+    const masterWorkers = masterFiles.map(file => new MasterCatalogWorker(file));
+    const categoriesWorkers = navigationFiles.map(file => new NavigationCategoriesWorker(file));
+    const assignmentsWorkers = navigationFiles.map(file => new NavigationAssignmentsWorker(file));
 
     /**
      * Parsing all required data
      */
     await Promise.all([
-        masterWorker.startAsync(),
-        assignmentsWorkers.map(worker => worker.startAsync()),
-        categoriesWorkers.map(worker => worker.startAsync())
+        ...masterWorkers.map(worker => worker.startAsync()),
+        ...assignmentsWorkers.map(worker => worker.startAsync()),
+        ...categoriesWorkers.map(worker => worker.startAsync())
     ]);
 
+    const singleMasterRegistry = new MasterCatalogRegistry(process.cwd());
     const singleCategoryRegistry = new NavigationCategoriesRegistry(process.cwd());
     const singleAssignmentRegistry = new NavigationAssignmentsRegistry(process.cwd());
 
+    singleMasterRegistry.appendProducts(masterWorkers.map(worker => worker.registry.cache.products));
     singleAssignmentRegistry.appendCategories(assignmentsWorkers.map(worker => worker.registry.cache.categories));
     singleCategoryRegistry.appendCategoriesParrents(categoriesWorkers.map(worker => worker.registry.cache.categoriesParents));
-
 
     /**
      * Adding dependencies to navigation catalog registry. Product may be not category assignment
      * but his owner assigned to navigation catalog
      */
-    singleAssignmentRegistry.updateProducts(masterWorker.registry.cache.products);
-
-
+    singleAssignmentRegistry.updateProducts(singleMasterRegistry.cache.products);
 
     /**
      * We have all needed data, so we don't need master catalog registry
      */
-    masterWorker.destroy();
+    masterWorkers.forEach(worker => worker.destroy());
 
     /**
      * Now we may reduce catalog data by configuration
      */
     singleAssignmentRegistry.optimize(categoriesConfig, productsConfig);
 
-    const reducers = getReducers(singleAssignmentRegistry.cache.finalProductList, src);
+    const productFilter = getFilterByProductID(singleAssignmentRegistry.cache.finalProductList);
 
     await Promise.all([
-        reducers.master(),
-        reducers.navigation(singleAssignmentRegistry.getFinalUsedCategories(), singleCategoryRegistry),
-        reducers.inventory(),
-        reducers.priceBook()
+        reducers.master(productFilter, masterFiles),
+        reducers.inventory(productFilter, inventoryFiles),
+        reducers.priceBook(productFilter, priceBookFiles),
+        reducers.navigation(
+            productFilter,
+            navigationFiles,
+            singleAssignmentRegistry.getFinalUsedCategories(),
+            singleCategoryRegistry
+        )
     ]);
 
     if (catalogReducer.behavior === 'updateExisting') {
-        await renameReducedToOriginal(src);
+        await renameReducedToOriginal(inputFiles);
     }
 
     if (catalogReducer.cleanupData) {
