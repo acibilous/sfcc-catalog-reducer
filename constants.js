@@ -1,5 +1,8 @@
 import { importJson, getAbsolutePathToLibFile } from './lib/tools/import.js';
 
+/**
+ * @type {{ catalogReducer: Partial<import('#types').CatalogReducerConfig> }}
+ */
 const packageJson = importJson('package.json', process.cwd());
 const defaults = importJson('./configs/default.json');
 const testConfig = importJson('./configs/test.json');
@@ -13,6 +16,24 @@ if (!isTestEnv) {
         process.exit(0);
     }
 
+    if (packageJson.catalogReducer.src.master) {
+        console.log('Property "master" is deprecated, use "masters" and pass an array of path patterns');
+
+        process.exit(0);
+    }
+
+    if (packageJson.catalogReducer.src.navigation) {
+        console.log('Property "navigation" is deprecated, use "navigations" and pass an array of path patterns');
+
+        process.exit(0);
+    }
+
+    if (packageJson.catalogReducer.src.minifiedMaster) {
+        console.log('Property "minifiedMaster" is deprecated, the path of out file calculated automatically using "behavior" and "outPostfix" properties');
+
+        process.exit(0);
+    }
+
     if (!packageJson.catalogReducer.src?.masters || !packageJson.catalogReducer.src?.navigations) {
         console.log('Please, provide master and navigation catalogs in catalog reducer config');
 
@@ -20,7 +41,16 @@ if (!isTestEnv) {
     }
 
     if (!packageJson.catalogReducer.src?.finalCacheDir) {
-        console.log('Please, directory for final cache (finalCacheDir)');
+        console.log('Please, provide directory for final cache (src.finalCacheDir)');
+
+        process.exit(0);
+    }
+
+    if (packageJson.catalogReducer.behavior
+        && packageJson.catalogReducer.behavior !== 'createNew'
+        && packageJson.catalogReducer.behavior !== 'updateExisting'
+    ) {
+        console.log('Unknown "behavior" value in catalog reducer config');
 
         process.exit(0);
     }
