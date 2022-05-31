@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pricebooks xmlns="http://www.demandware.com/xml/impex/pricebook/2006-10-31">
+    <pricebook>
+        <header pricebook-id="boilerplate-aed-list">
+            <currency>AED</currency>
+            <display-name xml:lang="x-default">Boilerplate AED List Prices</display-name>
+            <online-flag>true</online-flag>
+        </header>
+        <price-tables>
+            <price-table product-id="L-product-1">
+                <amount quantity="1">250.00</amount>
+            </price-table>
+            <price-table product-id="L-product-2">
+                <amount quantity="1">250.00</amount>
+            </price-table>
+            <price-table product-id="L-product-3">
+                <amount quantity="1">250.00</amount>
+            </price-table>
+            <price-table product-id="L-product-4">
+                <amount quantity="1">250.00</amount>
+            </price-table>
+            <price-table product-id="L-product-5">
+                <amount quantity="1">250.00</amount>
+            </price-table>
+            <price-table product-id="L-product-bundle-1">
+                <amount quantity="1">250.00</amount>
+            </price-table>
+            <price-table product-id="L-product-bundle-2">
+                <amount quantity="1">250.00</amount>
+            </price-table>
+            <price-table product-id="L-product-bundle-3">
+                <amount quantity="1">250.00</amount>
+            </price-table>
+            <price-table product-id="L-product-bundle-4">
+                <amount quantity="1">250.00</amount>
+            </price-table>
+            <price-table product-id="L-product-bundle-5">
+                <amount quantity="1">250.00</amount>
+            </price-table>
+            <price-table product-id="L-product-variation-master-1">
+                <amount quantity="1">250.00</amount>
+            </price-table>
+            <price-table product-id="L-product-variation-master-2">
+                <amount quantity="1">250.00</amount>
+            </price-table>
+            <price-table product-id="L-product-variation-master-3">
+                <amount quantity="1">250.00</amount>
+            </price-table>
+            <price-table product-id="L-product-set-1">
+                <amount quantity="1">250.00</amount>
+            </price-table>
+            <price-table product-id="L-product-set-2">
+                <amount quantity="1">250.00</amount>
+            </price-table>
+            <price-table product-id="L-product-set-3">
+                <amount quantity="1">250.00</amount>
+            </price-table>
+            <price-table product-id="L-product-set-4">
+                <amount quantity="1">250.00</amount>
+            </price-table>
+            <price-table product-id="L-product-set-5">
+                <amount quantity="1">250.00</amount>
+            </price-table>
+            <price-table product-id="L-product-variation-1">
+                <amount quantity="1">250.00</amount>
+            </price-table>
+            <price-table product-id="L-product-variation-2">
+                <amount quantity="1">250.00</amount>
+            </price-table>
+            <price-table product-id="L-product-variation-3">
+                <amount quantity="1">250.00</amount>
+            </price-table>
+            <price-table product-id="L-product-variation-4">
+                <amount quantity="1">250.00</amount>
+            </price-table>
+            <price-table product-id="L-product-variation-5">
+                <amount quantity="1">250.00</amount>
+            </price-table>
+            <price-table product-id="L-product-variation-6">
+                <amount quantity="1">250.00</amount>
+            </price-table>
+            <price-table product-id="L-product-variation-7">
+                <amount quantity="1">250.00</amount>
+            </price-table>
+        </price-tables>
+    </pricebook>
+</pricebooks>

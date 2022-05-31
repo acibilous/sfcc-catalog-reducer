@@ -7,7 +7,8 @@
         "finalCacheDir": "./testdata/cache",
         "masters": ["./testdata/master/*.xml"],
         "navigations": ["./testdata/navigation/*.xml"],
-        "inventories": ["./testdata/inventory/*.xml"]
+        "inventories": ["./testdata/inventory/*.xml"],
+        "priceBooks": ["./testdata/priceBook/*.xml"]
     },
     "categoriesConfig": {
         "default": {
