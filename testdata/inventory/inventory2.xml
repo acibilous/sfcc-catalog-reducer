@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inventory xmlns="http://www.demandware.com/xml/impex/inventory/2007-05-31">
+    <inventory-list>
+        <header list-id="boilerplate-inventory-global">
+            <default-instock>false</default-instock>
+            <description>Product Sku inventory</description>
+            <use-bundle-inventory-only>false</use-bundle-inventory-only>
+            <on-order>false</on-order>
+        </header>
+
+        <records>
+            <record product-id="L-product-1">
+                <allocation>1000.0</allocation>
+                <perpetual>false</perpetual>
+                <preorder-backorder-handling>none</preorder-backorder-handling>
+            </record>
+            <record product-id="L-product-2">
+                <allocation>1000.0</allocation>
+                <perpetual>false</perpetual>
+                <preorder-backorder-handling>none</preorder-backorder-handling>
+            </record>
+            <record product-id="L-product-3">
+                <allocation>1000.0</allocation>
+                <perpetual>false</perpetual>
+                <preorder-backorder-handling>none</preorder-backorder-handling>
+            </record>
+            <record product-id="L-product-4">
+                <allocation>1000.0</allocation>
+                <perpetual>false</perpetual>
+                <preorder-backorder-handling>none</preorder-backorder-handling>
+            </record>
+            <record product-id="L-product-5">
+                <allocation>1000.0</allocation>
+                <perpetual>false</perpetual>
+                <preorder-backorder-handling>none</preorder-backorder-handling>
+            </record>
+            <record product-id="L-product-5">
+                <allocation>1000.0</allocation>
+                <perpetual>false</perpetual>
+                <preorder-backorder-handling>none</preorder-backorder-handling>
+            </record>
+            <record product-id="L-product-bundle-1">
+                <allocation>1000.0</allocation>
+                <perpetual>false</perpetual>
+                <preorder-backorder-handling>none</preorder-backorder-handling>
+            </record>
+            <record product-id="L-product-bundle-2">
+                <allocation>1000.0</allocation>
+                <perpetual>false</perpetual>
+                <preorder-backorder-handling>none</preorder-backorder-handling>
+            </record>
+            <record product-id="L-product-bundle-3">
+                <allocation>1000.0</allocation>
+                <perpetual>false</perpetual>
+                <preorder-backorder-handling>none</preorder-backorder-handling>
+            </record>
+            <record product-id="L-product-bundle-4">
+                <allocation>1000.0</allocation>
+                <perpetual>false</perpetual>
+                <preorder-backorder-handling>none</preorder-backorder-handling>
+            </record>
+            <record product-id="L-product-bundle-5">
+                <allocation>1000.0</allocation>
+                <perpetual>false</perpetual>
+                <preorder-backorder-handling>none</preorder-backorder-handling>
+            </record>
+            <record product-id="L-product-variation-master-1">
+                <allocation>1000.0</allocation>
+                <perpetual>false</perpetual>
+                <preorder-backorder-handling>none</preorder-backorder-handling>
+            </record>
+            <record product-id="L-product-variation-master-2">
+                <allocation>1000.0</allocation>
+                <perpetual>false</perpetual>
+                <preorder-backorder-handling>none</preorder-backorder-handling>
+            </record>
+            <record product-id="L-product-variation-master-3">
+                <allocation>1000.0</allocation>
+                <perpetual>false</perpetual>
+                <preorder-backorder-handling>none</preorder-backorder-handling>
+            </record>
+            <record product-id="L-product-set-1">
+                <allocation>1000.0</allocation>
+                <perpetual>false</perpetual>
+                <preorder-backorder-handling>none</preorder-backorder-handling>
+            </record>
+            <record product-id="L-product-set-2">
+                <allocation>1000.0</allocation>
+                <perpetual>false</perpetual>
+                <preorder-backorder-handling>none</preorder-backorder-handling>
+            </record>
+            <record product-id="L-product-set-3">
+                <allocation>1000.0</allocation>
+                <perpetual>false</perpetual>
+                <preorder-backorder-handling>none</preorder-backorder-handling>
+            </record>
+            <record product-id="L-product-set-4">
+                <allocation>1000.0</allocation>
+                <perpetual>false</perpetual>
+                <preorder-backorder-handling>none</preorder-backorder-handling>
+            </record>
+            <record product-id="L-product-set-5">
+                <allocation>1000.0</allocation>
+                <perpetual>false</perpetual>
+                <preorder-backorder-handling>none</preorder-backorder-handling>
+            </record>
+            <record product-id="L-product-variation-1">
+                <allocation>1000.0</allocation>
+                <perpetual>false</perpetual>
+                <preorder-backorder-handling>none</preorder-backorder-handling>
+            </record>
+            <record product-id="L-product-variation-2">
+                <allocation>1000.0</allocation>
+                <perpetual>false</perpetual>
+                <preorder-backorder-handling>none</preorder-backorder-handling>
+            </record>
+            <record product-id="L-product-variation-3">
+                <allocation>1000.0</allocation>
+                <perpetual>false</perpetual>
+                <preorder-backorder-handling>none</preorder-backorder-handling>
+            </record>
+            <record product-id="L-product-variation-4">
+                <allocation>1000.0</allocation>
+                <perpetual>false</perpetual>
+                <preorder-backorder-handling>none</preorder-backorder-handling>
+            </record>
+            <record product-id="L-product-variation-5">
+                <allocation>1000.0</allocation>
+                <perpetual>false</perpetual>
+                <preorder-backorder-handling>none</preorder-backorder-handling>
+            </record>
+            <record product-id="L-product-variation-6">
+                <allocation>1000.0</allocation>
+                <perpetual>false</perpetual>
+                <preorder-backorder-handling>none</preorder-backorder-handling>
+            </record>
+            <record product-id="L-product-variation-7">
+                <allocation>1000.0</allocation>
+                <perpetual>false</perpetual>
+                <preorder-backorder-handling>none</preorder-backorder-handling>
+            </record>
+        </records>
+    </inventory-list>
+</inventory>

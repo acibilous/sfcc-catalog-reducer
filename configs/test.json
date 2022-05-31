@@ -6,7 +6,8 @@
     "src": {
         "finalCacheDir": "./testdata/cache",
         "masters": ["./testdata/master/*.xml"],
-        "navigations": ["./testdata/navigation/*.xml"]
+        "navigations": ["./testdata/navigation/*.xml"],
+        "inventories": ["./testdata/inventory/*.xml"]
     },
     "categoriesConfig": {
         "default": {
