@@ -1,18 +1,19 @@
 {
     "behavior": "createNew",
     "outPostfix": "_reduced",
-    "src": {
-        "master": "./testdata/real/master.xml",
-        "navigation": "./testdata/real/navigation.xml"
-    },
     "enabledCache": true,
     "cleanupData": false,
+    "src": {
+        "finalCacheDir": "./testdata/cache",
+        "masters": ["./testdata/master/*.xml"],
+        "navigations": ["./testdata/navigation/*.xml"]
+    },
     "categoriesConfig": {
         "default": {
             "master": 1,
             "set": 1,
             "bundle": 1,
-            "standard": 0
+            "standard": 1
         }
     }
 }

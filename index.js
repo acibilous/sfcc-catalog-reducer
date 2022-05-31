@@ -10,16 +10,16 @@ import NavigationCategoriesRegistry from './lib/catalog/registry/NavigationCateg
 
 import reducers from './lib/tools/reducers/index.js';
 import { getCleaner, renameReducedToOriginal } from './lib/tools/cleanup.js';
-import { getFilesByPatterns } from './lib/tools/files.js';
+import { getFilesByPatterns, createFolderIfNotExists } from './lib/tools/files.js';
 import { getFilterByProductID } from './lib/tools/filters.js';
 
-import { catalogReducer } from './constants.js';
+import { config } from './constants.js';
 
 const {
     productsConfig,
     categoriesConfig,
     src
-} = catalogReducer;
+} = config;
 
 /**
  * @description Entry point
@@ -31,7 +31,8 @@ const {
         getFilesByPatterns(src.masters),
         getFilesByPatterns(src.navigations),
         getFilesByPatterns(src.inventories),
-        getFilesByPatterns(src.priceBooks)
+        getFilesByPatterns(src.priceBooks),
+        createFolderIfNotExists(src.finalCacheDir)
     ]);
 
     const inputFiles = [
@@ -41,9 +42,9 @@ const {
         ...priceBookFiles
     ];
 
-    const cleanupFolders = await getCleaner(inputFiles);
+    const cleanupFolders = getCleaner(inputFiles, src.finalCacheDir);
 
-    if (!catalogReducer.enabledCache) {
+    if (!config.enabledCache) {
         cleanupFolders();
     }
 
@@ -60,9 +61,9 @@ const {
         ...categoriesWorkers.map(worker => worker.startAsync())
     ]);
 
-    const singleMasterRegistry = new MasterCatalogRegistry(process.cwd());
-    const singleCategoryRegistry = new NavigationCategoriesRegistry(process.cwd());
-    const singleAssignmentRegistry = new NavigationAssignmentsRegistry(process.cwd());
+    const singleMasterRegistry = new MasterCatalogRegistry(src.finalCacheDir, 'master');
+    const singleCategoryRegistry = new NavigationCategoriesRegistry(src.finalCacheDir, 'navigation');
+    const singleAssignmentRegistry = new NavigationAssignmentsRegistry(src.finalCacheDir, 'navigation');
 
     singleMasterRegistry.appendProducts(masterWorkers.map(worker => worker.registry.cache.products));
     singleAssignmentRegistry.appendCategories(assignmentsWorkers.map(worker => worker.registry.cache.categories));
@@ -98,11 +99,11 @@ const {
         )
     ]);
 
-    if (catalogReducer.behavior === 'updateExisting') {
+    if (config.behavior === 'updateExisting') {
         await renameReducedToOriginal(inputFiles);
     }
 
-    if (catalogReducer.cleanupData) {
+    if (config.cleanupData) {
         cleanupFolders();
     }
 

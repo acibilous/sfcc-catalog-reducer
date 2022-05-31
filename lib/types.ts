@@ -28,10 +28,11 @@ export type CategoriesConfig = {
 };
 
 export type SrcConfig = {
+    finalCacheDir: string;
     masters: Array<string>;
     navigations: Array<string>;
-    inventories: Array<string>;
-    priceBooks: Array<string>;
+    inventories?: Array<string>;
+    priceBooks?: Array<string>;
 };
 
 export type CatalogReducerConfig = {

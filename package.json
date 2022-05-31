@@ -14,7 +14,8 @@
         "globby": "13.1.1"
     },
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test-reduce": "node index.js --test-config",
+        "test-cache-reset": "node scripts/testCacheReset.js --test-config"
     },
     "repository": {
         "type": "git",
