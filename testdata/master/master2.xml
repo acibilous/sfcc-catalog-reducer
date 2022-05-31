@@ -892,7 +892,7 @@
         </custom-attributes>
     </category>
 
-    <product product-id="L-product-1">
+    <product product-id="x-product-1">
         <ean/>
         <upc/>
         <unit/>
@@ -935,7 +935,7 @@
         <pinterest-enabled-flag>false</pinterest-enabled-flag>
         <facebook-enabled-flag>false</facebook-enabled-flag>
     </product>
-    <product product-id="L-product-2">
+    <product product-id="x-product-2">
         <ean/>
         <upc/>
         <unit/>
@@ -974,7 +974,7 @@
             <custom-attribute attribute-id="tabDescription">Description tab content from product custom attribute</custom-attribute>
         </custom-attributes>
     </product>
-    <product product-id="L-product-3">
+    <product product-id="x-product-3">
         <ean/>
         <upc/>
         <unit/>
@@ -1008,7 +1008,7 @@
             <custom-attribute attribute-id="tabDescription">Description tab content from product custom attribute</custom-attribute>
         </custom-attributes>
     </product>
-    <product product-id="L-product-4">
+    <product product-id="x-product-4">
         <ean/>
         <upc/>
         <unit/>
@@ -1042,7 +1042,7 @@
             <custom-attribute attribute-id="tabDescription">Description tab content from product custom attribute</custom-attribute>
         </custom-attributes>
     </product>
-    <product product-id="L-product-5">
+    <product product-id="x-product-5">
         <ean/>
         <upc/>
         <unit/>
@@ -1076,7 +1076,7 @@
             <custom-attribute attribute-id="tabDescription">Description tab content from product custom attribute</custom-attribute>
         </custom-attributes>
     </product>
-    <product product-id="L-product-6">
+    <product product-id="x-product-6">
         <ean/>
         <upc/>
         <unit/>
@@ -1111,7 +1111,7 @@
         </custom-attributes>
     </product>
 
-    <product product-id="L-product-bundle-1">
+    <product product-id="x-product-bundle-1">
         <ean/>
         <upc/>
         <unit/>
@@ -1145,18 +1145,18 @@
             <custom-attribute attribute-id="tabDescription">Description tab content from product custom attribute</custom-attribute>
         </custom-attributes>
         <bundled-products>
-            <bundled-product product-id="L-product-2">
+            <bundled-product product-id="x-product-2">
                 <quantity>1</quantity>
             </bundled-product>
-            <bundled-product product-id="L-product-3">
+            <bundled-product product-id="x-product-3">
                 <quantity>1</quantity>
             </bundled-product>
-            <bundled-product product-id="L-product-4">
+            <bundled-product product-id="x-product-4">
                 <quantity>1</quantity>
             </bundled-product>
         </bundled-products>
     </product>
-    <product product-id="L-product-bundle-2">
+    <product product-id="x-product-bundle-2">
         <ean/>
         <upc/>
         <unit/>
@@ -1190,18 +1190,18 @@
             <custom-attribute attribute-id="tabDescription">Description tab content from product custom attribute</custom-attribute>
         </custom-attributes>
         <bundled-products>
-            <bundled-product product-id="L-product-2">
+            <bundled-product product-id="x-product-2">
                 <quantity>1</quantity>
             </bundled-product>
-            <bundled-product product-id="L-product-3">
+            <bundled-product product-id="x-product-3">
                 <quantity>1</quantity>
             </bundled-product>
-            <bundled-product product-id="L-product-4">
+            <bundled-product product-id="x-product-4">
                 <quantity>1</quantity>
             </bundled-product>
         </bundled-products>
     </product>
-    <product product-id="L-product-bundle-3">
+    <product product-id="x-product-bundle-3">
         <ean/>
         <upc/>
         <unit/>
@@ -1235,18 +1235,18 @@
             <custom-attribute attribute-id="tabDescription">Description tab content from product custom attribute</custom-attribute>
         </custom-attributes>
         <bundled-products>
-            <bundled-product product-id="L-product-2">
+            <bundled-product product-id="x-product-2">
                 <quantity>1</quantity>
             </bundled-product>
-            <bundled-product product-id="L-product-3">
+            <bundled-product product-id="x-product-3">
                 <quantity>1</quantity>
             </bundled-product>
-            <bundled-product product-id="L-product-4">
+            <bundled-product product-id="x-product-4">
                 <quantity>1</quantity>
             </bundled-product>
         </bundled-products>
     </product>
-    <product product-id="L-product-bundle-4">
+    <product product-id="x-product-bundle-4">
         <ean/>
         <upc/>
         <unit/>
@@ -1280,18 +1280,18 @@
             <custom-attribute attribute-id="tabDescription">Description tab content from product custom attribute</custom-attribute>
         </custom-attributes>
         <bundled-products>
-            <bundled-product product-id="L-product-2">
+            <bundled-product product-id="x-product-2">
                 <quantity>1</quantity>
             </bundled-product>
-            <bundled-product product-id="L-product-3">
+            <bundled-product product-id="x-product-3">
                 <quantity>1</quantity>
             </bundled-product>
-            <bundled-product product-id="L-product-4">
+            <bundled-product product-id="x-product-4">
                 <quantity>1</quantity>
             </bundled-product>
         </bundled-products>
     </product>
-    <product product-id="L-product-bundle-5">
+    <product product-id="x-product-bundle-5">
         <ean/>
         <upc/>
         <unit/>
@@ -1325,19 +1325,19 @@
             <custom-attribute attribute-id="tabDescription">Description tab content from product custom attribute</custom-attribute>
         </custom-attributes>
         <bundled-products>
-            <bundled-product product-id="L-product-2">
+            <bundled-product product-id="x-product-2">
                 <quantity>1</quantity>
             </bundled-product>
-            <bundled-product product-id="L-product-3">
+            <bundled-product product-id="x-product-3">
                 <quantity>1</quantity>
             </bundled-product>
-            <bundled-product product-id="L-product-4">
+            <bundled-product product-id="x-product-4">
                 <quantity>1</quantity>
             </bundled-product>
         </bundled-products>
     </product>
 
-    <product product-id="L-product-set-1">
+    <product product-id="x-product-set-1">
         <ean/>
         <upc/>
         <unit/>
@@ -1363,12 +1363,12 @@
         <tax-class-id>standard</tax-class-id>
         <page-attributes/>
         <product-set-products>
-            <product-set-product product-id="L-product-1"/>
-            <product-set-product product-id="L-product-2"/>
-            <product-set-product product-id="L-product-3"/>
+            <product-set-product product-id="x-product-1"/>
+            <product-set-product product-id="x-product-2"/>
+            <product-set-product product-id="x-product-3"/>
         </product-set-products>
     </product>
-    <product product-id="L-product-set-2">
+    <product product-id="x-product-set-2">
         <ean/>
         <upc/>
         <unit/>
@@ -1394,12 +1394,12 @@
         <tax-class-id>standard</tax-class-id>
         <page-attributes/>
         <product-set-products>
-            <product-set-product product-id="L-product-1"/>
-            <product-set-product product-id="L-product-2"/>
-            <product-set-product product-id="L-product-3"/>
+            <product-set-product product-id="x-product-1"/>
+            <product-set-product product-id="x-product-2"/>
+            <product-set-product product-id="x-product-3"/>
         </product-set-products>
     </product>
-    <product product-id="L-product-set-3">
+    <product product-id="x-product-set-3">
         <ean/>
         <upc/>
         <unit/>
@@ -1425,12 +1425,12 @@
         <tax-class-id>standard</tax-class-id>
         <page-attributes/>
         <product-set-products>
-            <product-set-product product-id="L-product-1"/>
-            <product-set-product product-id="L-product-2"/>
-            <product-set-product product-id="L-product-3"/>
+            <product-set-product product-id="x-product-1"/>
+            <product-set-product product-id="x-product-2"/>
+            <product-set-product product-id="x-product-3"/>
         </product-set-products>
     </product>
-    <product product-id="L-product-set-4">
+    <product product-id="x-product-set-4">
         <ean/>
         <upc/>
         <unit/>
@@ -1456,12 +1456,12 @@
         <tax-class-id>standard</tax-class-id>
         <page-attributes/>
         <product-set-products>
-            <product-set-product product-id="L-product-1"/>
-            <product-set-product product-id="L-product-2"/>
-            <product-set-product product-id="L-product-3"/>
+            <product-set-product product-id="x-product-1"/>
+            <product-set-product product-id="x-product-2"/>
+            <product-set-product product-id="x-product-3"/>
         </product-set-products>
     </product>
-    <product product-id="L-product-set-5">
+    <product product-id="x-product-set-5">
         <ean/>
         <upc/>
         <unit/>
@@ -1487,13 +1487,13 @@
         <tax-class-id>standard</tax-class-id>
         <page-attributes/>
         <product-set-products>
-            <product-set-product product-id="L-product-1"/>
-            <product-set-product product-id="L-product-2"/>
-            <product-set-product product-id="L-product-3"/>
+            <product-set-product product-id="x-product-1"/>
+            <product-set-product product-id="x-product-2"/>
+            <product-set-product product-id="x-product-3"/>
         </product-set-products>
     </product>
 
-    <product product-id="L-product-variation-1">
+    <product product-id="x-product-variation-1">
         <ean/>
         <upc/>
         <unit/>
@@ -1519,7 +1519,7 @@
             <non-discountable-flag>false</non-discountable-flag>
         </store-attributes>
     </product>
-    <product product-id="L-product-variation-2">
+    <product product-id="x-product-variation-2">
         <ean/>
         <upc/>
         <unit/>
@@ -1545,7 +1545,7 @@
             <non-discountable-flag>false</non-discountable-flag>
         </store-attributes>
     </product>
-    <product product-id="L-product-variation-3">
+    <product product-id="x-product-variation-3">
         <ean/>
         <upc/>
         <unit/>
@@ -1571,7 +1571,7 @@
             <non-discountable-flag>false</non-discountable-flag>
         </store-attributes>
     </product>
-    <product product-id="L-product-variation-4">
+    <product product-id="x-product-variation-4">
         <ean/>
         <upc/>
         <unit/>
@@ -1597,7 +1597,7 @@
             <non-discountable-flag>false</non-discountable-flag>
         </store-attributes>
     </product>
-    <product product-id="L-product-variation-5">
+    <product product-id="x-product-variation-5">
         <ean/>
         <upc/>
         <unit/>
@@ -1623,7 +1623,7 @@
             <non-discountable-flag>false</non-discountable-flag>
         </store-attributes>
     </product>
-    <product product-id="L-product-variation-6">
+    <product product-id="x-product-variation-6">
         <ean/>
         <upc/>
         <unit/>
@@ -1649,7 +1649,7 @@
             <non-discountable-flag>false</non-discountable-flag>
         </store-attributes>
     </product>
-    <product product-id="L-product-variation-7">
+    <product product-id="x-product-variation-7">
         <ean/>
         <upc/>
         <unit/>
@@ -1676,7 +1676,7 @@
         </store-attributes>
     </product>
 
-    <product product-id="L-product-variation-master-1">
+    <product product-id="x-product-variation-master-1">
         <ean/>
         <upc/>
         <unit/>
@@ -1794,13 +1794,13 @@
                 <shared-variation-attribute attribute-id="size" variation-attribute-id="size"/>
             </attributes>
             <variants>
-                <variant product-id="L-product-variation-1"/>
-                <variant product-id="L-product-variation-2"/>
-                <variant product-id="L-product-variation-3"/>
-                <variant product-id="L-product-variation-4"/>
-                <variant product-id="L-product-variation-5"/>
-                <variant product-id="L-product-variation-6"/>
-                <variant product-id="L-product-variation-7"/>
+                <variant product-id="x-product-variation-1"/>
+                <variant product-id="x-product-variation-2"/>
+                <variant product-id="x-product-variation-3"/>
+                <variant product-id="x-product-variation-4"/>
+                <variant product-id="x-product-variation-5"/>
+                <variant product-id="x-product-variation-6"/>
+                <variant product-id="x-product-variation-7"/>
             </variants>
         </variations>
         <pinterest-enabled-flag>false</pinterest-enabled-flag>
@@ -1812,7 +1812,7 @@
             <non-discountable-flag>false</non-discountable-flag>
         </store-attributes>
     </product>
-    <product product-id="L-product-variation-master-2">
+    <product product-id="x-product-variation-master-2">
         <ean/>
         <upc/>
         <unit/>
@@ -1930,13 +1930,13 @@
                 <shared-variation-attribute attribute-id="size" variation-attribute-id="size"/>
             </attributes>
             <variants>
-                <variant product-id="L-product-variation-1"/>
-                <variant product-id="L-product-variation-2"/>
-                <variant product-id="L-product-variation-3"/>
-                <variant product-id="L-product-variation-4"/>
-                <variant product-id="L-product-variation-5"/>
-                <variant product-id="L-product-variation-6"/>
-                <variant product-id="L-product-variation-7"/>
+                <variant product-id="x-product-variation-1"/>
+                <variant product-id="x-product-variation-2"/>
+                <variant product-id="x-product-variation-3"/>
+                <variant product-id="x-product-variation-4"/>
+                <variant product-id="x-product-variation-5"/>
+                <variant product-id="x-product-variation-6"/>
+                <variant product-id="x-product-variation-7"/>
             </variants>
         </variations>
         <pinterest-enabled-flag>false</pinterest-enabled-flag>
@@ -1948,7 +1948,7 @@
             <non-discountable-flag>false</non-discountable-flag>
         </store-attributes>
     </product>
-    <product product-id="L-product-variation-master-3">
+    <product product-id="x-product-variation-master-3">
         <ean/>
         <upc/>
         <unit/>
@@ -2066,13 +2066,13 @@
                 <shared-variation-attribute attribute-id="size" variation-attribute-id="size"/>
             </attributes>
             <variants>
-                <variant product-id="L-product-variation-1"/>
-                <variant product-id="L-product-variation-2"/>
-                <variant product-id="L-product-variation-3"/>
-                <variant product-id="L-product-variation-4"/>
-                <variant product-id="L-product-variation-5"/>
-                <variant product-id="L-product-variation-6"/>
-                <variant product-id="L-product-variation-7"/>
+                <variant product-id="x-product-variation-1"/>
+                <variant product-id="x-product-variation-2"/>
+                <variant product-id="x-product-variation-3"/>
+                <variant product-id="x-product-variation-4"/>
+                <variant product-id="x-product-variation-5"/>
+                <variant product-id="x-product-variation-6"/>
+                <variant product-id="x-product-variation-7"/>
             </variants>
         </variations>
         <pinterest-enabled-flag>false</pinterest-enabled-flag>
