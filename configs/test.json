@@ -10,10 +10,10 @@
     },
     "categoriesConfig": {
         "default": {
-            "master": 1,
-            "set": 1,
-            "bundle": 1,
-            "standard": 1
+            "master": 4,
+            "set": 6,
+            "bundle": 6,
+            "standard": 0
         }
     }
 }
