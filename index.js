@@ -35,6 +35,16 @@ const {
         createFolderIfNotExists(src.finalCacheDir)
     ]);
 
+    if (masterFiles.length === 0) {
+        console.log('No master catalogs found');
+        process.exit(0);
+    }
+
+    if (navigationFiles.length === 0) {
+        console.log('No navigation catalogs found');
+        process.exit(0);
+    }
+
     const inputFiles = [
         ...masterFiles,
         ...navigationFiles,
