@@ -24,41 +24,39 @@ Execute `npm run test-cache-reset` to remove cached json data.
 
 ## Configuration
 
-Please update your project `package.json` with configuration:
+Add file `catalogReducerConfing.json` to the root of your project with configuration:
 
-```
+```json
 {
-    "catalogReducer": {
-        "src": {
-            "finalCacheDir": "./testdata/cache", // empty folder that could keep cache while calculation
-            "masters": ["./testdata/master/*.xml"], // master catalog files
-            "navigations": ["./testdata/navigation/*.xml"], // navigation catalog
-            "inventories": ["./testdata/inventory/*.xml"], // inventory-list catalogs (OPTIONAL)
-            "priceBooks": ["./testdata/priceBook/*.xml"] // pricebook catalogs (OPTIONAL)
+    "src": {
+        "finalCacheDir": "./testdata/cache", // empty folder that could keep cache while calculation
+        "masters": ["./testdata/master/*.xml"], // master catalog files
+        "navigations": ["./testdata/navigation/*.xml"], // navigation catalog
+        "inventories": ["./testdata/inventory/*.xml"], // inventory-list catalogs (OPTIONAL)
+        "priceBooks": ["./testdata/priceBook/*.xml"] // pricebook catalogs (OPTIONAL)
+    },
+    "behavior": "createNew", // script behavior could be either 'createNew' or 'updateExisting' (OPTIONAL, createNew by default)
+    "outPostfix": "_reduced", // ending part of out files, works with behavior=createNew (OPTIONAL, _reduced by default)
+    "enabledCache": true, // to read catalogs data from JSONs if exist
+    "cleanupData": false, // to remove catalogs data JSONs after processing
+    "categoriesConfig": { // Sets amount of products (with their dependencies) should to keep after reducing for every type
+        "default": {
+            "master": 1,
+            "set": 1,
+            "bundle": 1,
+            "standard": 0 // only standalone products, meaning not including dependencies from master, set or bundle
         },
-        "behavior": "createNew", // script behavior could be either 'createNew' or 'updateExisting' (OPTIONAL, createNew by default)
-        "outPostfix": "_reduced", // ending part of out files, works with behavior=createNew (OPTIONAL, _reduced by default)
-        "enabledCache": true, // to read catalogs data from JSONs if exist
-        "cleanupData": false, // to remove catalogs data JSONs after processing
-        "categoriesConfig": { // Sets amount of products (with their dependencies) should to keep after reducing for every type
-            "default": {
-                "master": 1,
-                "set": 1,
-                "bundle": 1,
-                "standard": 0 // not included dependencies from master, set or bundle
-            },
-            "CATEGORY_ID_CUSTOM_CONFIGURATION": { // Config for certain category (OPTIONAL)
-                "master": 5,
-                "set": 5,
-                "bundle": 5,
-                "standard": 10
-            },
+        "CATEGORY_ID_CUSTOM_CONFIGURATION": { // Config for certain category (OPTIONAL)
+            "master": 5,
+            "set": 5,
+            "bundle": 5,
+            "standard": 10
         },
-        "productsConfig": { // OPTIONAL
-            inclusions: [], // array of product ids needs to be included bypassing counter
-            includeIfDependency: false, // include parent product if inclusion is dependency with all parent dependencies
-            includeChildren: true // include dependencies
-        }
+    },
+    "productsConfig": { // OPTIONAL
+        "inclusions": [], // array of product ids needs to be included bypassing counter
+        "includeIfDependency": false, // include parent product if inclusion is dependency with all parent dependencies
+        "includeChildren": true // include dependencies
     }
 }
 ```

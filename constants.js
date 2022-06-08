@@ -4,51 +4,57 @@ import { importJson, getAbsolutePathToLibFile } from './lib/tools/import.js';
  * @type {{ catalogReducer: Partial<import('#types').CatalogReducerConfig> }}
  */
 const packageJson = importJson('package.json', process.cwd());
+const catalogReducerFile = importJson('catalogReducerConfing.json', process.cwd(), 'returnNull');
 const defaults = importJson('./configs/default.json');
 const testConfig = importJson('./configs/test.json');
+
+/**
+ * @type {Partial<import('#types').CatalogReducerConfig>}
+ */
+const catalogReducerConfig = catalogReducerFile || packageJson.catalogReducer;
 
 export const isTestEnv = process.argv.includes('--test-config');
 
 if (!isTestEnv) {
-    if (!packageJson.catalogReducer) {
-        console.log('Please, provide catalog reducer config in package.json in the "catalogReducer" field');
+    if (!catalogReducerConfig) {
+        console.log('Please, provide catalog reducer config in catalogReducerConfing.json in the root of the project');
 
         process.exit(0);
     }
 
-    if (packageJson.catalogReducer.src.master) {
+    if (catalogReducerConfig.src.master) {
         console.log('Property "master" is deprecated, use "masters" and pass an array of path patterns');
 
         process.exit(0);
     }
 
-    if (packageJson.catalogReducer.src.navigation) {
+    if (catalogReducerConfig.src.navigation) {
         console.log('Property "navigation" is deprecated, use "navigations" and pass an array of path patterns');
 
         process.exit(0);
     }
 
-    if (packageJson.catalogReducer.src.minifiedMaster) {
+    if (catalogReducerConfig.src.minifiedMaster) {
         console.log('Property "minifiedMaster" is deprecated, the path of out file calculated automatically using "behavior" and "outPostfix" properties');
 
         process.exit(0);
     }
 
-    if (!packageJson.catalogReducer.src?.masters || !packageJson.catalogReducer.src?.navigations) {
+    if (!catalogReducerConfig.src?.masters || !catalogReducerConfig.src?.navigations) {
         console.log('Please, provide master and navigation catalogs in catalog reducer config');
 
         process.exit(0);
     }
 
-    if (!packageJson.catalogReducer.src?.finalCacheDir) {
+    if (!catalogReducerConfig.src?.finalCacheDir) {
         console.log('Please, provide directory for final cache (src.finalCacheDir)');
 
         process.exit(0);
     }
 
-    if (packageJson.catalogReducer.behavior
-        && packageJson.catalogReducer.behavior !== 'createNew'
-        && packageJson.catalogReducer.behavior !== 'updateExisting'
+    if (catalogReducerConfig.behavior
+        && catalogReducerConfig.behavior !== 'createNew'
+        && catalogReducerConfig.behavior !== 'updateExisting'
     ) {
         console.log('Unknown "behavior" value in catalog reducer config');
 
@@ -58,7 +64,7 @@ if (!isTestEnv) {
 
 const productionConfig = {
     ...defaults,
-    ...packageJson.catalogReducer
+    ...catalogReducerConfig
 };
 
 /**
