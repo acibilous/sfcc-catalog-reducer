@@ -67,7 +67,7 @@ const {
 
     singleMasterRegistry.appendProducts(masterWorkers.map(worker => worker.registry.cache.products));
     singleAssignmentRegistry.appendCategories(assignmentsWorkers.map(worker => worker.registry.cache.categories));
-    singleCategoryRegistry.appendCategoriesParrents(categoriesWorkers.map(worker => worker.registry.cache.categoriesParents));
+    singleCategoryRegistry.appendCategoriesParents(categoriesWorkers.map(worker => worker.registry.cache.categoriesParents));
 
     /**
      * Adding dependencies to navigation catalog registry. Product may be not category assignment
