@@ -82,6 +82,66 @@
             <price-table product-id="product-variation-7">
                 <amount quantity="1">250.00</amount>
             </price-table>
+            <price-table product-id="product-vg-brown-l">
+                <amount quantity="1">11.99</amount>
+            </price-table>
+            <price-table product-id="product-vg-brown-m">
+                <amount quantity="1">11.99</amount>
+            </price-table>
+            <price-table product-id="product-vg-brown-s">
+                <amount quantity="1">11.99</amount>
+            </price-table>
+            <price-table product-id="product-vg-brown-xl">
+                <amount quantity="1">11.99</amount>
+            </price-table>
+            <price-table product-id="product-vg-brown-xs">
+                <amount quantity="1">11.99</amount>
+            </price-table>
+            <price-table product-id="product-vg-green-l">
+                <amount quantity="1">11.99</amount>
+            </price-table>
+            <price-table product-id="product-vg-green-m">
+                <amount quantity="1">11.99</amount>
+            </price-table>
+            <price-table product-id="product-vg-green-s">
+                <amount quantity="1">11.99</amount>
+            </price-table>
+            <price-table product-id="product-vg-green-xl">
+                <amount quantity="1">11.99</amount>
+            </price-table>
+            <price-table product-id="product-vg-green-xs">
+                <amount quantity="1">11.99</amount>
+            </price-table>
+            <price-table product-id="product-vg-orange-l">
+                <amount quantity="1">11.99</amount>
+            </price-table>
+            <price-table product-id="product-vg-orange-m">
+                <amount quantity="1">11.99</amount>
+            </price-table>
+            <price-table product-id="product-vg-orange-s">
+                <amount quantity="1">11.99</amount>
+            </price-table>
+            <price-table product-id="product-vg-orange-xl">
+                <amount quantity="1">11.99</amount>
+            </price-table>
+            <price-table product-id="product-vg-orange-xs">
+                <amount quantity="1">11.99</amount>
+            </price-table>
+            <price-table product-id="product-vg-white-l">
+                <amount quantity="1">11.99</amount>
+            </price-table>
+            <price-table product-id="product-vg-white-m">
+                <amount quantity="1">11.99</amount>
+            </price-table>
+            <price-table product-id="product-vg-white-s">
+                <amount quantity="1">11.99</amount>
+            </price-table>
+            <price-table product-id="product-vg-white-xl">
+                <amount quantity="1">11.99</amount>
+            </price-table>
+            <price-table product-id="product-vg-white-xs">
+                <amount quantity="1">11.99</amount>
+            </price-table>
         </price-tables>
     </pricebook>
 </pricebooks>

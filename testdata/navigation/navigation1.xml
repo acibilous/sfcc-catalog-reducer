@@ -877,6 +877,12 @@
             <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
         </custom-attributes>
     </category>
+   
+    <category-assignment category-id="category-5" product-id="product-vg-white"/>
+    <category-assignment category-id="category-5" product-id="product-vg-green"/>
+    <category-assignment category-id="category-5" product-id="product-vg-brown"/>
+    <category-assignment category-id="category-5" product-id="product-vg-orange"/>
+    <category-assignment category-id="category-5" product-id="master-product-vg"/>
 
     <category-assignment category-id="category-1" product-id="product-1"/>
     <category-assignment category-id="category-2" product-id="product-1"/>

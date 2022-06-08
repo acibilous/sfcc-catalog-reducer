@@ -12,7 +12,7 @@
     },
     "categoriesConfig": {
         "default": {
-            "master": 4,
+            "master": 5,
             "set": 6,
             "bundle": 6,
             "standard": 0
