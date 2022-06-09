@@ -11,7 +11,7 @@
         "priceBooks": ["./testdata/priceBook/*.xml"]
     },
     "categoriesConfig": {
-        "default": {
+        "$default": {
             "master": 5,
             "set": 6,
             "bundle": 6,

@@ -40,7 +40,7 @@ Add file `catalogReducerConfing.json` to the root of your project with configura
     "enabledCache": true, // to read catalogs data from JSONs if exist
     "cleanupData": false, // to remove catalogs data JSONs after processing
     "categoriesConfig": { // Sets amount of products (with their dependencies) should to keep after reducing for every type
-        "default": {
+        "$default": {
             "master": 1,
             "set": 1,
             "bundle": 1,

@@ -23,7 +23,7 @@ export type CategoryConfig = {
 };
 
 export type CategoriesConfig = {
-    default: CategoryConfig;
+    $default: CategoryConfig;
     [categoryId: string]: CategoryConfig;
 };
 
