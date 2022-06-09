@@ -1,12 +1,10 @@
 #!/usr/bin/env node
 
-import NavigationCategoriesWorker from './lib/catalog/workers/NavigationCategoriesWorker.js';
 import NavigationAssignmentsWorker from './lib/catalog/workers/NavigationAssignmentsWorker.js';
 import MasterCatalogWorker from './lib/catalog/workers/MasterCatalogWorker.js';
 
 import MasterCatalogRegistry from './lib/catalog/registry/MasterCatalogRegistry.js';
 import NavigationAssignmentsRegistry from './lib/catalog/registry/NavigationAssignmentsRegistry.js';
-import NavigationCategoriesRegistry from './lib/catalog/registry/NavigationCategoriesRegistry.js';
 
 import reducers from './lib/tools/reducers/index.js';
 import { getCleaner, renameReducedToOriginal } from './lib/tools/cleanup.js';
@@ -59,7 +57,6 @@ const {
     }
 
     const masterWorkers = masterFiles.map(file => new MasterCatalogWorker(file));
-    const categoriesWorkers = navigationFiles.map(file => new NavigationCategoriesWorker(file));
     const assignmentsWorkers = navigationFiles.map(file => new NavigationAssignmentsWorker(file));
 
     /**
@@ -67,18 +64,14 @@ const {
      */
     await Promise.all([
         ...masterWorkers.map(worker => worker.startAsync()),
-        ...assignmentsWorkers.map(worker => worker.startAsync()),
-        ...categoriesWorkers.map(worker => worker.startAsync())
+        ...assignmentsWorkers.map(worker => worker.startAsync())
     ]);
 
     const singleMasterRegistry = new MasterCatalogRegistry(src.finalCacheDir, 'master');
-    const singleCategoryRegistry = new NavigationCategoriesRegistry(src.finalCacheDir, 'navigation');
     const singleAssignmentRegistry = new NavigationAssignmentsRegistry(src.finalCacheDir, 'navigation');
 
     singleMasterRegistry.appendProducts(masterWorkers.map(worker => worker.registry.cache.products));
     singleAssignmentRegistry.appendCategories(assignmentsWorkers.map(worker => worker.registry.cache.categories));
-    singleCategoryRegistry.appendCategoriesParents(categoriesWorkers.map(worker => worker.registry.cache.categoriesParents));
-
     /**
      * Adding dependencies to navigation catalog registry. Product may be not category assignment
      * but his owner assigned to navigation catalog
@@ -101,12 +94,7 @@ const {
         reducers.master(productFilter, masterFiles),
         reducers.inventory(productFilter, inventoryFiles),
         reducers.priceBook(productFilter, priceBookFiles),
-        reducers.navigation(
-            productFilter,
-            navigationFiles,
-            singleAssignmentRegistry.getFinalUsedCategories(),
-            singleCategoryRegistry
-        )
+        reducers.navigation(productFilter, navigationFiles)
     ]);
 
     if (config.behavior === 'updateExisting') {
