@@ -1,10 +1,7 @@
 {
     "behavior": "createNew",
     "outPostfix": "_reduced",
-    "enabledCache": true,
-    "cleanupData": false,
     "src": {
-        "finalCacheDir": "./testdata/cache",
         "masters": ["./testdata/master/*.xml"],
         "navigations": ["./testdata/navigation/*.xml"],
         "inventories": ["./testdata/inventory/*.xml"],
@@ -12,10 +9,16 @@
     },
     "categoriesConfig": {
         "$default": {
-            "master": 5,
-            "set": 6,
-            "bundle": 6,
+            "master": 0,
+            "set": 0,
+            "bundle": 0,
             "standard": 0
+        },
+        "deals": {
+            "master": 0,
+            "set": 0,
+            "bundle": 0,
+            "standard": 2
         }
     }
 }

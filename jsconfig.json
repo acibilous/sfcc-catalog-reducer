@@ -2,7 +2,11 @@
     "compilerOptions": {
         "baseUrl": ".",
         "paths": {
-            "#types": ["./lib/types.ts"]
+            "#types": ["./lib/types.ts"],
+            "#constants": ["./constants.js"],
+            "#xml/*": ["./lib/xml/*"],
+            "#workers/*": ["./lib/workers/*"],
+            "#tools/*": ["./lib/tools/*"],
         }
     }
 }

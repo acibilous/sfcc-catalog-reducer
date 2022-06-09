@@ -1,8 +1,6 @@
 {
     "behavior": "createNew",
     "outPostfix": "_reduced",
-    "enabledCache": true,
-    "cleanupData": false,
     "categoriesConfig": {
         "$default": {
             "master": 1,

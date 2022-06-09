@@ -1,4 +1,4 @@
-import { importJson, getAbsolutePathToLibFile } from './lib/tools/import.js';
+import { importJson, getAbsolutePathToLibFile } from '#tools/import.js';
 
 /**
  * @type {{ catalogReducer: Partial<import('#types').CatalogReducerConfig> }}
@@ -46,12 +46,6 @@ if (!isTestEnv) {
         process.exit(0);
     }
 
-    if (!catalogReducerConfig.src?.finalCacheDir) {
-        console.log('Please, provide directory for final cache (src.finalCacheDir)');
-
-        process.exit(0);
-    }
-
     if (catalogReducerConfig.behavior
         && catalogReducerConfig.behavior !== 'createNew'
         && catalogReducerConfig.behavior !== 'updateExisting'
@@ -72,8 +66,24 @@ const productionConfig = {
  */
 export const config = isTestEnv ? testConfig : productionConfig;
 
-if (isTestEnv) {
-    config.src.finalCacheDir = getAbsolutePathToLibFile(config.src.finalCacheDir);
-}
+/**
+ * @type {import('#types').GeneralCategoryConfigs}
+ */
+export const generalCategoryConfigs = {};
+
+/**
+ * @type {import('#types').SpecificCategoryConfigs}
+ */
+export const specificCategoryConfigs = {};
+
+Object.entries(config.categoriesConfig).forEach(([category, value]) => {
+    if (category[0] === '$') {
+        generalCategoryConfigs[category] = value;
+    } else {
+        specificCategoryConfigs[category] = value;
+    }
+});
+
+export const src = config.src;
 
 export const enabledCache = config.enabledCache;

@@ -1,6 +1,6 @@
-import { getCleaner } from '../lib/tools/cleanup.js';
-import { getFilesByPatterns, createFolderIfNotExists } from '../lib/tools/files.js';
-import { config } from '../constants.js';
+import { getCleaner } from '#tools/cleanup.js';
+import { getFilesByPatterns, createFolderIfNotExists } from '#tools/files.js';
+import { config } from '#constants.js';
 
 /**
  * @description Entry point

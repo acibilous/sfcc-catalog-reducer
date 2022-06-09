@@ -22,10 +22,22 @@ export type CategoryConfig = {
     standard: number;
 };
 
-export type CategoriesConfig = {
-    $default: CategoryConfig;
-    [categoryId: string]: CategoryConfig;
+export type CategoryProductsContainer = {
+    master: Array<string>;
+    set: Array<string>;
+    bundle: Array<string>;
+    standard: Array<string>;
 };
+
+export type SpecificCategoryConfigs = {
+    [categoryId: string]: CategoryConfig;
+}
+
+export type GeneralCategoryConfigs = {
+    $default: CategoryConfig;
+}
+
+export type CategoryConfigs = GeneralCategoryConfigs & SpecificCategoryConfigs;
 
 export type SrcConfig = {
     finalCacheDir: string;
@@ -41,7 +53,7 @@ export type CatalogReducerConfig = {
     src: SrcConfig;
     enabledCache: boolean;
     cleanupData: boolean;
-    categoriesConfig: CategoriesConfig;
+    categoriesConfig: CategoryConfigs;
     productsConfig?: ProductsConfig;
 };
 
@@ -53,6 +65,5 @@ export type XMLTag = {
 export type XMLParserEventName = 'openmatchedtag' | 'closematchedtag';
 export type XMLMatcherEventName = XMLParserEventName | 'end' | 'match';
 
+export type XMLTagHandler = (tag: XMLTag, raw: string) => void;
 export type XMLTagFilter = (tag: XMLTag) => boolean;
-
-export type ProductsRegistry = typeof import('./catalog/registry/ProductsRegistry');
