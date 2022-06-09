@@ -877,12 +877,6 @@
             <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
         </custom-attributes>
     </category>
-   
-    <category-assignment category-id="category-5" product-id="product-vg-white"/>
-    <category-assignment category-id="category-5" product-id="product-vg-green"/>
-    <category-assignment category-id="category-5" product-id="product-vg-brown"/>
-    <category-assignment category-id="category-5" product-id="product-vg-orange"/>
-    <category-assignment category-id="category-5" product-id="master-product-vg"/>
 
     <category-assignment category-id="category-1" product-id="product-1"/>
     <category-assignment category-id="category-2" product-id="product-1"/>
@@ -951,8 +945,11 @@
     <category-assignment category-id="deals" product-id="product-variation-5"/>
     <category-assignment category-id="deals" product-id="product-variation-6"/>
     <category-assignment category-id="deals" product-id="product-variation-7"/>
-
-
+    <category-assignment category-id="deals" product-id="product-vg-white"/>
+    <category-assignment category-id="deals" product-id="product-vg-green"/>
+    <category-assignment category-id="deals" product-id="product-vg-brown"/>
+    <category-assignment category-id="deals" product-id="product-vg-orange"/>
+    <category-assignment category-id="deals" product-id="master-product-vg"/>
 
     <recommendation source-id="product-1" source-type="product" target-id="product-2" type="1"/>
     <recommendation source-id="product-1" source-type="product" target-id="product-3" type="1"/>
