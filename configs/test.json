@@ -2,10 +2,10 @@
     "behavior": "createNew",
     "outPostfix": "_reduced",
     "src": {
-        "masters": ["./testdata/master/*.xml"],
-        "navigations": ["./testdata/navigation/*.xml"],
-        "inventories": ["./testdata/inventory/*.xml"],
-        "priceBooks": ["./testdata/priceBook/*.xml"]
+        "masters": ["./testdata/medium/ggr-master-catalog/catalog.xml"],
+        "navigations": ["./testdata/medium/ggr-global-nav-catalog/catalog.xml"],
+        "inventories": [],
+        "priceBooks": []
     },
     "categoriesConfig": {
         "$default": {
@@ -15,7 +15,7 @@
             "bundle": 0,
             "standard": 0
         },
-        "deals": {
+        "BOOTIES": {
             "master": 1,
             "masterWithVariationGroups": 1,
             "set": 1,

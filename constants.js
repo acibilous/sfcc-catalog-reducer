@@ -1,4 +1,4 @@
-import { importJson, getAbsolutePathToLibFile } from '#tools/import.js';
+import { importJson } from '#tools/import.js';
 
 /**
  * @type {{ catalogReducer: Partial<import('#types').CatalogReducerConfig> }}

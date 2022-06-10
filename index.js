@@ -9,7 +9,7 @@ import { processSrc } from '#tools/files.js';
 import { getFilterByProductID } from '#tools/filters.js';
 import { beep, logUsedRAM } from '#tools/logger.js';
 
-import { src, specificCategoryConfigs, config } from './constants.js';
+import { src, config, specificCategoryConfigs, generalCategoryConfigs } from './constants.js';
 
 /**
  * @description Entry point
@@ -26,6 +26,14 @@ import { src, specificCategoryConfigs, config } from './constants.js';
         cleanup
     } = await processSrc(src);
 
+    const isStandardProductsShouldBeProcessed = Object.values(specificCategoryConfigs).some(config => config.standard > 0) 
+        || generalCategoryConfigs.$default.standard > 0;
+
+    /**
+     * @type {Set<string>}
+     */
+    const standardProductsForDefaultCategory = new Set();
+
     /**
      * @type {Set<string>}
      */
@@ -39,10 +47,27 @@ import { src, specificCategoryConfigs, config } from './constants.js';
     for (const category of specificCategories) {
         const productIDs = await productAssignmentWorker.parseCategory(category);
 
-        const reducedProductIDsWithDependencies = await productDefinitionWorker.filterProducts(productIDs, specificCategoryConfigs[category]);
+        const [
+            reducedProductIDsWithDependencies,
+            unusedStandardProducts
+        ] = await productDefinitionWorker.filterProducts(productIDs, specificCategoryConfigs[category], isStandardProductsShouldBeProcessed);
+
+        console.log(unusedStandardProducts);
+
+        if (standardProductsForDefaultCategory.size < specificCategoryConfigs[category].standard) {
+            const amountOfStandardProductsForAdding = specificCategoryConfigs[category].standard - standardProductsForDefaultCategory.size;
+
+            unusedStandardProducts
+                .splice(0, amountOfStandardProductsForAdding)
+                .forEach(productID => standardProductsForDefaultCategory.add(productID));
+        }
 
         reducedProductIDsWithDependencies.forEach(productID => allReducedProductIDsForSpecificCategories.add(productID));
     }
+
+    
+
+    // const productsForUnspecifiedCategories = productDefinitionWorker.filterProducts(allReducedProductIDsForSpecificCategories, config.unspecifiedCategoryConfig);
 
     const productFilter = getFilterByProductID(allReducedProductIDsForSpecificCategories);
 
