@@ -16,11 +16,11 @@
             "standard": 0
         },
         "deals": {
-            "master": 0,
-            "masterWithVariationGroups": 0,
-            "set": 0,
-            "bundle": 0,
-            "standard": 2
+            "master": 1,
+            "masterWithVariationGroups": 1,
+            "set": 1,
+            "bundle": 1,
+            "standard": 1
         }
     }
 }

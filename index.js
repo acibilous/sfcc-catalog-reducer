@@ -7,7 +7,7 @@ import reducers from '#tools/reducers/index.js';
 import { renameReducedToOriginal } from '#tools/cleanup.js';
 import { processSrc } from '#tools/files.js';
 import { getFilterByProductID } from '#tools/filters.js';
-import { beep } from '#tools/logger.js';
+import { beep, logUsedRAM } from '#tools/logger.js';
 
 import { src, specificCategoryConfigs, config } from './constants.js';
 
@@ -60,6 +60,8 @@ import { src, specificCategoryConfigs, config } from './constants.js';
     }
 
     cleanup();
+
+    logUsedRAM()
 
     console.timeEnd('Done in');
 
