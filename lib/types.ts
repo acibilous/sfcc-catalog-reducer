@@ -1,4 +1,4 @@
-export type ProductType = 'master' | 'set' | 'bundle' | 'standard';
+export type ProductType = 'master' | 'masterWithVariationGroups' | 'set' | 'bundle' | 'standard';
 
 export type Product = {
     type: ProductType;

@@ -4,6 +4,7 @@
     "categoriesConfig": {
         "$default": {
             "master": 1,
+            "masterWithVariationGroups": 1,
             "set": 1,
             "bundle": 1,
             "standard": 0

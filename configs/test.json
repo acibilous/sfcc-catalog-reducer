@@ -10,12 +10,14 @@
     "categoriesConfig": {
         "$default": {
             "master": 0,
+            "masterWithVariationGroups": 0,
             "set": 0,
             "bundle": 0,
             "standard": 0
         },
         "deals": {
             "master": 0,
+            "masterWithVariationGroups": 0,
             "set": 0,
             "bundle": 0,
             "standard": 2
