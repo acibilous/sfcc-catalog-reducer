@@ -18,8 +18,7 @@
         "globby": "13.1.1"
     },
     "scripts": {
-        "test-reduce": "node index.js --test-config",
-        "test-cache-reset": "node scripts/testCacheReset.js --test-config"
+        "test-reduce": "node index.js --test-config"
     },
     "repository": {
         "type": "git",
