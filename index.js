@@ -27,9 +27,9 @@ import { src, specificCategoryConfigs, config } from './constants.js';
     } = await processSrc(src);
 
     /**
-     * @type {{ [categoryID: string]: Array<string> }}
+     * @type {Set<string>}
      */
-    const reducedProductIDsByCategory = {};
+    const allReducedProductIDsForSpecificCategories = new Set();
 
     const productAssignmentWorker = new ProductAssignmentWorker(navigationFiles);
     const productDefinitionWorker = new ProductDefinitionWorker(masterFiles);
@@ -41,10 +41,8 @@ import { src, specificCategoryConfigs, config } from './constants.js';
 
         const reducedProductIDsWithDependencies = await productDefinitionWorker.filterProducts(productIDs, specificCategoryConfigs[category]);
 
-        reducedProductIDsByCategory[category] = reducedProductIDsWithDependencies;
+        reducedProductIDsWithDependencies.forEach(productID => allReducedProductIDsForSpecificCategories.add(productID));
     }
-
-    const allReducedProductIDsForSpecificCategories = Object.values(reducedProductIDsByCategory).flat();
 
     const productFilter = getFilterByProductID(allReducedProductIDsForSpecificCategories);
 
