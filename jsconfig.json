@@ -7,6 +7,7 @@
             "#xml/*": ["./lib/xml/*"],
             "#workers/*": ["./lib/workers/*"],
             "#tools/*": ["./lib/tools/*"],
+            "#model/*": ["./lib/model/*"],
         }
     }
 }
