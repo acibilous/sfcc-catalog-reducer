@@ -3,10 +3,10 @@
     "outPostfix": "_reduced",
     "src": {
         "masters": [
-            "./testdata/medium/ggr-master-catalog/catalog.xml"
+            "./testdata/master/master1.xml"
         ],
         "navigations": [
-            "./testdata/medium/ggr-global-nav-catalog/catalog.xml"
+            "./testdata/navigation/navigation1.xml"
         ],
         "inventories": [],
         "priceBooks": []
@@ -22,11 +22,12 @@
             "bundle": 0,
             "standard": 0
         },
-        "root": {
+        "deals": {
             "master": 0,
-            "set": 0,
-            "bundle": 0,
-            "standard": 999
+            "masterWithVariationGroups": 0,
+            "set": 1,
+            "bundle": 1,
+            "standard": 1
         }
     }
 }

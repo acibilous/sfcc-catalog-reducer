@@ -15,6 +15,7 @@ export type ProductsConfig = {
 
 export type CategoryConfig = {
     master: number;
+    masterWithVariationGroups: number;
     set: number;
     bundle: number;
     standard: number;

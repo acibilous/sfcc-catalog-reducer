@@ -26,13 +26,8 @@ import { src, config, specificCategoryConfigs, generalCategoryConfigs, productsC
         cleanup
     } = await processSrc(src);
 
-    const isStandardProductsShouldBeProcessed = Object.values(specificCategoryConfigs).some(config => config.standard > 0) 
+    const isStandardProductsShouldBeProcessed = Object.values(specificCategoryConfigs).some(config => config.standard > 0)
         || generalCategoryConfigs.$default.standard > 0;
-
-    /**
-     * @type {Set<string>}
-     */
-    const standardProductsForDefaultCategory = new Set();
 
     /**
      * @type {Set<string>}
@@ -44,37 +39,23 @@ import { src, config, specificCategoryConfigs, generalCategoryConfigs, productsC
 
     const specificCategories = Object.keys(specificCategoryConfigs);
 
-    for (const category of specificCategories) {
-        const productIDs = await productAssignmentWorker.parseCategory(category);
+    const productIDs = await productAssignmentWorker.parseCaregories(specificCategories);
 
-        const [
-            reducedProductIDsWithDependencies,
-            unusedStandardProducts
-        ] = await productDefinitionWorker.filterProducts(
-            productIDs,
-            specificCategoryConfigs[category],
-            {
-                onlineFlagCheck: productsConfig.onlineFlagCheck,
-                isStandardProductsShouldBeProcessed
-            }
-        );
-
-        console.log(unusedStandardProducts);
-
-        if (standardProductsForDefaultCategory.size < specificCategoryConfigs[category].standard) {
-            const amountOfStandardProductsForAdding = specificCategoryConfigs[category].standard - standardProductsForDefaultCategory.size;
-
-            unusedStandardProducts
-                .splice(0, amountOfStandardProductsForAdding)
-                .forEach(productID => standardProductsForDefaultCategory.add(productID));
+    const [
+        reducedProductIDsWithDependencies,
+        unusedStandardProducts
+    ] = await productDefinitionWorker.filterProductsByCategories(
+        productIDs,
+        specificCategoryConfigs,
+        {
+            onlineFlagCheck: productsConfig.onlineFlagCheck,
+            isStandardProductsShouldBeProcessed
         }
+    );
 
-        reducedProductIDsWithDependencies.forEach(productID => allReducedProductIDsForSpecificCategories.add(productID));
-    }
+    console.log(unusedStandardProducts);
 
-    
-
-    // const productsForUnspecifiedCategories = productDefinitionWorker.filterProducts(allReducedProductIDsForSpecificCategories, config.unspecifiedCategoryConfig);
+    reducedProductIDsWithDependencies.forEach(productID => allReducedProductIDsForSpecificCategories.add(productID));
 
     const productFilter = getFilterByProductID(allReducedProductIDsForSpecificCategories);
 
