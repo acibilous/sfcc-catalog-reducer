@@ -9,7 +9,7 @@ import { processSrc } from '#tools/files.js';
 import { getFilterByProductID } from '#tools/filters.js';
 import { beep, logUsedRAM } from '#tools/logger.js';
 
-import { src, config, specificCategoryConfigs, generalCategoryConfigs } from './constants.js';
+import { src, config, specificCategoryConfigs, generalCategoryConfigs, productsConfig } from './constants.js';
 
 /**
  * @description Entry point
@@ -50,7 +50,14 @@ import { src, config, specificCategoryConfigs, generalCategoryConfigs } from './
         const [
             reducedProductIDsWithDependencies,
             unusedStandardProducts
-        ] = await productDefinitionWorker.filterProducts(productIDs, specificCategoryConfigs[category], isStandardProductsShouldBeProcessed);
+        ] = await productDefinitionWorker.filterProducts(
+            productIDs,
+            specificCategoryConfigs[category],
+            {
+                onlineFlagCheck: productsConfig.onlineFlagCheck,
+                isStandardProductsShouldBeProcessed
+            }
+        );
 
         console.log(unusedStandardProducts);
 

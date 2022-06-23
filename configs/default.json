@@ -9,5 +9,8 @@
             "bundle": 1,
             "standard": 0
         }
+    },
+    "productsConfing": {
+        "onlineFlagCheck": true
     }
 }

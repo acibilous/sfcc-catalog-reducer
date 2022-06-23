@@ -66,6 +66,8 @@ const productionConfig = {
  */
 export const config = isTestEnv ? testConfig : productionConfig;
 
+export const { productsConfig } = config;
+
 /**
  * @type {import('#types').GeneralCategoryConfigs}
  */

@@ -10,9 +10,7 @@ export type Category = {
 };
 
 export type ProductsConfig = {
-    inclusions: Array<string>;
-    includeIfDependency: boolean;
-    includeChildren: boolean;
+    onlineFlagCheck: boolean 
 };
 
 export type CategoryConfig = {
@@ -54,7 +52,7 @@ export type CatalogReducerConfig = {
     enabledCache: boolean;
     cleanupData: boolean;
     categoriesConfig: CategoryConfigs;
-    productsConfig?: ProductsConfig;
+    productsConfig: ProductsConfig;
 };
 
 export type XMLTag = {

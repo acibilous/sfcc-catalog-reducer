@@ -2,10 +2,17 @@
     "behavior": "createNew",
     "outPostfix": "_reduced",
     "src": {
-        "masters": ["./testdata/medium/ggr-master-catalog/catalog.xml"],
-        "navigations": ["./testdata/medium/ggr-global-nav-catalog/catalog.xml"],
+        "masters": [
+            "./testdata/medium/ggr-master-catalog/catalog.xml"
+        ],
+        "navigations": [
+            "./testdata/medium/ggr-global-nav-catalog/catalog.xml"
+        ],
         "inventories": [],
         "priceBooks": []
+    },
+    "productsConfig": {
+        "onlineFlagCheck": false
     },
     "categoriesConfig": {
         "$default": {
@@ -15,12 +22,11 @@
             "bundle": 0,
             "standard": 0
         },
-        "BOOTIES": {
-            "master": 1,
-            "masterWithVariationGroups": 1,
-            "set": 1,
-            "bundle": 1,
-            "standard": 1
+        "root": {
+            "master": 0,
+            "set": 0,
+            "bundle": 0,
+            "standard": 999
         }
     }
 }
