@@ -44,7 +44,9 @@ import { src, config, specificCategoryConfigs, generalCategoryConfigs, productsC
         productsConfig
     );
 
-    const categoriesThatShouldUseDefaultConfing = allCategories.filter(category => !specificCategories.includes(category));
+    const categoriesThatShouldUseDefaultConfing = Array
+        .from(allCategories)
+        .filter(category => !specificCategories.includes(category));
 
     const addReducedProduducts = [...reduced.categorized, ...reduced.default];
     
