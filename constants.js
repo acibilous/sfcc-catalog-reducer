@@ -9,6 +9,11 @@ const defaults = importJson('./configs/default.json');
 const testConfig = importJson('./configs/test.json');
 
 /**
+ * @type {Array<import('#types').ProductType>}
+ */
+const productTypes = ['master', 'masterWithVariationGroups', 'set', 'bundle', 'standard'];
+
+/**
  * @type {Partial<import('#types').CatalogReducerConfig>}
  */
 const catalogReducerConfig = catalogReducerFile || packageJson.catalogReducer;
@@ -78,11 +83,15 @@ export const generalCategoryConfigs = {};
  */
 export const specificCategoryConfigs = {};
 
-Object.entries(config.categoriesConfig).forEach(([category, value]) => {
+Object.entries(config.categoriesConfig).forEach(([category, config]) => {
+    productTypes.forEach(type => {
+        config[type] = config[type] || 0;
+    });
+
     if (category[0] === '$') {
-        generalCategoryConfigs[category] = value;
+        generalCategoryConfigs[category] = config;
     } else {
-        specificCategoryConfigs[category] = value;
+        specificCategoryConfigs[category] = config;
     }
 });
 

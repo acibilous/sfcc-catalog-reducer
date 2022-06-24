@@ -26,44 +26,30 @@ import { src, config, specificCategoryConfigs, generalCategoryConfigs, productsC
         cleanup
     } = await processSrc(src);
 
-    const isStandardProductsShouldBeProcessed = Object.values(specificCategoryConfigs).some(config => config.standard > 0)
-        || generalCategoryConfigs.$default.standard > 0;
-
-    /**
-     * @type {Set<string>}
-     */
-    const allReducedProductIDsForSpecificCategories = new Set();
 
     const productAssignmentWorker = new ProductAssignmentWorker(navigationFiles);
     const productDefinitionWorker = new ProductDefinitionWorker(masterFiles);
 
     const specificCategories = Object.keys(specificCategoryConfigs);
 
-    const productIDs = await productAssignmentWorker.parseCaregories(specificCategories);
+    const specificProductIDs = await productAssignmentWorker.parseCaregories(specificCategories);
 
-    const [
-        reducedProductIDsWithDependencies,
-        unusedStandardProducts
-    ] = await productDefinitionWorker.filterProductsByCategories(
-        productIDs,
+    const reduced = await productDefinitionWorker.filterProductsByCategories(
+        specificProductIDs,
         specificCategoryConfigs,
-        {
-            onlineFlagCheck: productsConfig.onlineFlagCheck,
-            isStandardProductsShouldBeProcessed
-        }
+        generalCategoryConfigs.$default,
+        productsConfig
     );
 
-    console.log(unusedStandardProducts);
-
-    reducedProductIDsWithDependencies.forEach(productID => allReducedProductIDsForSpecificCategories.add(productID));
-
-    const productFilter = getFilterByProductID(allReducedProductIDsForSpecificCategories);
+    const addReducedProduducts = [...reduced.categorized, ...reduced.default];
+    
+    const productFilter = getFilterByProductID(addReducedProduducts);
 
     await Promise.all([
+        reducers.navigation(productFilter, navigationFiles),
         reducers.master(productFilter, masterFiles),
         reducers.inventory(productFilter, inventoryFiles),
         reducers.priceBook(productFilter, priceBookFiles),
-        reducers.navigation(productFilter, navigationFiles)
     ]);
 
     if (config.behavior === 'updateExisting') {

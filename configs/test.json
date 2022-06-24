@@ -3,10 +3,12 @@
     "outPostfix": "_reduced",
     "src": {
         "masters": [
-            "./testdata/master/master1.xml"
+            "./testdata/master/master1.xml",
+            "./testdata/master/master2.xml"
         ],
         "navigations": [
-            "./testdata/navigation/navigation1.xml"
+            "./testdata/navigation/navigation1.xml",
+            "./testdata/navigation/navigation2.xml"
         ],
         "inventories": [],
         "priceBooks": []
@@ -16,17 +18,9 @@
     },
     "categoriesConfig": {
         "$default": {
-            "master": 0,
-            "masterWithVariationGroups": 0,
-            "set": 0,
-            "bundle": 0,
-            "standard": 0
+            "master": 1
         },
-        "deals": {
-            "master": 0,
-            "masterWithVariationGroups": 0,
-            "set": 1,
-            "bundle": 1,
+        "pool": {
             "standard": 1
         }
     }

@@ -39,6 +39,11 @@
                 <perpetual>false</perpetual>
                 <preorder-backorder-handling>none</preorder-backorder-handling>
             </record>
+            <record product-id="offline-product-1">
+                <allocation>1000.0</allocation>
+                <perpetual>false</perpetual>
+                <preorder-backorder-handling>none</preorder-backorder-handling>
+            </record>
             <record product-id="product-bundle-1">
                 <allocation>1000.0</allocation>
                 <perpetual>false</perpetual>
