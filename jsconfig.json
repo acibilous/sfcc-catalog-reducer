@@ -8,6 +8,7 @@
             "#workers/*": ["./lib/workers/*"],
             "#tools/*": ["./lib/tools/*"],
             "#model/*": ["./lib/model/*"],
+            "#reducers/*": ["./lib/reducers/*"],
         }
     }
 }

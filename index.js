@@ -3,7 +3,7 @@
 import ProductAssignmentWorker from '#workers/ProductAssignmentWorker.js';
 import ProductDefinitionWorker from '#workers/ProductDefinitionWorker.js';
 
-import reducers from '#tools/reducers/index.js';
+import reducers from '#reducers/index.js';
 import { renameReducedToOriginal } from '#tools/cleanup.js';
 import { processSrc } from '#tools/files.js';
 import { getFilterByProductID } from '#tools/filters.js';

@@ -13,7 +13,8 @@
         "#xml/*": "./lib/xml/*",
         "#workers/*": "./lib/workers/*",
         "#tools/*": "./lib/tools/*",
-        "#model/*": "./lib/model/*"
+        "#model/*": "./lib/model/*",
+        "#reducers/*": "./lib/reducers/*"
     },
     "peerDependencies": {
         "globby": "13.1.1"
