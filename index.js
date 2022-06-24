@@ -32,7 +32,10 @@ import { src, config, specificCategoryConfigs, generalCategoryConfigs, productsC
 
     const specificCategories = Object.keys(specificCategoryConfigs);
 
-    const specificProductIDs = await productAssignmentWorker.parseCaregories(specificCategories);
+    const {
+        allCategories,
+        assignments: specificProductIDs
+    } = await productAssignmentWorker.parseCaregories(specificCategories);
 
     const reduced = await productDefinitionWorker.filterProductsByCategories(
         specificProductIDs,
@@ -41,12 +44,14 @@ import { src, config, specificCategoryConfigs, generalCategoryConfigs, productsC
         productsConfig
     );
 
+    const categoriesThatShouldUseDefaultConfing = allCategories.filter(category => !specificCategories.includes(category));
+
     const addReducedProduducts = [...reduced.categorized, ...reduced.default];
     
     const productFilter = getFilterByProductID(addReducedProduducts);
 
     await Promise.all([
-        reducers.navigation(productFilter, navigationFiles),
+        reducers.navigation(navigationFiles, reduced.categorized, reduced.default, categoriesThatShouldUseDefaultConfing),
         reducers.master(productFilter, masterFiles),
         reducers.inventory(productFilter, inventoryFiles),
         reducers.priceBook(productFilter, priceBookFiles),
