@@ -61,6 +61,8 @@ export type XMLTag = {
     attributes: Record<string, string>;
 };
 
+export type XMLProductDefinition = InstanceType<typeof import('#xml/XMLProductDefinition').default>;
+
 export type XMLParserEventName = 'openmatchedtag' | 'closematchedtag';
 export type XMLMatcherEventName = XMLParserEventName | 'end' | 'match';
 

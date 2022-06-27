@@ -3,22 +3,24 @@
     "outPostfix": "_reduced",
     "src": {
         "masters": [
-            "./testdata/master/master1.xml",
-            "./testdata/master/master2.xml"
+            "./testdata/Boiler/boilerplate-master-catalog/catalog.xml"
         ],
         "navigations": [
-            "./testdata/navigation/navigation1.xml",
-            "./testdata/navigation/navigation2.xml"
+            "./testdata/Boiler/boilerplate-navigation-catalog/catalog.xml"
         ],
         "inventories": [],
         "priceBooks": []
     },
     "productsConfig": {
-        "onlineFlagCheck": false
+        "onlineFlagCheck": true
     },
     "categoriesConfig": {
         "$default": {
-            "standard": 3
+            "master": 0,
+            "masterWithVariationGroups": 0,
+            "set": 0,
+            "bundle": 0,
+            "standard": 1000
         }
     }
 }
