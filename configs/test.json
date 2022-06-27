@@ -3,10 +3,10 @@
     "outPostfix": "_reduced",
     "src": {
         "masters": [
-            "./testdata/Boiler/boilerplate-master-catalog/catalog.xml"
+            "./testdata/GGR/ggr-master-catalog/catalog.xml"
         ],
         "navigations": [
-            "./testdata/Boiler/boilerplate-navigation-catalog/catalog.xml"
+            "./testdata/GGR/ggr-global-nav-catalog/catalog.xml"
         ],
         "inventories": [],
         "priceBooks": []
@@ -17,10 +17,11 @@
     "categoriesConfig": {
         "$default": {
             "master": 0,
-            "masterWithVariationGroups": 0,
+            "masterWithVariationGroups": 10,
             "set": 0,
             "bundle": 0,
-            "standard": 1000
-        }
+            "standard": 10
+        },
+        "BOOTIES": "keepAsItIs"
     }
 }

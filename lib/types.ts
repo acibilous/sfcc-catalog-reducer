@@ -29,7 +29,7 @@ export type CategoryProductsContainer = {
 };
 
 export type SpecificCategoryConfigs = {
-    [categoryId: string]: CategoryConfig;
+    [categoryId: string]: CategoryConfig | 'keepAsItIs';
 }
 
 export type GeneralCategoryConfigs = {
@@ -39,7 +39,6 @@ export type GeneralCategoryConfigs = {
 export type CategoryConfigs = GeneralCategoryConfigs & SpecificCategoryConfigs;
 
 export type SrcConfig = {
-    finalCacheDir: string;
     masters: Array<string>;
     navigations: Array<string>;
     inventories?: Array<string>;

@@ -30,16 +30,25 @@ import { src, config, specificCategoryConfigs, generalCategoryConfigs, productsC
     const productAssignmentWorker = new ProductAssignmentWorker(navigationFiles);
     const productDefinitionWorker = new ProductDefinitionWorker(masterFiles);
 
-    const specificCategories = Object.keys(specificCategoryConfigs);
+    const keepAsItIsCategories = Object
+        .entries(specificCategoryConfigs)
+        .filter(([, value]) => value === 'keepAsItIs')
+        .map(([category]) => category);
+
+    const specificCategories = Object
+        .keys(specificCategoryConfigs)
+        .filter(category => !keepAsItIsCategories.includes(category));
 
     const {
         allCategories,
-        assignments: specificProductIDs
-    } = await productAssignmentWorker.parseCaregories(specificCategories);
+        assignments: specificProductIDs,
+        keepAsItIsProducts
+    } = await productAssignmentWorker.parseCaregories(specificCategories, keepAsItIsCategories);
 
     const reduced = await productDefinitionWorker.filterProductsByCategories(
         specificProductIDs,
         specificCategoryConfigs,
+        keepAsItIsProducts,
         generalCategoryConfigs.$default,
         productsConfig
     );
@@ -48,12 +57,12 @@ import { src, config, specificCategoryConfigs, generalCategoryConfigs, productsC
         .from(allCategories)
         .filter(category => !specificCategories.includes(category));
 
-    const addReducedProduducts = [...reduced.categorized, ...reduced.default];
-    
+    const addReducedProduducts = [...keepAsItIsProducts, ...reduced.categorized, ...reduced.default];
+
     const productFilter = getFilterByProductID(addReducedProduducts);
 
     await Promise.all([
-        reducers.navigation(navigationFiles, reduced.categorized, reduced.default, categoriesThatShouldUseDefaultConfing),
+        reducers.navigation(navigationFiles, keepAsItIsProducts, reduced.categorized, reduced.default, categoriesThatShouldUseDefaultConfing),
         reducers.master(productFilter, masterFiles),
         reducers.inventory(productFilter, inventoryFiles),
         reducers.priceBook(productFilter, priceBookFiles),

@@ -84,9 +84,11 @@ export const generalCategoryConfigs = {};
 export const specificCategoryConfigs = {};
 
 Object.entries(config.categoriesConfig).forEach(([category, config]) => {
-    productTypes.forEach(type => {
-        config[type] = config[type] || 0;
-    });
+    if (typeof config !== 'string') {
+        productTypes.forEach(type => {
+            config[type] = config[type] || 0;
+        });
+    }
 
     if (category[0] === '$') {
         generalCategoryConfigs[category] = config;
