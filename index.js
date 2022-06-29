@@ -63,8 +63,6 @@ import {
 
     const addReducedProduducts = [...keepAsItIsProducts, ...reduced.categorized, ...reduced.default];
 
-    console.log(reduced.nonMasters);
-
     await Promise.all([
         reducers.navigation(
             navigationFiles,
