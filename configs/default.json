@@ -10,6 +10,10 @@
             "standard": 0
         }
     },
+    "generateMissingRecords": {
+        "inventoryAllocation": false,
+        "price": false
+    },
     "productsConfing": {
         "onlineFlagCheck": true
     }

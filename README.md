@@ -42,12 +42,18 @@ Add file `catalogReducerConfing.json` to the root of your project with configura
     "categoriesConfig": { // Sets amount of products (with their dependencies) should to keep after reducing for every type
         "$default": {
             "master": 1,
-            "set": 1,
+            "masterWithVariationGroups": 1,
+            "set": [ // You can set either number of product to save, or an array of certain products.
+                "product-set-1",
+                "product-set-2",
+                "product-set-3"
+            ],
             "bundle": 1,
             "standard": 0 // only standalone products, meaning not including dependencies from master, set or bundle
         },
         "CATEGORY_ID_CUSTOM_CONFIGURATION": { // Config for certain category (OPTIONAL)
             "master": 5,
+            "masterWithVariationGroups": 0, // OPTIONAL, if you want to set 0 for some type, you could just remove the field
             "set": 5,
             "bundle": 5,
             "standard": 10
@@ -57,6 +63,13 @@ Add file `catalogReducerConfing.json` to the root of your project with configura
         "inclusions": [], // array of product ids needs to be included bypassing counter
         "includeIfDependency": false, // include parent product if inclusion is dependency with all parent dependencies
         "includeChildren": true // include dependencies
+    },
+    "productsConfig": { // OPTIONAL
+        "onlineFlagCheck": true // To perform online-flag=true check (OPTIONAL, true by default)
+    },
+    "generateMissingRecords": { // OPTIONAL. Require inventory and pricebook catalogs with at least one record
+        "inventoryAllocation": 1000,
+        "price": 9.99
     }
 }
 ```
