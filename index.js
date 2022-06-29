@@ -4,12 +4,17 @@ import ProductAssignmentWorker from '#workers/ProductAssignmentWorker.js';
 import ProductDefinitionWorker from '#workers/ProductDefinitionWorker.js';
 
 import reducers from '#reducers/index.js';
-import { renameReducedToOriginal } from '#tools/cleanup.js';
-import { processSrc } from '#tools/files.js';
-import { getFilterByProductID } from '#tools/filters.js';
+import { processSrc, renameReducedToOriginal } from '#tools/files.js';
 import { beep, logUsedRAM } from '#tools/logger.js';
 
-import { src, config, specificCategoryConfigs, generalCategoryConfigs, productsConfig } from './constants.js';
+import {
+    src,
+    behavior,
+    specificCategoryConfigs,
+    generalCategoryConfigs,
+    productsConfig,
+    generateMissingRecords
+} from './constants.js';
 
 /**
  * @description Entry point
@@ -22,8 +27,7 @@ import { src, config, specificCategoryConfigs, generalCategoryConfigs, productsC
         masterFiles,
         navigationFiles,
         inventoryFiles,
-        priceBookFiles,
-        cleanup
+        priceBookFiles
     } = await processSrc(src);
 
 
@@ -59,22 +63,20 @@ import { src, config, specificCategoryConfigs, generalCategoryConfigs, productsC
 
     const addReducedProduducts = [...keepAsItIsProducts, ...reduced.categorized, ...reduced.default];
 
-    const productFilter = getFilterByProductID(addReducedProduducts);
+    console.log(reduced.nonMasters);
 
     await Promise.all([
         reducers.navigation(navigationFiles, keepAsItIsProducts, reduced.categorized, reduced.default, categoriesThatShouldUseDefaultConfing),
-        reducers.master(productFilter, masterFiles),
-        reducers.inventory(productFilter, inventoryFiles),
-        reducers.priceBook(productFilter, priceBookFiles),
+        reducers.master(masterFiles, addReducedProduducts),
+        reducers.inventory(inventoryFiles, addReducedProduducts, reduced.nonMasters, generateMissingRecords.inventoryAllocation),
+        // reducers.priceBook(priceBookFiles, addReducedProduducts, generateMissingRecords.pricebook)
     ]);
 
-    if (config.behavior === 'updateExisting') {
+    if (behavior === 'updateExisting') {
         await renameReducedToOriginal(allFiles);
     }
 
-    cleanup();
-
-    logUsedRAM()
+    logUsedRAM();
 
     console.timeEnd('Done in');
 

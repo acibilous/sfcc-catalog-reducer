@@ -69,9 +69,9 @@ const productionConfig = {
 /**
  * @type {import('#types').CatalogReducerConfig}
  */
-export const config = isTestEnv ? testConfig : productionConfig;
+const config = isTestEnv ? testConfig : productionConfig;
 
-export const { productsConfig } = config;
+export const { productsConfig, behavior, outPostfix } = config;
 
 /**
  * @type {import('#types').GeneralCategoryConfigs}
@@ -100,3 +100,8 @@ Object.entries(config.categoriesConfig).forEach(([category, config]) => {
 export const src = config.src;
 
 export const enabledCache = config.enabledCache;
+
+export const generateMissingRecords = config.generateMissingRecords || {
+    inventoryAllocation: false,
+    price: false
+};

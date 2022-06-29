@@ -10,7 +10,9 @@
             "./testdata/navigation/navigation1.xml",
             "./testdata/navigation/navigation2.xml"
         ],
-        "inventories": [],
+        "inventories": [
+            "testdata/inventory/inventory1.xml"
+        ],
         "priceBooks": []
     },
     "productsConfig": {
@@ -34,5 +36,9 @@
             ]
         },
         "category-1": "keepAsItIs"
+    },
+    "generateMissingRecords": {
+        "inventoryAllocation": 465,
+        "price": 99
     }
 }
