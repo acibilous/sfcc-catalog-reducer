@@ -47,7 +47,7 @@ import {
         allCategories,
         assignments: specificProductIDs,
         keepAsItIsProducts
-    } = await productAssignmentWorker.parseCaregories(specificCategories, keepAsItIsCategories);
+    } = await productAssignmentWorker.parseCategories(specificCategories, keepAsItIsCategories);
 
     const reduced = await productDefinitionWorker.filterProductsByCategories(
         specificProductIDs,

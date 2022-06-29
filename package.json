@@ -20,7 +20,8 @@
         "globby": "13.1.1"
     },
     "scripts": {
-        "test-reduce": "node index.js --test-config"
+        "test-reduce": "node index.js --test-config",
+        "lint": "eslint */**/*.js"
     },
     "repository": {
         "type": "git",
@@ -37,5 +38,9 @@
     "bugs": {
         "url": "https://github.com/acibilous/sfcc-catalog-reducer/issues"
     },
-    "homepage": "https://github.com/acibilous/sfcc-catalog-reducer#readme"
+    "homepage": "https://github.com/acibilous/sfcc-catalog-reducer#readme",
+    "devDependencies": {
+        "eslint": "^8.18.0",
+        "eslint-plugin-spellcheck": "^0.0.19"
+    }
 }

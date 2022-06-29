@@ -66,7 +66,7 @@ export type XMLProductDefinition = InstanceType<typeof import('#xml/XMLProductDe
 
 export type XMLParserEventName = 'openmatchedtag' | 'closematchedtag';
 export type XMLMatcherEventName = XMLParserEventName | 'end' | 'match';
-export type XMLFilterWritterEventName = XMLMatcherEventName | 'afterLastMatch';
+export type XMLFilterWriterEventName = XMLMatcherEventName | 'afterLastMatch';
 
 export type XMLTagHandler = (tag: XMLTag, raw: string) => void;
 export type XMLTagFilter = (tag: XMLTag) => boolean;
