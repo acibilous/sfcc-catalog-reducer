@@ -13,7 +13,9 @@
         "inventories": [
             "testdata/inventory/inventory1.xml"
         ],
-        "priceBooks": []
+        "priceBooks": [
+            "testdata/priceBook/priceBook1.xml"
+        ]
     },
     "productsConfig": {
         "onlineFlagCheck": true
@@ -39,6 +41,6 @@
     },
     "generateMissingRecords": {
         "inventoryAllocation": 465,
-        "price": 99
+        "price": 121.73
     }
 }

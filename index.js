@@ -66,10 +66,26 @@ import {
     console.log(reduced.nonMasters);
 
     await Promise.all([
-        reducers.navigation(navigationFiles, keepAsItIsProducts, reduced.categorized, reduced.default, categoriesThatShouldUseDefaultConfing),
+        reducers.navigation(
+            navigationFiles,
+            keepAsItIsProducts,
+            reduced.categorized,
+            reduced.default,
+            categoriesThatShouldUseDefaultConfing
+        ),
         reducers.master(masterFiles, addReducedProduducts),
-        reducers.inventory(inventoryFiles, addReducedProduducts, reduced.nonMasters, generateMissingRecords.inventoryAllocation),
-        // reducers.priceBook(priceBookFiles, addReducedProduducts, generateMissingRecords.pricebook)
+        reducers.inventory(
+            inventoryFiles,
+            addReducedProduducts,
+            reduced.nonMasters,
+            generateMissingRecords.inventoryAllocation
+        ),
+        reducers.priceBook(
+            priceBookFiles,
+            addReducedProduducts,
+            reduced.nonMasters,
+            generateMissingRecords.price
+        )
     ]);
 
     if (behavior === 'updateExisting') {
