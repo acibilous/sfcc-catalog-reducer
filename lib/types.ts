@@ -1,4 +1,4 @@
-export type ProductType = 'master' | 'set' | 'bundle' | 'standard';
+export type ProductType = 'master' | 'masterWithVariationGroups' | 'set' | 'bundle' | 'standard';
 
 export type Product = {
     type: ProductType;
@@ -10,25 +10,35 @@ export type Category = {
 };
 
 export type ProductsConfig = {
-    inclusions: Array<string>;
-    includeIfDependency: boolean;
-    includeChildren: boolean;
+    onlineFlagCheck: boolean 
 };
 
 export type CategoryConfig = {
-    master: number;
-    set: number;
-    bundle: number;
-    standard: number;
+    master: number | Array<string>;
+    masterWithVariationGroups: number | Array<string>;
+    set: number | Array<string>;
+    bundle: number | Array<string>;
+    standard: number | Array<string>;
 };
 
-export type CategoriesConfig = {
-    default: CategoryConfig;
-    [categoryId: string]: CategoryConfig;
+export type CategoryProductsContainer = {
+    master: Array<string>;
+    set: Array<string>;
+    bundle: Array<string>;
+    standard: Array<string>;
 };
+
+export type SpecificCategoryConfigs = {
+    [categoryId: string]: CategoryConfig | 'keepAsItIs';
+}
+
+export type GeneralCategoryConfigs = {
+    $default: CategoryConfig;
+}
+
+export type CategoryConfigs = GeneralCategoryConfigs & SpecificCategoryConfigs;
 
 export type SrcConfig = {
-    finalCacheDir: string;
     masters: Array<string>;
     navigations: Array<string>;
     inventories?: Array<string>;
@@ -39,10 +49,12 @@ export type CatalogReducerConfig = {
     outPostfix: string;
     behavior: 'createNew' | 'updateExisting';
     src: SrcConfig;
-    enabledCache: boolean;
-    cleanupData: boolean;
-    categoriesConfig: CategoriesConfig;
-    productsConfig?: ProductsConfig;
+    generateMissingRecords: {
+        inventoryAllocation: false | number;
+        price: false | number;
+    };
+    categoriesConfig: CategoryConfigs;
+    productsConfig: ProductsConfig;
 };
 
 export type XMLTag = {
@@ -50,9 +62,11 @@ export type XMLTag = {
     attributes: Record<string, string>;
 };
 
+export type XMLProductDefinition = InstanceType<typeof import('#xml/XMLProductDefinition').default>;
+
 export type XMLParserEventName = 'openmatchedtag' | 'closematchedtag';
 export type XMLMatcherEventName = XMLParserEventName | 'end' | 'match';
+export type XMLFilterWriterEventName = XMLMatcherEventName | 'afterLastMatch';
 
+export type XMLTagHandler = (tag: XMLTag, raw: string) => void;
 export type XMLTagFilter = (tag: XMLTag) => boolean;
-
-export type ProductsRegistry = typeof import('./catalog/registry/ProductsRegistry');

@@ -1,21 +1,46 @@
 {
     "behavior": "createNew",
     "outPostfix": "_reduced",
-    "enabledCache": true,
-    "cleanupData": false,
     "src": {
-        "finalCacheDir": "./testdata/cache",
-        "masters": ["./testdata/master/*.xml"],
-        "navigations": ["./testdata/navigation/*.xml"],
-        "inventories": ["./testdata/inventory/*.xml"],
-        "priceBooks": ["./testdata/priceBook/*.xml"]
+        "masters": [
+            "./testdata/master/master1.xml",
+            "./testdata/master/master2.xml"
+        ],
+        "navigations": [
+            "./testdata/navigation/navigation1.xml",
+            "./testdata/navigation/navigation2.xml"
+        ],
+        "inventories": [
+            "testdata/inventory/inventory1.xml"
+        ],
+        "priceBooks": [
+            "testdata/priceBook/priceBook1.xml"
+        ]
+    },
+    "productsConfig": {
+        "onlineFlagCheck": true
     },
     "categoriesConfig": {
-        "default": {
-            "master": 5,
-            "set": 6,
-            "bundle": 6,
-            "standard": 0
-        }
+        "$default": {
+            "master": [
+                "product-variation-master-1"
+            ],
+            "standard": [
+                "x-product-6"
+            ]
+        },
+        "deals": {
+            "masterWithVariationGroups": 1,
+            "master": 2,
+            "set": [
+                "product-set-2",
+                "product-set-3"
+            ]
+        },
+        "category-1": "keepAsItIs"
+    },
+    "generateMissingRecords": {
+        "inventoryAllocation": 465,
+        "price": 121.73
     }
 }

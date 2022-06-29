@@ -1,4 +1,4 @@
-import { importJson, getAbsolutePathToLibFile } from './lib/tools/import.js';
+import { importJson } from '#tools/import.js';
 
 /**
  * @type {{ catalogReducer: Partial<import('#types').CatalogReducerConfig> }}
@@ -7,6 +7,11 @@ const packageJson = importJson('package.json', process.cwd());
 const catalogReducerFile = importJson('catalogReducerConfing.json', process.cwd(), 'returnNull');
 const defaults = importJson('./configs/default.json');
 const testConfig = importJson('./configs/test.json');
+
+/**
+ * @type {Array<import('#types').ProductType>}
+ */
+const productTypes = ['master', 'masterWithVariationGroups', 'set', 'bundle', 'standard'];
 
 /**
  * @type {Partial<import('#types').CatalogReducerConfig>}
@@ -46,12 +51,6 @@ if (!isTestEnv) {
         process.exit(0);
     }
 
-    if (!catalogReducerConfig.src?.finalCacheDir) {
-        console.log('Please, provide directory for final cache (src.finalCacheDir)');
-
-        process.exit(0);
-    }
-
     if (catalogReducerConfig.behavior
         && catalogReducerConfig.behavior !== 'createNew'
         && catalogReducerConfig.behavior !== 'updateExisting'
@@ -70,10 +69,39 @@ const productionConfig = {
 /**
  * @type {import('#types').CatalogReducerConfig}
  */
-export const config = isTestEnv ? testConfig : productionConfig;
+const config = isTestEnv ? testConfig : productionConfig;
 
-if (isTestEnv) {
-    config.src.finalCacheDir = getAbsolutePathToLibFile(config.src.finalCacheDir);
-}
+export const { productsConfig, behavior, outPostfix } = config;
+
+/**
+ * @type {import('#types').GeneralCategoryConfigs}
+ */
+export const generalCategoryConfigs = {};
+
+/**
+ * @type {import('#types').SpecificCategoryConfigs}
+ */
+export const specificCategoryConfigs = {};
+
+Object.entries(config.categoriesConfig).forEach(([category, config]) => {
+    if (typeof config !== 'string') {
+        productTypes.forEach(type => {
+            config[type] = config[type] || 0;
+        });
+    }
+
+    if (category[0] === '$') {
+        generalCategoryConfigs[category] = config;
+    } else {
+        specificCategoryConfigs[category] = config;
+    }
+});
+
+export const src = config.src;
 
 export const enabledCache = config.enabledCache;
+
+export const generateMissingRecords = config.generateMissingRecords || {
+    inventoryAllocation: false,
+    price: false
+};

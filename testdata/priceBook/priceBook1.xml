@@ -22,6 +22,9 @@
             <price-table product-id="product-5">
                 <amount quantity="1">250.00</amount>
             </price-table>
+            <price-table product-id="offline-product-1">
+                <amount quantity="1">250.00</amount>
+            </price-table>
             <price-table product-id="product-bundle-1">
                 <amount quantity="1">250.00</amount>
             </price-table>

@@ -1864,7 +1864,7 @@
             <custom-attribute attribute-id="tabDescription">Description tab content from product custom attribute</custom-attribute>
         </custom-attributes>
     </product>
-    <product product-id="product-6">
+    <product product-id="offline-product-1">
         <ean/>
         <upc/>
         <unit/>
@@ -1872,7 +1872,7 @@
         <step-quantity>1</step-quantity>
         <display-name xml:lang="x-default">Product 5</display-name>
         <short-description xml:lang="x-default">Product short description</short-description>
-        <online-flag>true</online-flag>
+        <online-flag>false</online-flag>
         <available-flag>true</available-flag>
         <searchable-flag>true</searchable-flag>
         <images>
