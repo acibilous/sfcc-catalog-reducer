@@ -3,10 +3,12 @@
     "outPostfix": "_reduced",
     "src": {
         "masters": [
-            "./testdata/GGR/ggr-master-catalog/catalog.xml"
+            "./testdata/master/master1.xml",
+            "./testdata/master/master2.xml"
         ],
         "navigations": [
-            "./testdata/GGR/ggr-global-nav-catalog/catalog.xml"
+            "./testdata/navigation/navigation1.xml",
+            "./testdata/navigation/navigation2.xml"
         ],
         "inventories": [],
         "priceBooks": []
@@ -16,12 +18,21 @@
     },
     "categoriesConfig": {
         "$default": {
-            "master": 0,
-            "masterWithVariationGroups": 10,
-            "set": 0,
-            "bundle": 0,
-            "standard": 10
+            "master": [
+                "product-variation-master-1"
+            ],
+            "standard": [
+                "x-product-6"
+            ]
         },
-        "BOOTIES": "keepAsItIs"
+        "deals": {
+            "masterWithVariationGroups": 1,
+            "master": 2,
+            "set": [
+                "product-set-2",
+                "product-set-3"
+            ]
+        },
+        "category-1": "keepAsItIs"
     }
 }

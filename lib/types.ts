@@ -14,11 +14,11 @@ export type ProductsConfig = {
 };
 
 export type CategoryConfig = {
-    master: number;
-    masterWithVariationGroups: number;
-    set: number;
-    bundle: number;
-    standard: number;
+    master: number | Array<string>;
+    masterWithVariationGroups: number | Array<string>;
+    set: number | Array<string>;
+    bundle: number | Array<string>;
+    standard: number | Array<string>;
 };
 
 export type CategoryProductsContainer = {

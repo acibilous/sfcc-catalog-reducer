@@ -878,6 +878,8 @@
         </custom-attributes>
     </category>
 
+    <category-assignment category-id="category-1" product-id="product-5"/>
+
     <category-assignment category-id="category-1" product-id="product-1"/>
     <category-assignment category-id="category-2" product-id="product-1"/>
     <category-assignment category-id="category-3" product-id="product-1"/>
