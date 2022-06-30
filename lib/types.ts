@@ -1,14 +1,5 @@
 export type ProductType = 'master' | 'masterWithVariationGroups' | 'set' | 'bundle' | 'standard';
 
-export type Product = {
-    type: ProductType;
-    dependencies: Array<string>; // array of product IDs
-};
-
-export type Category = {
-    [categoryId: string]: Product;
-};
-
 export type ProductsConfig = {
     onlineFlagCheck: boolean 
 };
@@ -19,13 +10,6 @@ export type CategoryConfig = {
     set: number | Array<string>;
     bundle: number | Array<string>;
     standard: number | Array<string>;
-};
-
-export type CategoryProductsContainer = {
-    master: Array<string>;
-    set: Array<string>;
-    bundle: Array<string>;
-    standard: Array<string>;
 };
 
 export type SpecificCategoryConfigs = {
