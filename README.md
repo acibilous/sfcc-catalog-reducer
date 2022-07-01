@@ -60,11 +60,6 @@ Add file `catalogReducerConfing.json` to the root of your project with configura
         },
     },
     "productsConfig": { // OPTIONAL
-        "inclusions": [], // array of product ids needs to be included bypassing counter
-        "includeIfDependency": false, // include parent product if inclusion is dependency with all parent dependencies
-        "includeChildren": true // include dependencies
-    },
-    "productsConfig": { // OPTIONAL
         "onlineFlagCheck": true // To perform online-flag=true check (OPTIONAL, true by default)
     },
     "generateMissingRecords": { // OPTIONAL. Require inventory and pricebook catalogs with at least one record
