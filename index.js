@@ -36,7 +36,7 @@ import {
 
     const keepAsItIsCategories = Object
         .entries(specificCategoryConfigs)
-        .filter(([, value]) => value === 'keepAsItIs')
+        .filter(([, value]) => value === 'keepAsIs')
         .map(([category]) => category);
 
     const specificCategories = Object

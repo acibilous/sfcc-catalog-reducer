@@ -13,7 +13,7 @@ export type CategoryConfig = {
 };
 
 export type SpecificCategoryConfigs = {
-    [categoryId: string]: CategoryConfig | 'keepAsItIs';
+    [categoryId: string]: CategoryConfig | 'keepAsIs';
 }
 
 export type GeneralCategoryConfigs = {
