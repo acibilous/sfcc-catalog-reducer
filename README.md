@@ -4,27 +4,43 @@
 
 ## How it works?
 
-Now it reducing master catalog based on the next logic
-- Read master catalogs xml to map products with their dependencies (master-variation, etc.)
-- Read navigation catalogs xml to collect category assignments and category definitions
-- Merge those types of registries in navigation one to filter not assigned products and collect dependencies of assigned in navigation
-- Read master and navigation catalogs again and simultaneously write their data to out reduced file based on registry from previous step and provided configuration in `package.json`
-- Read pricebook and inventory catalogs (if they are passed in `package.json`) and write their reduced versions just like with master and navigation catalogs
-- If behavior is `updateExisting`, deletes original xml files and rename reduced xml catalogs to original name effectively updating it
+Reducing of catalogs works based on the next logic:
+1. Gathers all file paths processing passed file patterns in `src` field
+2. Reads navigation catalogs for retrieving list of all categories and product assignments for specific categories (set in custom category configs, if such present), sorts assignments by specific categories. Gathers `keepAsIs` products (if needed)
+3. Reads master catalogs and parses product definitions.
+    1. Creates containers for product IDs that should be saved - either as categorized, or as $default
+    2. Reads all product definitions one-by-one
+    3. Parses product based on a type:
+        - non-`standard`: 
+            1. Saves all product dependencies, so we could know it's not independent products
+            2. if the container (categorized or $default) is not full for the following type, and the product fits product requirements (f.e. online-flag check) **OR** if this product is predefined in the config and fits product requirements - the product is added to the container.
+        - `standard`: 
+            1. If the product is independed it will be added to the list of independent products
+            2. If the product is a dependency and the master for this product wasn't processed - it will be processed
+    4. Having list of independent products, we process them according to the configuration - adding to categorized or $default container
+4. After parsing master catalogs, we have a list of all product that should be saved. This list is joined with list of `keepAsIs` products (if such present)
+5. Filters navigation, master, inventory and pricebook catalogs and left only products that were gathered on the step 4
+6. Generates missing price or allocation records (if needed)
 
 Note: if you are passing multiple master catalogs, the script will filter products in them like it's one big catalog.
 For exemple, if there are two passed master catalogs: first has 5 master products, second - 4 master products
-and you want to keep only 7 master product and set it in categoriesConfig.category.master=7,
-after reducing the first catalog still will have 5 products, and the second one only 2, making it 7 in sum.
+and you want to keep only 7 master product and set it in the config as $default.master=7,
+after reducing, the first catalog still will have 5 products, and the second one only 2, making it 7 in sum.
+
+## $default category
+
+$default category points how much products left in all unspecified categories, with generation of corresponding records.
+After reducing, all $default category products will be assigned to all unspecific categories.
+It will be the same products for every unspecified category.
 
 ## See how it works
 
 Execute `npm run test-reduce` and see the result of processing of test data in sfcc-catalog-reducer/test-data folder.
-Execute `npm run test-cache-reset` to remove cached json data.
+You can modify test config in `configs/test.json` file.
 
 ## Configuration
 
-Add file `catalogReducerConfing.json` to the root of your project with configuration:
+Add file `catalogReducerConfig.json` to the root of your project with configuration:
 
 ```json
 {
@@ -43,7 +59,7 @@ Add file `catalogReducerConfing.json` to the root of your project with configura
         "$default": {
             "master": 1,
             "masterWithVariationGroups": 1,
-            "set": [ // You can set either number of product to save, or an array of certain products.
+            "set": [ // You can set either the number of product to save, or an array of predefined products.
                 "product-set-1",
                 "product-set-2",
                 "product-set-3"
