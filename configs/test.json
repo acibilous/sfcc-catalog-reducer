@@ -14,7 +14,9 @@
             "testdata/inventory/inventory1.xml"
         ],
         "priceBooks": [
-            "testdata/priceBook/priceBook1.xml"
+            "testdata/priceBook/priceBook1.xml",
+            "testdata/priceBook/priceBook2.xml",
+            "testdata/priceBook/priceBookChild.xml"
         ]
     },
     "productsConfig": {

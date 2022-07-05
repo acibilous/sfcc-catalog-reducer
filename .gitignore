@@ -20,5 +20,6 @@ testdata/inventory/*
 !testdata/inventory/inventory2.xml
 
 testdata/priceBook/*
+!testdata/priceBook/priceBookChild.xml
 !testdata/priceBook/priceBook1.xml
 !testdata/priceBook/priceBook2.xml
