@@ -1839,6 +1839,8 @@
         <display-name xml:lang="x-default">Product 5</display-name>
         <short-description xml:lang="x-default">Product short description</short-description>
         <online-flag>true</online-flag>
+        <online-flag site-id="online-site-id">true</online-flag>
+        <online-flag site-id="offline-site-id">false</online-flag>
         <available-flag>true</available-flag>
         <searchable-flag>true</searchable-flag>
         <images>
