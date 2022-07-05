@@ -2149,6 +2149,16 @@
         </variation-attribute-values>
     </variation-attribute>
 
+    <recommendation source-id="x-product-1" source-type="product" target-id="x-product-2" type="1"/>
+    <recommendation source-id="x-product-1" source-type="product" target-id="x-product-3" type="1"/>
+    <recommendation source-id="x-product-1" source-type="product" target-id="x-product-4" type="1"/>
+    <recommendation source-id="x-product-1" source-type="product" target-id="x-product-5" type="1"/>
+    <recommendation source-id="x-product-1" source-type="product" target-id="x-product-variation-master" type="1"/>
+    <recommendation source-id="x-product-1" source-type="product" target-id="x-product-bundle" type="1"/>
 
+    <recommendation source-id="x-product-variation-master" source-type="product" target-id="x-product-2" type="1"/>
+    <recommendation source-id="x-product-variation-master" source-type="product" target-id="x-product-3" type="1"/>
+    <recommendation source-id="x-product-variation-master" source-type="product" target-id="x-product-4" type="1"/>
+    <recommendation source-id="x-product-variation-master" source-type="product" target-id="x-product-5" type="1"/>
 
 </catalog>
