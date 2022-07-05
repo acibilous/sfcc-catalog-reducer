@@ -13,6 +13,30 @@ module.exports = {
         "spellcheck"
     ],
     "rules": {
-        "spellcheck/spell-checker": ["warn"]
+        "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+        "spellcheck/spell-checker": [1,
+            {
+                "skipWords": [
+                    "closematchedtag",
+                    "closetag",
+                    "ds", // the ending of IDs
+                    "emmiter",
+                    "fs",
+                    "globby",
+                    "keyof",
+                    "matcher",
+                    "navigations",
+                    "openmatchedtag",
+                    "opentag",
+                    "postfix",
+                    "pricebook",
+                    "readdir",
+                    "readonly",
+                    "uncategorized",
+                    "unlink",
+                    "xml"
+                ],
+            }
+        ]
     }
 }
