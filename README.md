@@ -58,6 +58,7 @@ Add file `catalogReducerConfing.json` to the root of your project with configura
             "bundle": 5,
             "standard": 10
         },
+        "CATEGORY_ID_KEEP_CONFIGURATION": "keepAsIs" // OPTIONAL, Keep all data for every product assigned to this category
     },
     "productsConfig": { // OPTIONAL
         "onlineFlagCheck": true // To perform online-flag=true check (OPTIONAL, true by default)
