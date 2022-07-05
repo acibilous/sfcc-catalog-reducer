@@ -61,7 +61,7 @@ import {
         .from(allCategories)
         .filter(category => !specificCategories.includes(category));
 
-    const addReducedProduducts = [...keepAsItIsProducts, ...reduced.categorized, ...reduced.default];
+    const allReducedProduducts = [...keepAsItIsProducts, ...reduced.categorized, ...reduced.default];
 
     await Promise.all([
         reducers.navigation(
@@ -71,16 +71,16 @@ import {
             reduced.default,
             categoriesThatShouldUseDefaultConfing
         ),
-        reducers.master(masterFiles, addReducedProduducts),
+        reducers.master(masterFiles, allReducedProduducts),
         reducers.inventory(
             inventoryFiles,
-            addReducedProduducts,
+            allReducedProduducts,
             reduced.nonMasters,
             generateMissingRecords.inventoryAllocation
         ),
         reducers.priceBook(
             priceBookFiles,
-            addReducedProduducts,
+            allReducedProduducts,
             reduced.nonMasters,
             generateMissingRecords.price
         )
