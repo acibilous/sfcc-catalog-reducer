@@ -4,7 +4,7 @@ import { importJson } from '#tools/import.js';
  * @type {{ catalogReducer: Partial<import('#types').CatalogReducerConfig> }}
  */
 const packageJson = importJson('package.json', process.cwd());
-const catalogReducerFile = importJson('catalogReducerConfing.json', process.cwd(), 'returnNull');
+const catalogReducerFile = importJson('catalogReducerConfig.json', process.cwd(), 'returnNull');
 const defaults = importJson('./configs/default.json');
 const testConfig = importJson('./configs/test.json');
 
@@ -22,7 +22,7 @@ export const isTestEnv = process.argv.includes('--test-config');
 
 if (!isTestEnv) {
     if (!catalogReducerConfig) {
-        console.log('Please, provide catalog reducer config in catalogReducerConfing.json in the root of the project');
+        console.log('Please, provide catalog reducer config in catalogReducerConfig.json in the root of the project');
 
         process.exit(0);
     }

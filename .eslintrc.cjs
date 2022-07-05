@@ -4,7 +4,10 @@ module.exports = {
         "node": true,
         "es2021": true
     },
-    "extends": "eslint:recommended",
+    "extends": [
+        "eslint:recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaVersion": "latest",
         "sourceType": "module"
@@ -17,6 +20,7 @@ module.exports = {
         "spellcheck/spell-checker": [1,
             {
                 "skipWords": [
+                    "argv",
                     "closematchedtag",
                     "closetag",
                     "ds", // the ending of IDs
@@ -32,6 +36,7 @@ module.exports = {
                     "pricebook",
                     "readdir",
                     "readonly",
+                    "usr",
                     "uncategorized",
                     "unlink",
                     "xml"
