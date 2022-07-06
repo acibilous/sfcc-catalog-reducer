@@ -1,0 +1,2954 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="http://www.demandware.com/xml/impex/catalog/2006-10-31" catalog-id="sitename-catalog">
+    <header>
+        <image-settings>
+            <internal-location base-path="/images/"/>
+            <view-types>
+                <view-type>large</view-type>
+                <view-type>medium</view-type>
+                <view-type>small</view-type>
+                <view-type>swatch</view-type>
+            </view-types>
+            <alt-pattern>${productname} ${variationvalue} ${viewtype}</alt-pattern>
+            <title-pattern>${productname} ${variationvalue}</title-pattern>
+        </image-settings>
+    </header>
+
+    <category category-id="root">
+        <display-name xml:lang="x-default">Storefront Catalog - EN</display-name>
+        <display-name xml:lang="fr-FR">Catalogue de boutique en ligne - FR</display-name>
+        <online-flag>true</online-flag>
+        <template/>
+        <page-attributes/>
+        <attribute-groups>
+            <attribute-group group-id="storefrontAttributes">
+                <display-name xml:lang="x-default">Storefront Attributes</display-name>
+                <display-name xml:lang="fr-FR">Attributs de la boutique en ligne</display-name>
+            </attribute-group>
+        </attribute-groups>
+        <refinement-definitions>
+            <refinement-definition type="category" bucket-type="none">
+                <display-name xml:lang="x-default">Category</display-name>
+                <display-name xml:lang="fr-FR">Catégorie</display-name>
+                <sort-mode>category-position</sort-mode>
+                <cutoff-threshold>5</cutoff-threshold>
+            </refinement-definition>
+            <refinement-definition type="attribute" bucket-type="none" attribute-id="color" system="false">
+                <display-name xml:lang="x-default">Color</display-name>
+                <display-name xml:lang="en-CA">Colour</display-name>
+                <value-set>search-result</value-set>
+                <sort-mode>value-count</sort-mode>
+                <sort-direction>ascending</sort-direction>
+                <cutoff-threshold>5</cutoff-threshold>
+            </refinement-definition>
+            <refinement-definition type="attribute" bucket-type="values" attribute-id="size" system="false">
+                <display-name xml:lang="x-default">Size</display-name>
+                <value-set>refinement-category</value-set>
+                <sort-mode>value-name</sort-mode>
+                <sort-direction>ascending</sort-direction>
+                <unbucketed-values-mode>show-values</unbucketed-values-mode>
+                <cutoff-threshold>5</cutoff-threshold>
+                <bucket-definitions>
+                    <attribute-bucket>
+                        <display-name xml:lang="x-default">Small</display-name>
+                    </attribute-bucket>
+                    <attribute-bucket>
+                        <display-name xml:lang="x-default">Medium</display-name>
+                    </attribute-bucket>
+                    <attribute-bucket>
+                        <display-name xml:lang="x-default">Large</display-name>
+                    </attribute-bucket>
+                </bucket-definitions>
+            </refinement-definition>
+            <refinement-definition type="attribute" bucket-type="none" attribute-id="brand" system="true">
+                <display-name xml:lang="x-default">Brand</display-name>
+                <display-name xml:lang="fr-FR">Par marque</display-name>
+                <value-set>search-result</value-set>
+                <sort-mode>value-name</sort-mode>
+                <sort-direction>ascending</sort-direction>
+                <cutoff-threshold>5</cutoff-threshold>
+            </refinement-definition>
+            <refinement-definition type="price" bucket-type="thresholds">
+                <display-name xml:lang="x-default">Price</display-name>
+                <display-name xml:lang="fr-FR">Prix</display-name>
+                <sort-mode>value-name</sort-mode>
+                <sort-direction>ascending</sort-direction>
+                <cutoff-threshold>5</cutoff-threshold>
+                <bucket-definitions>
+                    <price-bucket currency="EUR">
+                        <display-name xml:lang="x-default">€0 - €19.99</display-name>
+                        <display-name xml:lang="fr-FR">0 € - 19,99 €</display-name>
+                        <threshold>20</threshold>
+                    </price-bucket>
+                    <price-bucket currency="EUR">
+                        <display-name xml:lang="x-default">€20 - €49.99</display-name>
+                        <display-name xml:lang="fr-FR">20 € - 49,99 €</display-name>
+                        <threshold>50</threshold>
+                    </price-bucket>
+                    <price-bucket currency="EUR">
+                        <display-name xml:lang="x-default">€50 - €99.99</display-name>
+                        <display-name xml:lang="fr-FR">50 € - 99,99 €</display-name>
+                        <threshold>100</threshold>
+                    </price-bucket>
+                    <price-bucket currency="EUR">
+                        <display-name xml:lang="x-default">€100 - €499.00</display-name>
+                        <display-name xml:lang="fr-FR">100 € - 499 €</display-name>
+                        <threshold>500</threshold>
+                    </price-bucket>
+                    <price-bucket currency="EUR">
+                        <display-name xml:lang="x-default">€500 - €999.99</display-name>
+                        <display-name xml:lang="fr-FR">500 € - 999,99 €</display-name>
+                        <threshold>1000</threshold>
+                    </price-bucket>
+                    <price-bucket currency="EUR">
+                        <display-name xml:lang="x-default">€1000 - €1499.99</display-name>
+                        <display-name xml:lang="fr-FR">1 000 € - 1499,99 €</display-name>
+                        <threshold>1500</threshold>
+                    </price-bucket>
+                    <price-bucket currency="EUR">
+                        <display-name xml:lang="x-default">€1500 - €1999.99</display-name>
+                        <display-name xml:lang="fr-FR">1 500 € - 1 999,99 €</display-name>
+                        <threshold>2000</threshold>
+                    </price-bucket>
+                    <price-bucket currency="EUR">
+                        <display-name xml:lang="x-default">€2000 - €2499.99</display-name>
+                        <display-name xml:lang="fr-FR">2 000 € - 2 499,99 €</display-name>
+                        <threshold>2500</threshold>
+                    </price-bucket>
+                    <price-bucket currency="EUR">
+                        <display-name xml:lang="x-default">€2500 - €4999.99</display-name>
+                        <display-name xml:lang="fr-FR">2 500 € - 4999,99 €</display-name>
+                        <threshold>5000</threshold>
+                    </price-bucket>
+                    <price-bucket currency="EUR">
+                        <display-name xml:lang="x-default">€5000 - €9999.99</display-name>
+                        <display-name xml:lang="fr-FR">5 000 € - 9999,99 €</display-name>
+                        <threshold>10000</threshold>
+                    </price-bucket>
+                    <price-bucket currency="USD">
+                        <display-name xml:lang="x-default">$0 - $19.99</display-name>
+                        <display-name xml:lang="fr-FR">0 $ - 19,99 $</display-name>
+                        <threshold>20</threshold>
+                    </price-bucket>
+                    <price-bucket currency="USD">
+                        <display-name xml:lang="x-default">$20 - $49.99</display-name>
+                        <display-name xml:lang="fr-FR">20 $ - 49,99 $</display-name>
+                        <threshold>50</threshold>
+                    </price-bucket>
+                    <price-bucket currency="USD">
+                        <display-name xml:lang="x-default">$50 - $99.99</display-name>
+                        <display-name xml:lang="fr-FR">50 $ - 99,99 $</display-name>
+                        <threshold>100</threshold>
+                    </price-bucket>
+                    <price-bucket currency="USD">
+                        <display-name xml:lang="x-default">$100 - $499.99</display-name>
+                        <display-name xml:lang="fr-FR">100 $ - 499,99 $</display-name>
+                        <threshold>500</threshold>
+                    </price-bucket>
+                    <price-bucket currency="USD">
+                        <display-name xml:lang="x-default">$500 - $999.99</display-name>
+                        <display-name xml:lang="fr-FR">500 $ - 999,99 $</display-name>
+                        <threshold>1000</threshold>
+                    </price-bucket>
+                    <price-bucket currency="USD">
+                        <display-name xml:lang="x-default">$1,000 - $1,499.99</display-name>
+                        <display-name xml:lang="fr-FR">1 000 $ - 1 499,99 $</display-name>
+                        <threshold>1500</threshold>
+                    </price-bucket>
+                    <price-bucket currency="USD">
+                        <display-name xml:lang="x-default">$1,500 - $1,999.99</display-name>
+                        <display-name xml:lang="fr-FR">1 500 $ - 1 999;99 $</display-name>
+                        <threshold>2000</threshold>
+                    </price-bucket>
+                    <price-bucket currency="USD">
+                        <display-name xml:lang="x-default">$2,000 - $2,499.99</display-name>
+                        <display-name xml:lang="fr-FR">2 000 $ - 2 499,99 $</display-name>
+                        <threshold>2500</threshold>
+                    </price-bucket>
+                    <price-bucket currency="USD">
+                        <display-name xml:lang="x-default">$2,500 - $4,999.99</display-name>
+                        <display-name xml:lang="fr-FR">2 500 $ - 4 999,99 $</display-name>
+                        <threshold>5000</threshold>
+                    </price-bucket>
+                    <price-bucket currency="USD">
+                        <display-name xml:lang="x-default">$5,000 - $9,999.99</display-name>
+                        <display-name xml:lang="fr-FR">5 000 $ - 9 999,99 $</display-name>
+                        <threshold>10000</threshold>
+                    </price-bucket>
+                    <price-bucket currency="USD">
+                        <display-name xml:lang="x-default">$10,000 - $14,999.99</display-name>
+                        <display-name xml:lang="fr-FR">10 000 $ - 14 999,99 $</display-name>
+                        <threshold>15000</threshold>
+                    </price-bucket>
+                    <price-bucket currency="USD">
+                        <display-name xml:lang="x-default">$15,000 +</display-name>
+                        <display-name xml:lang="fr-FR">+ 15 000 $</display-name>
+                        <threshold>100000</threshold>
+                    </price-bucket>
+                </bucket-definitions>
+            </refinement-definition>
+        </refinement-definitions>
+        <product-detail-page-meta-tag-rules>
+            <page-meta-tag-rule rule-id="Product Detail Page Description"/>
+            <page-meta-tag-rule rule-id="Product Detail Page Title"/>
+            <page-meta-tag-rule rule-id="Product Detail Page Robots"/>
+            <page-meta-tag-rule rule-id="Product Detail Page Open Graph URL"/>
+        </product-detail-page-meta-tag-rules>
+        <product-listing-page-meta-tag-rules>
+            <page-meta-tag-rule rule-id="Product Listing Page Open Graph URL"/>
+            <page-meta-tag-rule rule-id="Product Listing Page Robots - Global"/>
+            <page-meta-tag-rule rule-id="Product Listing Page Title"/>
+        </product-listing-page-meta-tag-rules>
+    </category>
+
+    <category category-id="category">
+        <display-name xml:lang="x-default">Category</display-name>
+        <online-flag>true</online-flag>
+        <parent>root</parent>
+        <position>0.0</position>
+        <page-attributes>
+            <page-title xml:lang="x-default">Category 0 page title</page-title>
+            <page-description xml:lang="x-default">Category 0 page description</page-description>
+            <page-keywords xml:lang="x-default">Category 0 keywords</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+
+    <category category-id="category-1">
+        <display-name xml:lang="x-default">Category 1</display-name>
+        <online-flag>true</online-flag>
+        <parent>root</parent>
+        <position>1.0</position>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Category 1 page titel</page-title>
+            <page-description xml:lang="x-default">Category 1 page description</page-description>
+            <page-keywords xml:lang="x-default">Category 1 keywords</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+        <refinement-definitions>
+            <blocked-refinement-definition type="attribute" attribute-id="size" system="false"/>
+        </refinement-definitions>
+    </category>
+
+    <category category-id="category-2">
+        <display-name xml:lang="x-default">Category 2</display-name>
+        <online-flag>true</online-flag>
+        <parent>root</parent>
+        <position>2.0</position>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Category 2 page title</page-title>
+            <page-description xml:lang="x-default">Category 2 page description</page-description>
+            <page-keywords xml:lang="x-default">Category 2 keywords</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+        <refinement-definitions>
+            <blocked-refinement-definition type="attribute" attribute-id="size" system="false"/>
+        </refinement-definitions>
+    </category>
+
+    <category category-id="category-3">
+        <display-name xml:lang="x-default">Category 3</display-name>
+        <online-flag>true</online-flag>
+        <parent>root</parent>
+        <position>3.0</position>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Category 3 page title</page-title>
+            <page-description xml:lang="x-default">Category 3 page description</page-description>
+            <page-keywords xml:lang="x-default">Category 3 keywords</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+        <refinement-definitions>
+            <blocked-refinement-definition type="attribute" attribute-id="size" system="false"/>
+        </refinement-definitions>
+    </category>
+
+    <category category-id="category-4">
+        <display-name xml:lang="x-default">Category 4</display-name>
+        <online-flag>true</online-flag>
+        <parent>root</parent>
+        <position>4.0</position>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Category 3 page title</page-title>
+            <page-description xml:lang="x-default">Category 3 page description</page-description>
+            <page-keywords xml:lang="x-default">Category 3 keywords</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+        <refinement-definitions>
+            <blocked-refinement-definition type="attribute" attribute-id="size" system="false"/>
+        </refinement-definitions>
+    </category>
+
+    <category category-id="category-5">
+        <display-name xml:lang="x-default">Category 5</display-name>
+        <online-flag>true</online-flag>
+        <parent>root</parent>
+        <position>5.0</position>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Category 3 page title</page-title>
+            <page-description xml:lang="x-default">Category 3 page description</page-description>
+            <page-keywords xml:lang="x-default">Category 3 keywords</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+        <refinement-definitions>
+            <blocked-refinement-definition type="attribute" attribute-id="size" system="false"/>
+        </refinement-definitions>
+    </category>
+
+    <category category-id="deals">
+        <display-name xml:lang="x-default">Deals</display-name>
+        <online-flag>true</online-flag>
+        <parent>root</parent>
+        <position>6.0</position>
+        <page-attributes>
+            <page-title xml:lang="x-default">Deals title</page-title>
+            <page-description xml:lang="x-default">Deals description</page-description>
+            <page-keywords xml:lang="x-default">Deails keywords</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner-1.jpg</custom-attribute>
+        </custom-attributes>
+        <refinement-definitions>
+            <blocked-refinement-definition type="attribute" attribute-id="size" system="false"/>
+        </refinement-definitions>
+    </category>
+
+    <category category-id="hidden">
+        <display-name xml:lang="x-default">Hidden Category</display-name>
+        <display-name xml:lang="fr-FR">Catégorie masquée</display-name>
+        <description xml:lang="x-default">Hidden Category to store categories such as sale, deals etc.</description>
+        <description xml:lang="fr-FR">Catégorie masquée (ex: soldes, etc.).</description>
+        <online-flag>false</online-flag>
+        <parent>root</parent>
+        <template/>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">false</custom-attribute>
+        </custom-attributes>
+    </category>
+
+
+    <category category-id="subcategory-1">
+        <display-name xml:lang="x-default">Sub category 1</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-2">
+        <display-name xml:lang="x-default">Sub category 2</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-3">
+        <display-name xml:lang="x-default">Sub category 3</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-4">
+        <display-name xml:lang="x-default">Sub category 4</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-5">
+        <display-name xml:lang="x-default">Sub category 5</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-6">
+        <display-name xml:lang="x-default">Sub category 6</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-7">
+        <display-name xml:lang="x-default">Sub category 7</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-8">
+        <display-name xml:lang="x-default">Sub category 8</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-9">
+        <display-name xml:lang="x-default">Sub category 9</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-10">
+        <display-name xml:lang="x-default">Sub category 10</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-11">
+        <display-name xml:lang="x-default">Sub category 11</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-12">
+        <display-name xml:lang="x-default">Sub category 12</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-13">
+        <display-name xml:lang="x-default">Sub category 13</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-14">
+        <display-name xml:lang="x-default">Sub category 14</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-15">
+        <display-name xml:lang="x-default">Sub category 15</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-16">
+        <display-name xml:lang="x-default">Sub category 16</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-17">
+        <display-name xml:lang="x-default">Sub category 17</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-18">
+        <display-name xml:lang="x-default">Sub category 18</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-19">
+        <display-name xml:lang="x-default">Sub category 19</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-20">
+        <display-name xml:lang="x-default">Sub category 20</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-21">
+        <display-name xml:lang="x-default">Sub category 21</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-22">
+        <display-name xml:lang="x-default">Sub category 22</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-23">
+        <display-name xml:lang="x-default">Sub category 23</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-24">
+        <display-name xml:lang="x-default">Sub category 24</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-25">
+        <display-name xml:lang="x-default">Sub category 25</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-26">
+        <display-name xml:lang="x-default">Sub category 26</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-27">
+        <display-name xml:lang="x-default">Sub category 27</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-28">
+        <display-name xml:lang="x-default">Sub category 28</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-29">
+        <display-name xml:lang="x-default">Sub category 29</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-30">
+        <display-name xml:lang="x-default">Sub category 30</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-31">
+        <display-name xml:lang="x-default">Sub category 31</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-32">
+        <display-name xml:lang="x-default">Sub category 32</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-33">
+        <display-name xml:lang="x-default">Sub category 33</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-34">
+        <display-name xml:lang="x-default">Sub category 34</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="subcategory-35">
+        <display-name xml:lang="x-default">Sub category 35 with long long long name</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-1</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+    <category category-id="alternative-shipping-price-category">
+        <display-name xml:lang="x-default">Sub category with alternative shipping price</display-name>
+        <online-flag>true</online-flag>
+        <parent>category-2</parent>
+        <template>rendering/category/catLanding</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Test</page-title>
+            <page-description xml:lang="x-default">Test</page-description>
+            <page-keywords xml:lang="x-default">test, test, test</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+
+    
+    <product product-id="product-vg-brown">
+        <ean/>
+        <upc/>
+        <unit/>
+        <min-order-quantity>1</min-order-quantity>
+        <step-quantity>1</step-quantity>
+        <display-name xml:lang="x-default">Ribbed Cotton T-shirt with 4 Variation Groups (Brown)</display-name>
+        <store-force-price-flag>false</store-force-price-flag>
+        <store-non-inventory-flag>false</store-non-inventory-flag>
+        <store-non-revenue-flag>false</store-non-revenue-flag>
+        <store-non-discountable-flag>false</store-non-discountable-flag>
+        <online-flag>true</online-flag>
+        <available-flag>true</available-flag>
+        <searchable-flag>true</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="color">Brown</custom-attribute>
+            <custom-attribute attribute-id="details" xml:lang="x-default">
+                <value>Colored denim wash</value>
+                <value>Linen</value>
+                <value>Exclusive design</value>
+                <value>Raw hem</value>
+            </custom-attribute>
+            <custom-attribute attribute-id="material" xml:lang="x-default">Wool</custom-attribute>
+            <custom-attribute attribute-id="waterproof">true</custom-attribute>
+        </custom-attributes>
+        <classification-category>clothing</classification-category>
+        <pinterest-enabled-flag>false</pinterest-enabled-flag>
+        <facebook-enabled-flag>false</facebook-enabled-flag>
+        <store-attributes>
+            <force-price-flag>false</force-price-flag>
+            <non-inventory-flag>false</non-inventory-flag>
+            <non-revenue-flag>false</non-revenue-flag>
+            <non-discountable-flag>false</non-discountable-flag>
+        </store-attributes>
+    </product>
+    <product product-id="product-vg-brown-l">
+        <ean/>
+        <upc/>
+        <unit/>
+        <min-order-quantity>1</min-order-quantity>
+        <step-quantity>1</step-quantity>
+        <store-force-price-flag>false</store-force-price-flag>
+        <store-non-inventory-flag>false</store-non-inventory-flag>
+        <store-non-revenue-flag>false</store-non-revenue-flag>
+        <store-non-discountable-flag>false</store-non-discountable-flag>
+        <online-flag>true</online-flag>
+        <available-flag>true</available-flag>
+        <searchable-flag>true</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="color">Brown</custom-attribute>
+            <custom-attribute attribute-id="size">Large</custom-attribute>
+        </custom-attributes>
+        <pinterest-enabled-flag>false</pinterest-enabled-flag>
+        <facebook-enabled-flag>false</facebook-enabled-flag>
+        <store-attributes>
+            <force-price-flag>false</force-price-flag>
+            <non-inventory-flag>false</non-inventory-flag>
+            <non-revenue-flag>false</non-revenue-flag>
+            <non-discountable-flag>false</non-discountable-flag>
+        </store-attributes>
+    </product>
+    <product product-id="product-vg-brown-m">
+        <ean/>
+        <upc/>
+        <unit/>
+        <min-order-quantity>1</min-order-quantity>
+        <step-quantity>1</step-quantity>
+        <store-force-price-flag>false</store-force-price-flag>
+        <store-non-inventory-flag>false</store-non-inventory-flag>
+        <store-non-revenue-flag>false</store-non-revenue-flag>
+        <store-non-discountable-flag>false</store-non-discountable-flag>
+        <online-flag>true</online-flag>
+        <available-flag>true</available-flag>
+        <searchable-flag>true</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="color">Brown</custom-attribute>
+            <custom-attribute attribute-id="size">Medium</custom-attribute>
+        </custom-attributes>
+        <pinterest-enabled-flag>false</pinterest-enabled-flag>
+        <facebook-enabled-flag>false</facebook-enabled-flag>
+        <store-attributes>
+            <force-price-flag>false</force-price-flag>
+            <non-inventory-flag>false</non-inventory-flag>
+            <non-revenue-flag>false</non-revenue-flag>
+            <non-discountable-flag>false</non-discountable-flag>
+        </store-attributes>
+    </product>
+    <product product-id="product-vg-brown-s">
+        <ean/>
+        <upc/>
+        <unit/>
+        <min-order-quantity>1</min-order-quantity>
+        <step-quantity>1</step-quantity>
+        <store-force-price-flag>false</store-force-price-flag>
+        <store-non-inventory-flag>false</store-non-inventory-flag>
+        <store-non-revenue-flag>false</store-non-revenue-flag>
+        <store-non-discountable-flag>false</store-non-discountable-flag>
+        <online-flag>true</online-flag>
+        <available-flag>true</available-flag>
+        <searchable-flag>true</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="color">Brown</custom-attribute>
+            <custom-attribute attribute-id="size">Small</custom-attribute>
+        </custom-attributes>
+        <pinterest-enabled-flag>false</pinterest-enabled-flag>
+        <facebook-enabled-flag>false</facebook-enabled-flag>
+        <store-attributes>
+            <force-price-flag>false</force-price-flag>
+            <non-inventory-flag>false</non-inventory-flag>
+            <non-revenue-flag>false</non-revenue-flag>
+            <non-discountable-flag>false</non-discountable-flag>
+        </store-attributes>
+    </product>
+    <product product-id="product-vg-brown-xl">
+        <ean/>
+        <upc/>
+        <unit/>
+        <min-order-quantity>1</min-order-quantity>
+        <step-quantity>1</step-quantity>
+        <store-force-price-flag>false</store-force-price-flag>
+        <store-non-inventory-flag>false</store-non-inventory-flag>
+        <store-non-revenue-flag>false</store-non-revenue-flag>
+        <store-non-discountable-flag>false</store-non-discountable-flag>
+        <online-flag>true</online-flag>
+        <available-flag>true</available-flag>
+        <searchable-flag>true</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="color">Brown</custom-attribute>
+            <custom-attribute attribute-id="size">XLarge</custom-attribute>
+        </custom-attributes>
+        <pinterest-enabled-flag>false</pinterest-enabled-flag>
+        <facebook-enabled-flag>false</facebook-enabled-flag>
+        <store-attributes>
+            <force-price-flag>false</force-price-flag>
+            <non-inventory-flag>false</non-inventory-flag>
+            <non-revenue-flag>false</non-revenue-flag>
+            <non-discountable-flag>false</non-discountable-flag>
+        </store-attributes>
+    </product>
+    <product product-id="product-vg-brown-xs">
+        <ean/>
+        <upc/>
+        <unit/>
+        <min-order-quantity>1</min-order-quantity>
+        <step-quantity>1</step-quantity>
+        <store-force-price-flag>false</store-force-price-flag>
+        <store-non-inventory-flag>false</store-non-inventory-flag>
+        <store-non-revenue-flag>false</store-non-revenue-flag>
+        <store-non-discountable-flag>false</store-non-discountable-flag>
+        <online-flag>true</online-flag>
+        <available-flag>true</available-flag>
+        <searchable-flag>true</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="color">Brown</custom-attribute>
+            <custom-attribute attribute-id="size">XSmall</custom-attribute>
+        </custom-attributes>
+        <pinterest-enabled-flag>false</pinterest-enabled-flag>
+        <facebook-enabled-flag>false</facebook-enabled-flag>
+        <store-attributes>
+            <force-price-flag>false</force-price-flag>
+            <non-inventory-flag>false</non-inventory-flag>
+            <non-revenue-flag>false</non-revenue-flag>
+            <non-discountable-flag>false</non-discountable-flag>
+        </store-attributes>
+    </product>
+    <product product-id="product-vg-green">
+        <ean/>
+        <upc/>
+        <unit/>
+        <min-order-quantity>1</min-order-quantity>
+        <step-quantity>1</step-quantity>
+        <display-name xml:lang="x-default">Ribbed Cotton T-shirt with 4 Variation Groups (Green)</display-name>
+        <store-force-price-flag>false</store-force-price-flag>
+        <store-non-inventory-flag>false</store-non-inventory-flag>
+        <store-non-revenue-flag>false</store-non-revenue-flag>
+        <store-non-discountable-flag>false</store-non-discountable-flag>
+        <online-flag>true</online-flag>
+        <available-flag>true</available-flag>
+        <searchable-flag>true</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="color">Green</custom-attribute>
+            <custom-attribute attribute-id="details" xml:lang="x-default">
+                <value>Limited line</value>
+            </custom-attribute>
+            <custom-attribute attribute-id="material" xml:lang="x-default">Polyester</custom-attribute>
+            <custom-attribute attribute-id="waterproof">false</custom-attribute>
+        </custom-attributes>
+        <classification-category>clothing</classification-category>
+        <pinterest-enabled-flag>false</pinterest-enabled-flag>
+        <facebook-enabled-flag>false</facebook-enabled-flag>
+        <store-attributes>
+            <force-price-flag>false</force-price-flag>
+            <non-inventory-flag>false</non-inventory-flag>
+            <non-revenue-flag>false</non-revenue-flag>
+            <non-discountable-flag>false</non-discountable-flag>
+        </store-attributes>
+    </product>
+    <product product-id="product-vg-green-l">
+        <ean/>
+        <upc/>
+        <unit/>
+        <min-order-quantity>1</min-order-quantity>
+        <step-quantity>1</step-quantity>
+        <store-force-price-flag>false</store-force-price-flag>
+        <store-non-inventory-flag>false</store-non-inventory-flag>
+        <store-non-revenue-flag>false</store-non-revenue-flag>
+        <store-non-discountable-flag>false</store-non-discountable-flag>
+        <online-flag>true</online-flag>
+        <available-flag>true</available-flag>
+        <searchable-flag>true</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="color">Green</custom-attribute>
+            <custom-attribute attribute-id="size">Large</custom-attribute>
+        </custom-attributes>
+        <pinterest-enabled-flag>false</pinterest-enabled-flag>
+        <facebook-enabled-flag>false</facebook-enabled-flag>
+        <store-attributes>
+            <force-price-flag>false</force-price-flag>
+            <non-inventory-flag>false</non-inventory-flag>
+            <non-revenue-flag>false</non-revenue-flag>
+            <non-discountable-flag>false</non-discountable-flag>
+        </store-attributes>
+    </product>
+    <product product-id="product-vg-green-m">
+        <ean/>
+        <upc/>
+        <unit/>
+        <min-order-quantity>1</min-order-quantity>
+        <step-quantity>1</step-quantity>
+        <store-force-price-flag>false</store-force-price-flag>
+        <store-non-inventory-flag>false</store-non-inventory-flag>
+        <store-non-revenue-flag>false</store-non-revenue-flag>
+        <store-non-discountable-flag>false</store-non-discountable-flag>
+        <online-flag>true</online-flag>
+        <available-flag>true</available-flag>
+        <searchable-flag>true</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="color">Green</custom-attribute>
+            <custom-attribute attribute-id="size">Medium</custom-attribute>
+        </custom-attributes>
+        <pinterest-enabled-flag>false</pinterest-enabled-flag>
+        <facebook-enabled-flag>false</facebook-enabled-flag>
+        <store-attributes>
+            <force-price-flag>false</force-price-flag>
+            <non-inventory-flag>false</non-inventory-flag>
+            <non-revenue-flag>false</non-revenue-flag>
+            <non-discountable-flag>false</non-discountable-flag>
+        </store-attributes>
+    </product>
+    <product product-id="product-vg-green-s">
+        <ean/>
+        <upc/>
+        <unit/>
+        <min-order-quantity>1</min-order-quantity>
+        <step-quantity>1</step-quantity>
+        <store-force-price-flag>false</store-force-price-flag>
+        <store-non-inventory-flag>false</store-non-inventory-flag>
+        <store-non-revenue-flag>false</store-non-revenue-flag>
+        <store-non-discountable-flag>false</store-non-discountable-flag>
+        <online-flag>true</online-flag>
+        <available-flag>true</available-flag>
+        <searchable-flag>true</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="color">Green</custom-attribute>
+            <custom-attribute attribute-id="size">Small</custom-attribute>
+        </custom-attributes>
+        <pinterest-enabled-flag>false</pinterest-enabled-flag>
+        <facebook-enabled-flag>false</facebook-enabled-flag>
+        <store-attributes>
+            <force-price-flag>false</force-price-flag>
+            <non-inventory-flag>false</non-inventory-flag>
+            <non-revenue-flag>false</non-revenue-flag>
+            <non-discountable-flag>false</non-discountable-flag>
+        </store-attributes>
+    </product>
+    <product product-id="product-vg-green-xl">
+        <ean/>
+        <upc/>
+        <unit/>
+        <min-order-quantity>1</min-order-quantity>
+        <step-quantity>1</step-quantity>
+        <store-force-price-flag>false</store-force-price-flag>
+        <store-non-inventory-flag>false</store-non-inventory-flag>
+        <store-non-revenue-flag>false</store-non-revenue-flag>
+        <store-non-discountable-flag>false</store-non-discountable-flag>
+        <online-flag>true</online-flag>
+        <available-flag>true</available-flag>
+        <searchable-flag>true</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="color">Green</custom-attribute>
+            <custom-attribute attribute-id="size">XLarge</custom-attribute>
+        </custom-attributes>
+        <pinterest-enabled-flag>false</pinterest-enabled-flag>
+        <facebook-enabled-flag>false</facebook-enabled-flag>
+        <store-attributes>
+            <force-price-flag>false</force-price-flag>
+            <non-inventory-flag>false</non-inventory-flag>
+            <non-revenue-flag>false</non-revenue-flag>
+            <non-discountable-flag>false</non-discountable-flag>
+        </store-attributes>
+    </product>
+    <product product-id="product-vg-green-xs">
+        <ean/>
+        <upc/>
+        <unit/>
+        <min-order-quantity>1</min-order-quantity>
+        <step-quantity>1</step-quantity>
+        <store-force-price-flag>false</store-force-price-flag>
+        <store-non-inventory-flag>false</store-non-inventory-flag>
+        <store-non-revenue-flag>false</store-non-revenue-flag>
+        <store-non-discountable-flag>false</store-non-discountable-flag>
+        <online-flag>true</online-flag>
+        <available-flag>true</available-flag>
+        <searchable-flag>true</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="color">Green</custom-attribute>
+            <custom-attribute attribute-id="size">XSmall</custom-attribute>
+        </custom-attributes>
+        <pinterest-enabled-flag>false</pinterest-enabled-flag>
+        <facebook-enabled-flag>false</facebook-enabled-flag>
+        <store-attributes>
+            <force-price-flag>false</force-price-flag>
+            <non-inventory-flag>false</non-inventory-flag>
+            <non-revenue-flag>false</non-revenue-flag>
+            <non-discountable-flag>false</non-discountable-flag>
+        </store-attributes>
+    </product>
+    <product product-id="product-vg-orange">
+        <ean/>
+        <upc/>
+        <unit/>
+        <min-order-quantity>1</min-order-quantity>
+        <step-quantity>1</step-quantity>
+        <display-name xml:lang="x-default">Ribbed Cotton T-shirt with 4 Variation Groups (Orange)</display-name>
+        <store-force-price-flag>false</store-force-price-flag>
+        <store-non-inventory-flag>false</store-non-inventory-flag>
+        <store-non-revenue-flag>false</store-non-revenue-flag>
+        <store-non-discountable-flag>false</store-non-discountable-flag>
+        <online-flag>true</online-flag>
+        <available-flag>true</available-flag>
+        <searchable-flag>true</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="color">Orange</custom-attribute>
+            <custom-attribute attribute-id="videoUrl" xml:lang="x-default">https://www.youtube-nocookie.com/embed/y9RWoY40bUo?enablejsapi=1&amp;controls=1&amp;modestbranding=1&amp;playsinline=1</custom-attribute>
+            <custom-attribute attribute-id="videoUrl" xml:lang="en-GB">https://www.youtube-nocookie.com/embed/y9RWoY40bUo?enablejsapi=1&amp;controls=1&amp;modestbranding=1&amp;playsinline=1&amp;autoplay=0&amp;loop=1</custom-attribute>
+            <custom-attribute attribute-id="videoUrl" xml:lang="ar-AE">https://www.youtube-nocookie.com/embed/y9RWoY40bUo?enablejsapi=1&amp;controls=0&amp;modestbranding=1&amp;playsinline=1</custom-attribute>
+            <custom-attribute attribute-id="details" xml:lang="x-default">
+                <value>Colored denim wash</value>
+                <value>Exclusive design</value>
+            </custom-attribute>
+            <custom-attribute attribute-id="material" xml:lang="x-default">Silk</custom-attribute>
+            <custom-attribute attribute-id="waterproof">false</custom-attribute>
+        </custom-attributes>
+        <classification-category>clothing</classification-category>
+        <pinterest-enabled-flag>false</pinterest-enabled-flag>
+        <facebook-enabled-flag>false</facebook-enabled-flag>
+        <store-attributes>
+            <force-price-flag>false</force-price-flag>
+            <non-inventory-flag>false</non-inventory-flag>
+            <non-revenue-flag>false</non-revenue-flag>
+            <non-discountable-flag>false</non-discountable-flag>
+        </store-attributes>
+    </product>
+    <product product-id="product-vg-orange-l">
+        <ean/>
+        <upc/>
+        <unit/>
+        <min-order-quantity>1</min-order-quantity>
+        <step-quantity>1</step-quantity>
+        <store-force-price-flag>false</store-force-price-flag>
+        <store-non-inventory-flag>false</store-non-inventory-flag>
+        <store-non-revenue-flag>false</store-non-revenue-flag>
+        <store-non-discountable-flag>false</store-non-discountable-flag>
+        <online-flag>true</online-flag>
+        <available-flag>true</available-flag>
+        <searchable-flag>true</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="color">Orange</custom-attribute>
+            <custom-attribute attribute-id="size">Large</custom-attribute>
+        </custom-attributes>
+        <pinterest-enabled-flag>false</pinterest-enabled-flag>
+        <facebook-enabled-flag>false</facebook-enabled-flag>
+        <store-attributes>
+            <force-price-flag>false</force-price-flag>
+            <non-inventory-flag>false</non-inventory-flag>
+            <non-revenue-flag>false</non-revenue-flag>
+            <non-discountable-flag>false</non-discountable-flag>
+        </store-attributes>
+    </product>
+    <product product-id="product-vg-orange-m">
+        <ean/>
+        <upc/>
+        <unit/>
+        <min-order-quantity>1</min-order-quantity>
+        <step-quantity>1</step-quantity>
+        <store-force-price-flag>false</store-force-price-flag>
+        <store-non-inventory-flag>false</store-non-inventory-flag>
+        <store-non-revenue-flag>false</store-non-revenue-flag>
+        <store-non-discountable-flag>false</store-non-discountable-flag>
+        <online-flag>true</online-flag>
+        <available-flag>true</available-flag>
+        <searchable-flag>true</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="color">Orange</custom-attribute>
+            <custom-attribute attribute-id="size">Medium</custom-attribute>
+        </custom-attributes>
+        <pinterest-enabled-flag>false</pinterest-enabled-flag>
+        <facebook-enabled-flag>false</facebook-enabled-flag>
+        <store-attributes>
+            <force-price-flag>false</force-price-flag>
+            <non-inventory-flag>false</non-inventory-flag>
+            <non-revenue-flag>false</non-revenue-flag>
+            <non-discountable-flag>false</non-discountable-flag>
+        </store-attributes>
+    </product>
+    <product product-id="product-vg-orange-s">
+        <ean/>
+        <upc/>
+        <unit/>
+        <min-order-quantity>1</min-order-quantity>
+        <step-quantity>1</step-quantity>
+        <store-force-price-flag>false</store-force-price-flag>
+        <store-non-inventory-flag>false</store-non-inventory-flag>
+        <store-non-revenue-flag>false</store-non-revenue-flag>
+        <store-non-discountable-flag>false</store-non-discountable-flag>
+        <online-flag>true</online-flag>
+        <available-flag>true</available-flag>
+        <searchable-flag>true</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="color">Orange</custom-attribute>
+            <custom-attribute attribute-id="size">Small</custom-attribute>
+        </custom-attributes>
+        <pinterest-enabled-flag>false</pinterest-enabled-flag>
+        <facebook-enabled-flag>false</facebook-enabled-flag>
+        <store-attributes>
+            <force-price-flag>false</force-price-flag>
+            <non-inventory-flag>false</non-inventory-flag>
+            <non-revenue-flag>false</non-revenue-flag>
+            <non-discountable-flag>false</non-discountable-flag>
+        </store-attributes>
+    </product>
+    <product product-id="product-vg-orange-xl">
+        <ean/>
+        <upc/>
+        <unit/>
+        <min-order-quantity>1</min-order-quantity>
+        <step-quantity>1</step-quantity>
+        <store-force-price-flag>false</store-force-price-flag>
+        <store-non-inventory-flag>false</store-non-inventory-flag>
+        <store-non-revenue-flag>false</store-non-revenue-flag>
+        <store-non-discountable-flag>false</store-non-discountable-flag>
+        <online-flag>true</online-flag>
+        <available-flag>true</available-flag>
+        <searchable-flag>true</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="color">Orange</custom-attribute>
+            <custom-attribute attribute-id="size">XLarge</custom-attribute>
+        </custom-attributes>
+        <pinterest-enabled-flag>false</pinterest-enabled-flag>
+        <facebook-enabled-flag>false</facebook-enabled-flag>
+        <store-attributes>
+            <force-price-flag>false</force-price-flag>
+            <non-inventory-flag>false</non-inventory-flag>
+            <non-revenue-flag>false</non-revenue-flag>
+            <non-discountable-flag>false</non-discountable-flag>
+        </store-attributes>
+    </product>
+    <product product-id="product-vg-orange-xs">
+        <ean/>
+        <upc/>
+        <unit/>
+        <min-order-quantity>1</min-order-quantity>
+        <step-quantity>1</step-quantity>
+        <store-force-price-flag>false</store-force-price-flag>
+        <store-non-inventory-flag>false</store-non-inventory-flag>
+        <store-non-revenue-flag>false</store-non-revenue-flag>
+        <store-non-discountable-flag>false</store-non-discountable-flag>
+        <online-flag>true</online-flag>
+        <available-flag>true</available-flag>
+        <searchable-flag>true</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="color">Orange</custom-attribute>
+            <custom-attribute attribute-id="size">XSmall</custom-attribute>
+        </custom-attributes>
+        <pinterest-enabled-flag>false</pinterest-enabled-flag>
+        <facebook-enabled-flag>false</facebook-enabled-flag>
+        <store-attributes>
+            <force-price-flag>false</force-price-flag>
+            <non-inventory-flag>false</non-inventory-flag>
+            <non-revenue-flag>false</non-revenue-flag>
+            <non-discountable-flag>false</non-discountable-flag>
+        </store-attributes>
+    </product>
+    <product product-id="product-vg-white">
+        <ean/>
+        <upc/>
+        <unit/>
+        <min-order-quantity>1</min-order-quantity>
+        <step-quantity>1</step-quantity>
+        <display-name xml:lang="x-default">Ribbed Cotton T-shirt with 4 Variation Groups (White)</display-name>
+        <store-force-price-flag>false</store-force-price-flag>
+        <store-non-inventory-flag>false</store-non-inventory-flag>
+        <store-non-revenue-flag>false</store-non-revenue-flag>
+        <store-non-discountable-flag>false</store-non-discountable-flag>
+        <online-flag>true</online-flag>
+        <available-flag>true</available-flag>
+        <searchable-flag>true</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="color">White</custom-attribute>
+            <custom-attribute attribute-id="details" xml:lang="x-default">
+                <value>Colored denim wash</value>
+                <value>Button fastening</value>
+                <value>Exclusive design</value>
+                <value>Raw hem</value>
+            </custom-attribute>
+            <custom-attribute attribute-id="material" xml:lang="x-default">Silk</custom-attribute>
+            <custom-attribute attribute-id="waterproof">true</custom-attribute>
+        </custom-attributes>
+        <classification-category>clothing</classification-category>
+        <pinterest-enabled-flag>false</pinterest-enabled-flag>
+        <facebook-enabled-flag>false</facebook-enabled-flag>
+        <store-attributes>
+            <force-price-flag>false</force-price-flag>
+            <non-inventory-flag>false</non-inventory-flag>
+            <non-revenue-flag>false</non-revenue-flag>
+            <non-discountable-flag>false</non-discountable-flag>
+        </store-attributes>
+    </product>
+    <product product-id="product-vg-white-l">
+        <ean/>
+        <upc/>
+        <unit/>
+        <min-order-quantity>1</min-order-quantity>
+        <step-quantity>1</step-quantity>
+        <store-force-price-flag>false</store-force-price-flag>
+        <store-non-inventory-flag>false</store-non-inventory-flag>
+        <store-non-revenue-flag>false</store-non-revenue-flag>
+        <store-non-discountable-flag>false</store-non-discountable-flag>
+        <online-flag>true</online-flag>
+        <available-flag>true</available-flag>
+        <searchable-flag>true</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="color">White</custom-attribute>
+            <custom-attribute attribute-id="size">Large</custom-attribute>
+        </custom-attributes>
+        <pinterest-enabled-flag>false</pinterest-enabled-flag>
+        <facebook-enabled-flag>false</facebook-enabled-flag>
+        <store-attributes>
+            <force-price-flag>false</force-price-flag>
+            <non-inventory-flag>false</non-inventory-flag>
+            <non-revenue-flag>false</non-revenue-flag>
+            <non-discountable-flag>false</non-discountable-flag>
+        </store-attributes>
+    </product>
+    <product product-id="product-vg-white-m">
+        <ean/>
+        <upc/>
+        <unit/>
+        <min-order-quantity>1</min-order-quantity>
+        <step-quantity>1</step-quantity>
+        <store-force-price-flag>false</store-force-price-flag>
+        <store-non-inventory-flag>false</store-non-inventory-flag>
+        <store-non-revenue-flag>false</store-non-revenue-flag>
+        <store-non-discountable-flag>false</store-non-discountable-flag>
+        <online-flag>true</online-flag>
+        <available-flag>true</available-flag>
+        <searchable-flag>true</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="color">White</custom-attribute>
+            <custom-attribute attribute-id="size">Medium</custom-attribute>
+        </custom-attributes>
+        <pinterest-enabled-flag>false</pinterest-enabled-flag>
+        <facebook-enabled-flag>false</facebook-enabled-flag>
+        <store-attributes>
+            <force-price-flag>false</force-price-flag>
+            <non-inventory-flag>false</non-inventory-flag>
+            <non-revenue-flag>false</non-revenue-flag>
+            <non-discountable-flag>false</non-discountable-flag>
+        </store-attributes>
+    </product>
+    <product product-id="product-vg-white-s">
+        <ean/>
+        <upc/>
+        <unit/>
+        <min-order-quantity>1</min-order-quantity>
+        <step-quantity>1</step-quantity>
+        <store-force-price-flag>false</store-force-price-flag>
+        <store-non-inventory-flag>false</store-non-inventory-flag>
+        <store-non-revenue-flag>false</store-non-revenue-flag>
+        <store-non-discountable-flag>false</store-non-discountable-flag>
+        <online-flag>true</online-flag>
+        <available-flag>true</available-flag>
+        <searchable-flag>true</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="color">White</custom-attribute>
+            <custom-attribute attribute-id="size">Small</custom-attribute>
+        </custom-attributes>
+        <pinterest-enabled-flag>false</pinterest-enabled-flag>
+        <facebook-enabled-flag>false</facebook-enabled-flag>
+        <store-attributes>
+            <force-price-flag>false</force-price-flag>
+            <non-inventory-flag>false</non-inventory-flag>
+            <non-revenue-flag>false</non-revenue-flag>
+            <non-discountable-flag>false</non-discountable-flag>
+        </store-attributes>
+    </product>
+    <product product-id="product-vg-white-xl">
+        <ean/>
+        <upc/>
+        <unit/>
+        <min-order-quantity>1</min-order-quantity>
+        <step-quantity>1</step-quantity>
+        <store-force-price-flag>false</store-force-price-flag>
+        <store-non-inventory-flag>false</store-non-inventory-flag>
+        <store-non-revenue-flag>false</store-non-revenue-flag>
+        <store-non-discountable-flag>false</store-non-discountable-flag>
+        <online-flag>true</online-flag>
+        <available-flag>true</available-flag>
+        <searchable-flag>true</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="color">White</custom-attribute>
+            <custom-attribute attribute-id="size">XLarge</custom-attribute>
+        </custom-attributes>
+        <pinterest-enabled-flag>false</pinterest-enabled-flag>
+        <facebook-enabled-flag>false</facebook-enabled-flag>
+        <store-attributes>
+            <force-price-flag>false</force-price-flag>
+            <non-inventory-flag>false</non-inventory-flag>
+            <non-revenue-flag>false</non-revenue-flag>
+            <non-discountable-flag>false</non-discountable-flag>
+        </store-attributes>
+    </product>
+    <product product-id="product-vg-white-xs">
+        <ean/>
+        <upc/>
+        <unit/>
+        <min-order-quantity>1</min-order-quantity>
+        <step-quantity>1</step-quantity>
+        <store-force-price-flag>false</store-force-price-flag>
+        <store-non-inventory-flag>false</store-non-inventory-flag>
+        <store-non-revenue-flag>false</store-non-revenue-flag>
+        <store-non-discountable-flag>false</store-non-discountable-flag>
+        <online-flag>true</online-flag>
+        <available-flag>true</available-flag>
+        <searchable-flag>true</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="color">White</custom-attribute>
+            <custom-attribute attribute-id="size">XSmall</custom-attribute>
+        </custom-attributes>
+        <pinterest-enabled-flag>false</pinterest-enabled-flag>
+        <facebook-enabled-flag>false</facebook-enabled-flag>
+        <store-attributes>
+            <force-price-flag>false</force-price-flag>
+            <non-inventory-flag>false</non-inventory-flag>
+            <non-revenue-flag>false</non-revenue-flag>
+            <non-discountable-flag>false</non-discountable-flag>
+        </store-attributes>
+    </product>
+
+    <product product-id="master-product-vg">
+        <ean/>
+        <upc/>
+        <unit/>
+        <min-order-quantity>1</min-order-quantity>
+        <step-quantity>1</step-quantity>
+        <display-name xml:lang="x-default">Ribbed Cotton T-shirt with 4 Variation Groups</display-name>
+        <short-description xml:lang="x-default">Denim skirt with a high-rise waist with button &amp; zip closure to the front. Topped with classic 5-pocket detailing. A short-length with notched accent.</short-description>
+        <long-description xml:lang="x-default">
+            &lt;ul&gt;
+                &lt;li&gt;Stretch denim.&lt;/li&gt;
+                &lt;li&gt;Colored denim wash.&lt;/li&gt;
+                &lt;li&gt;Exposed button closure.&lt;/li&gt;
+                &lt;li&gt;Classic five-pocket styling.&lt;/li&gt;
+                &lt;li&gt;Raw hem.&lt;/li&gt;
+            &lt;/ul&gt;
+        </long-description>
+        <store-force-price-flag>false</store-force-price-flag>
+        <store-non-inventory-flag>false</store-non-inventory-flag>
+        <store-non-revenue-flag>false</store-non-revenue-flag>
+        <store-non-discountable-flag>false</store-non-discountable-flag>
+        <online-flag>true</online-flag>
+        <available-flag>true</available-flag>
+        <searchable-flag>false</searchable-flag>
+        <images>
+            <image-group view-type="large">
+                <image path="large/1-1-white.jpg"/>
+            </image-group>
+            <image-group view-type="large">
+                <variation attribute-id="color" value="Brown"/>
+                <image path="large/1-7-brown.jpg"/>
+                <image path="large/1-8-brown.jpg"/>
+            </image-group>
+            <image-group view-type="large">
+                <variation attribute-id="color" value="Green"/>
+                <image path="large/1-3-green.jpg"/>
+                <image path="large/1-4-green.jpg"/>
+            </image-group>
+            <image-group view-type="large">
+                <variation attribute-id="color" value="Orange"/>
+                <image path="large/1-5-orange.jpg"/>
+                <image path="large/1-6-orange.jpg"/>
+            </image-group>
+            <image-group view-type="large">
+                <variation attribute-id="color" value="White"/>
+                <image path="large/1-1-white.jpg"/>
+                <image path="large/1-2-white.jpg"/>
+            </image-group>
+        </images>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="details" xml:lang="x-default">
+                <value>Exclusive design</value>
+                <value>Button fastening</value>
+                <value>Raw hem</value>
+            </custom-attribute>
+            <custom-attribute attribute-id="material" xml:lang="x-default">Hemp</custom-attribute>
+            <custom-attribute attribute-id="waterproof">true</custom-attribute>
+        </custom-attributes>
+        <variations>
+            <attributes>
+                <shared-variation-attribute attribute-id="color" variation-attribute-id="color"/>
+                <shared-variation-attribute attribute-id="size" variation-attribute-id="size"/>
+            </attributes>
+            <variants>
+                <variant product-id="product-vg-white-xs"/>
+                <variant product-id="product-vg-white-s"/>
+                <variant product-id="product-vg-white-m"/>
+                <variant product-id="product-vg-white-l"/>
+                <variant product-id="product-vg-white-xl"/>
+                <variant product-id="product-vg-orange-xs"/>
+                <variant product-id="product-vg-orange-s"/>
+                <variant product-id="product-vg-orange-m"/>
+                <variant product-id="product-vg-orange-l"/>
+                <variant product-id="product-vg-orange-xl"/>
+                <variant product-id="product-vg-brown-xs"/>
+                <variant product-id="product-vg-brown-s"/>
+                <variant product-id="product-vg-brown-m"/>
+                <variant product-id="product-vg-brown-l"/>
+                <variant product-id="product-vg-brown-xl"/>
+                <variant product-id="product-vg-green-xs"/>
+                <variant product-id="product-vg-green-s"/>
+                <variant product-id="product-vg-green-m"/>
+                <variant product-id="product-vg-green-l"/>
+                <variant product-id="product-vg-green-xl"/>
+            </variants>
+            <variation-groups>
+                <variation-group product-id="product-vg-white"/>
+                <variation-group product-id="product-vg-green"/>
+                <variation-group product-id="product-vg-brown"/>
+                <variation-group product-id="product-vg-orange"/>
+            </variation-groups>
+        </variations>
+        <classification-category>clothing</classification-category>
+        <pinterest-enabled-flag>false</pinterest-enabled-flag>
+        <facebook-enabled-flag>false</facebook-enabled-flag>
+        <store-attributes>
+            <force-price-flag>false</force-price-flag>
+            <non-inventory-flag>false</non-inventory-flag>
+            <non-revenue-flag>false</non-revenue-flag>
+            <non-discountable-flag>false</non-discountable-flag>
+        </store-attributes>
+    </product>
+
+    <product product-id="product-1">
+        <ean/>
+        <upc/>
+        <unit/>
+        <min-order-quantity>1</min-order-quantity>
+        <step-quantity>1</step-quantity>
+        <display-name xml:lang="x-default">Product 1</display-name>
+        <short-description xml:lang="x-default">Product short description HTML</short-description>
+        <long-description xml:lang="x-default">Product long description HTML</long-description>
+        <online-flag>true</online-flag>
+        <available-flag>true</available-flag>
+        <searchable-flag>true</searchable-flag>
+        <images>
+            <image-group view-type="large">
+                <image path="large/product-1.jpg"/>
+                <image path="large/product-1-1.jpg"/>
+                <image path="large/product-1-2.jpg"/>
+                <image path="large/product-1-3.jpg"/>
+                <image path="large/product-1-4.jpg"/>
+            </image-group>
+            <image-group view-type="medium">
+                <image path="medium/product-1.jpg"/>
+            </image-group>
+            <image-group view-type="small">
+                <image path="small/product-1.jpg"/>
+            </image-group>
+        </images>
+        <tax-class-id>standard</tax-class-id>
+        <brand>Brand A</brand>
+        <manufacturer-sku>0000001</manufacturer-sku>
+        <page-attributes>
+            <page-title xml:lang="x-default">Product page title</page-title>
+            <page-description xml:lang="x-default">Product description page attribute</page-description>
+            <page-keywords xml:lang="x-default">Brand A</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="isSale">true</custom-attribute>
+            <custom-attribute attribute-id="availableForInStorePickup">true</custom-attribute>
+            <custom-attribute attribute-id="tabDescription">Description tab content from product custom attribute</custom-attribute>
+        </custom-attributes>
+        <pinterest-enabled-flag>false</pinterest-enabled-flag>
+        <facebook-enabled-flag>false</facebook-enabled-flag>
+    </product>
+    <product product-id="product-2">
+        <ean/>
+        <upc/>
+        <unit/>
+        <min-order-quantity>1</min-order-quantity>
+        <step-quantity>1</step-quantity>
+        <display-name xml:lang="x-default">Product 2 (with ridiculously long name that out of any boundaries and any common sense just to test this case)</display-name>
+        <short-description xml:lang="x-default">Product short description becomes very long and long description. Product short description becomes very long and long description</short-description>
+        <long-description xml:lang="x-default">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis et ligula rutrum tellus feugiat sodales nec quis magna. Nulla sed turpis non risus facilisis pulvinar. In at fermentum ex. Cras dignissim ac ante et faucibus. Donec nisi diam, auctor id ex porta, viverra suscipit risus. Morbi dignissim nisi leo, eu tempus sem tincidunt eget. Proin a lacus tortor. Nunc sit amet porttitor nulla. Vestibulum justo dui, facilisis eu aliquet et, posuere nec risus. Nullam rutrum justo eu nunc sodales, et vestibulum dolor facilisis. Aenean pulvinar, nisl quis viverra iaculis, ante massa consectetur orci, non tincidunt leo nisi quis sapien. Suspendisse odio massa, semper a vehicula eu, pellentesque nec eros. Curabitur rutrum orci ut purus consequat, eget elementum mauris accumsan.
+            Fusce id blandit urna. Quisque hendrerit neque neque, et porttitor mauris elementum id. Proin lacinia elit nec arcu rutrum imperdiet. Aliquam maximus quam enim, id mollis orci tristique at. Morbi leo lacus, aliquam ac sapien quis, ultrices rutrum orci. Maecenas vel aliquam ante. Curabitur hendrerit felis vel leo faucibus, vel vulputate quam semper. Pellentesque ut imperdiet felis. Vivamus quam tellus, accumsan sed eleifend eget, condimentum quis nisl. Integer tellus nunc, tempor in sapien id, placerat luctus orci. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In malesuada faucibus mauris, vel aliquam mi eleifend a. Cras accumsan nec leo vitae varius. Maecenas varius hendrerit augue a auctor. In tincidunt lacus vitae ante mollis, id auctor nibh euismod. Sed semper risus vel nunc consequat luctus.
+            Nam felis est, accumsan ultrices lobortis vitae, congue vehicula massa. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam elit turpis, elementum sit amet nibh et, venenatis malesuada nisl. Morbi porttitor massa ac eros lobortis, ut placerat nisi varius. Curabitur at suscipit enim. Curabitur pellentesque, dolor ac fringilla porttitor, felis odio fermentum libero, vel ullamcorper felis odio sed orci. Fusce sodales diam massa, sed laoreet lectus luctus quis.
+        </long-description>
+        <online-flag>true</online-flag>
+        <available-flag>true</available-flag>
+        <searchable-flag>true</searchable-flag>
+        <images>
+            <image-group view-type="large">
+                <image path="large/product-1.jpg"/>
+            </image-group>
+            <image-group view-type="medium">
+                <image path="medium/product-1.jpg"/>
+            </image-group>
+            <image-group view-type="small">
+                <image path="small/product-1.jpg"/>
+            </image-group>
+        </images>
+        <tax-class-id>standard</tax-class-id>
+        <brand>Brand A</brand>
+        <manufacturer-sku>0000002</manufacturer-sku>
+        <page-attributes>
+            <page-title xml:lang="x-default">Product page title</page-title>
+            <page-description xml:lang="x-default">Product description page attribute</page-description>
+            <page-keywords xml:lang="x-default">Brand A</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="tabDescription">Description tab content from product custom attribute</custom-attribute>
+        </custom-attributes>
+    </product>
+    <product product-id="product-3">
+        <ean/>
+        <upc/>
+        <unit/>
+        <min-order-quantity>1</min-order-quantity>
+        <step-quantity>1</step-quantity>
+        <display-name xml:lang="x-default">Product 3</display-name>
+        <short-description xml:lang="x-default">Product short description</short-description>
+        <online-flag>true</online-flag>
+        <available-flag>true</available-flag>
+        <searchable-flag>true</searchable-flag>
+        <images>
+            <image-group view-type="large">
+                <image path="large/product-1.jpg"/>
+            </image-group>
+            <image-group view-type="medium">
+                <image path="medium/product-1.jpg"/>
+            </image-group>
+            <image-group view-type="small">
+                <image path="small/product-1.jpg"/>
+            </image-group>
+        </images>
+        <tax-class-id>standard</tax-class-id>
+        <brand>Brand A</brand>
+        <manufacturer-sku>0000003</manufacturer-sku>
+        <page-attributes>
+            <page-title xml:lang="x-default">Product page title</page-title>
+            <page-description xml:lang="x-default">Product description page attribute</page-description>
+            <page-keywords xml:lang="x-default">Brand A</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="tabDescription">Description tab content from product custom attribute</custom-attribute>
+        </custom-attributes>
+    </product>
+    <product product-id="product-4">
+        <ean/>
+        <upc/>
+        <unit/>
+        <min-order-quantity>1</min-order-quantity>
+        <step-quantity>1</step-quantity>
+        <display-name xml:lang="x-default">Product 4</display-name>
+        <short-description xml:lang="x-default">Product short description</short-description>
+        <online-flag>true</online-flag>
+        <available-flag>true</available-flag>
+        <searchable-flag>true</searchable-flag>
+        <images>
+            <image-group view-type="large">
+                <image path="large/product-2.jpg"/>
+            </image-group>
+            <image-group view-type="medium">
+                <image path="medium/product-2.jpg"/>
+            </image-group>
+            <image-group view-type="small">
+                <image path="small/product-3.jpg"/>
+            </image-group>
+        </images>
+        <tax-class-id>standard</tax-class-id>
+        <brand>Brand A</brand>
+        <manufacturer-sku>0000004</manufacturer-sku>
+        <page-attributes>
+            <page-title xml:lang="x-default">Product page title</page-title>
+            <page-description xml:lang="x-default">Product description page attribute</page-description>
+            <page-keywords xml:lang="x-default">Brand A</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="tabDescription">Description tab content from product custom attribute</custom-attribute>
+        </custom-attributes>
+    </product>
+    <product product-id="product-5">
+        <ean/>
+        <upc/>
+        <unit/>
+        <min-order-quantity>1</min-order-quantity>
+        <step-quantity>1</step-quantity>
+        <display-name xml:lang="x-default">Product 5</display-name>
+        <short-description xml:lang="x-default">Product short description</short-description>
+        <online-flag>true</online-flag>
+        <online-flag site-id="online-site-id">true</online-flag>
+        <online-flag site-id="offline-site-id">false</online-flag>
+        <available-flag>true</available-flag>
+        <searchable-flag>true</searchable-flag>
+        <images>
+            <image-group view-type="large">
+                <image path="large/product-3.jpg"/>
+            </image-group>
+            <image-group view-type="medium">
+                <image path="medium/product-3.jpg"/>
+            </image-group>
+            <image-group view-type="small">
+                <image path="small/product-3.jpg"/>
+            </image-group>
+        </images>
+        <tax-class-id>standard</tax-class-id>
+        <brand>Brand A</brand>
+        <manufacturer-sku>0000005</manufacturer-sku>
+        <page-attributes>
+            <page-title xml:lang="x-default">Product page title</page-title>
+            <page-description xml:lang="x-default">Product description page attribute</page-description>
+            <page-keywords xml:lang="x-default">Brand A</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="tabDescription">Description tab content from product custom attribute</custom-attribute>
+        </custom-attributes>
+    </product>
+    <product product-id="offline-product-1">
+        <ean/>
+        <upc/>
+        <unit/>
+        <min-order-quantity>1</min-order-quantity>
+        <step-quantity>1</step-quantity>
+        <display-name xml:lang="x-default">Product 5</display-name>
+        <short-description xml:lang="x-default">Product short description</short-description>
+        <online-flag>false</online-flag>
+        <available-flag>true</available-flag>
+        <searchable-flag>true</searchable-flag>
+        <images>
+            <image-group view-type="large">
+                <image path="large/product-3.jpg"/>
+            </image-group>
+            <image-group view-type="medium">
+                <image path="medium/product-3.jpg"/>
+            </image-group>
+            <image-group view-type="small">
+                <image path="small/product-3.jpg"/>
+            </image-group>
+        </images>
+        <tax-class-id>standard</tax-class-id>
+        <brand>Brand A</brand>
+        <manufacturer-sku>0000005</manufacturer-sku>
+        <page-attributes>
+            <page-title xml:lang="x-default">Product page title</page-title>
+            <page-description xml:lang="x-default">Product description page attribute</page-description>
+            <page-keywords xml:lang="x-default">Brand A</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="tabDescription">Description tab content from product custom attribute</custom-attribute>
+        </custom-attributes>
+    </product>
+
+    <product product-id="product-bundle-1">
+        <ean/>
+        <upc/>
+        <unit/>
+        <min-order-quantity>1</min-order-quantity>
+        <step-quantity>1</step-quantity>
+        <display-name xml:lang="x-default">Products Bundle</display-name>
+        <short-description xml:lang="x-default"> Short description of bundle </short-description>
+        <online-flag>true</online-flag>
+        <available-flag>true</available-flag>
+        <searchable-flag>true</searchable-flag>
+        <images>
+            <image-group view-type="large">
+                <image path="large/product-bundle.jpg"/>
+            </image-group>
+            <image-group view-type="medium">
+                <image path="medium/product-bundle.jpg"/>
+            </image-group>
+            <image-group view-type="small">
+                <image path="small/product-bundle.jpg"/>
+            </image-group>
+        </images>
+        <tax-class-id>standard</tax-class-id>
+        <brand>Brand A</brand>
+        <manufacturer-sku>0000006</manufacturer-sku>
+        <page-attributes>
+            <page-title xml:lang="x-default">Products Bundle</page-title>
+            <page-description xml:lang="x-default">Short description of bundle</page-description>
+            <page-keywords xml:lang="x-default">Brand A</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="tabDescription">Description tab content from product custom attribute</custom-attribute>
+        </custom-attributes>
+        <bundled-products>
+            <bundled-product product-id="product-2">
+                <quantity>1</quantity>
+            </bundled-product>
+            <bundled-product product-id="product-3">
+                <quantity>1</quantity>
+            </bundled-product>
+            <bundled-product product-id="product-4">
+                <quantity>1</quantity>
+            </bundled-product>
+        </bundled-products>
+    </product>
+    <product product-id="product-bundle-2">
+        <ean/>
+        <upc/>
+        <unit/>
+        <min-order-quantity>1</min-order-quantity>
+        <step-quantity>1</step-quantity>
+        <display-name xml:lang="x-default">Products Bundle</display-name>
+        <short-description xml:lang="x-default"> Short description of bundle </short-description>
+        <online-flag>true</online-flag>
+        <available-flag>true</available-flag>
+        <searchable-flag>true</searchable-flag>
+        <images>
+            <image-group view-type="large">
+                <image path="large/product-bundle.jpg"/>
+            </image-group>
+            <image-group view-type="medium">
+                <image path="medium/product-bundle.jpg"/>
+            </image-group>
+            <image-group view-type="small">
+                <image path="small/product-bundle.jpg"/>
+            </image-group>
+        </images>
+        <tax-class-id>standard</tax-class-id>
+        <brand>Brand A</brand>
+        <manufacturer-sku>0000006</manufacturer-sku>
+        <page-attributes>
+            <page-title xml:lang="x-default">Products Bundle</page-title>
+            <page-description xml:lang="x-default">Short description of bundle</page-description>
+            <page-keywords xml:lang="x-default">Brand A</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="tabDescription">Description tab content from product custom attribute</custom-attribute>
+        </custom-attributes>
+        <bundled-products>
+            <bundled-product product-id="product-2">
+                <quantity>1</quantity>
+            </bundled-product>
+            <bundled-product product-id="product-3">
+                <quantity>1</quantity>
+            </bundled-product>
+            <bundled-product product-id="product-4">
+                <quantity>1</quantity>
+            </bundled-product>
+        </bundled-products>
+    </product>
+    <product product-id="product-bundle-3">
+        <ean/>
+        <upc/>
+        <unit/>
+        <min-order-quantity>1</min-order-quantity>
+        <step-quantity>1</step-quantity>
+        <display-name xml:lang="x-default">Products Bundle</display-name>
+        <short-description xml:lang="x-default"> Short description of bundle </short-description>
+        <online-flag>true</online-flag>
+        <available-flag>true</available-flag>
+        <searchable-flag>true</searchable-flag>
+        <images>
+            <image-group view-type="large">
+                <image path="large/product-bundle.jpg"/>
+            </image-group>
+            <image-group view-type="medium">
+                <image path="medium/product-bundle.jpg"/>
+            </image-group>
+            <image-group view-type="small">
+                <image path="small/product-bundle.jpg"/>
+            </image-group>
+        </images>
+        <tax-class-id>standard</tax-class-id>
+        <brand>Brand A</brand>
+        <manufacturer-sku>0000006</manufacturer-sku>
+        <page-attributes>
+            <page-title xml:lang="x-default">Products Bundle</page-title>
+            <page-description xml:lang="x-default">Short description of bundle</page-description>
+            <page-keywords xml:lang="x-default">Brand A</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="tabDescription">Description tab content from product custom attribute</custom-attribute>
+        </custom-attributes>
+        <bundled-products>
+            <bundled-product product-id="product-2">
+                <quantity>1</quantity>
+            </bundled-product>
+            <bundled-product product-id="product-3">
+                <quantity>1</quantity>
+            </bundled-product>
+            <bundled-product product-id="product-4">
+                <quantity>1</quantity>
+            </bundled-product>
+        </bundled-products>
+    </product>
+    <product product-id="product-bundle-4">
+        <ean/>
+        <upc/>
+        <unit/>
+        <min-order-quantity>1</min-order-quantity>
+        <step-quantity>1</step-quantity>
+        <display-name xml:lang="x-default">Products Bundle</display-name>
+        <short-description xml:lang="x-default"> Short description of bundle </short-description>
+        <online-flag>true</online-flag>
+        <available-flag>true</available-flag>
+        <searchable-flag>true</searchable-flag>
+        <images>
+            <image-group view-type="large">
+                <image path="large/product-bundle.jpg"/>
+            </image-group>
+            <image-group view-type="medium">
+                <image path="medium/product-bundle.jpg"/>
+            </image-group>
+            <image-group view-type="small">
+                <image path="small/product-bundle.jpg"/>
+            </image-group>
+        </images>
+        <tax-class-id>standard</tax-class-id>
+        <brand>Brand A</brand>
+        <manufacturer-sku>0000006</manufacturer-sku>
+        <page-attributes>
+            <page-title xml:lang="x-default">Products Bundle</page-title>
+            <page-description xml:lang="x-default">Short description of bundle</page-description>
+            <page-keywords xml:lang="x-default">Brand A</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="tabDescription">Description tab content from product custom attribute</custom-attribute>
+        </custom-attributes>
+        <bundled-products>
+            <bundled-product product-id="product-2">
+                <quantity>1</quantity>
+            </bundled-product>
+            <bundled-product product-id="product-3">
+                <quantity>1</quantity>
+            </bundled-product>
+            <bundled-product product-id="product-4">
+                <quantity>1</quantity>
+            </bundled-product>
+        </bundled-products>
+    </product>
+    <product product-id="product-bundle-5">
+        <ean/>
+        <upc/>
+        <unit/>
+        <min-order-quantity>1</min-order-quantity>
+        <step-quantity>1</step-quantity>
+        <display-name xml:lang="x-default">Products Bundle</display-name>
+        <short-description xml:lang="x-default"> Short description of bundle </short-description>
+        <online-flag>true</online-flag>
+        <available-flag>true</available-flag>
+        <searchable-flag>true</searchable-flag>
+        <images>
+            <image-group view-type="large">
+                <image path="large/product-bundle.jpg"/>
+            </image-group>
+            <image-group view-type="medium">
+                <image path="medium/product-bundle.jpg"/>
+            </image-group>
+            <image-group view-type="small">
+                <image path="small/product-bundle.jpg"/>
+            </image-group>
+        </images>
+        <tax-class-id>standard</tax-class-id>
+        <brand>Brand A</brand>
+        <manufacturer-sku>0000006</manufacturer-sku>
+        <page-attributes>
+            <page-title xml:lang="x-default">Products Bundle</page-title>
+            <page-description xml:lang="x-default">Short description of bundle</page-description>
+            <page-keywords xml:lang="x-default">Brand A</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="tabDescription">Description tab content from product custom attribute</custom-attribute>
+        </custom-attributes>
+        <bundled-products>
+            <bundled-product product-id="product-2">
+                <quantity>1</quantity>
+            </bundled-product>
+            <bundled-product product-id="product-3">
+                <quantity>1</quantity>
+            </bundled-product>
+            <bundled-product product-id="product-4">
+                <quantity>1</quantity>
+            </bundled-product>
+        </bundled-products>
+    </product>
+
+    <product product-id="product-set-1">
+        <ean/>
+        <upc/>
+        <unit/>
+        <min-order-quantity>1.0</min-order-quantity>
+        <step-quantity>1.0</step-quantity>
+        <display-name xml:lang="x-default">Product set</display-name>
+        <short-description xml:lang="x-default">Product description</short-description>
+        <long-description xml:lang="x-default">Product details</long-description>
+        <online-flag>true</online-flag>
+        <available-flag>true</available-flag>
+        <searchable-flag>true</searchable-flag>
+        <images>
+            <image-group view-type="large">
+                <image path="large/product-set.jpg"/>
+            </image-group>
+            <image-group view-type="medium">
+                <image path="medium/product-set.jpg"/>
+            </image-group>
+            <image-group view-type="small">
+                <image path="small/product-set.jpg"/>
+            </image-group>
+        </images>
+        <tax-class-id>standard</tax-class-id>
+        <page-attributes/>
+        <product-set-products>
+            <product-set-product product-id="product-1"/>
+            <product-set-product product-id="product-2"/>
+            <product-set-product product-id="product-3"/>
+        </product-set-products>
+    </product>
+    <product product-id="product-set-2">
+        <ean/>
+        <upc/>
+        <unit/>
+        <min-order-quantity>1.0</min-order-quantity>
+        <step-quantity>1.0</step-quantity>
+        <display-name xml:lang="x-default">Product set</display-name>
+        <short-description xml:lang="x-default">Product description</short-description>
+        <long-description xml:lang="x-default">Product details</long-description>
+        <online-flag>true</online-flag>
+        <available-flag>true</available-flag>
+        <searchable-flag>true</searchable-flag>
+        <images>
+            <image-group view-type="large">
+                <image path="large/product-set.jpg"/>
+            </image-group>
+            <image-group view-type="medium">
+                <image path="medium/product-set.jpg"/>
+            </image-group>
+            <image-group view-type="small">
+                <image path="small/product-set.jpg"/>
+            </image-group>
+        </images>
+        <tax-class-id>standard</tax-class-id>
+        <page-attributes/>
+        <product-set-products>
+            <product-set-product product-id="product-1"/>
+            <product-set-product product-id="product-2"/>
+            <product-set-product product-id="product-3"/>
+        </product-set-products>
+    </product>
+    <product product-id="product-set-3">
+        <ean/>
+        <upc/>
+        <unit/>
+        <min-order-quantity>1.0</min-order-quantity>
+        <step-quantity>1.0</step-quantity>
+        <display-name xml:lang="x-default">Product set</display-name>
+        <short-description xml:lang="x-default">Product description</short-description>
+        <long-description xml:lang="x-default">Product details</long-description>
+        <online-flag>true</online-flag>
+        <available-flag>true</available-flag>
+        <searchable-flag>true</searchable-flag>
+        <images>
+            <image-group view-type="large">
+                <image path="large/product-set.jpg"/>
+            </image-group>
+            <image-group view-type="medium">
+                <image path="medium/product-set.jpg"/>
+            </image-group>
+            <image-group view-type="small">
+                <image path="small/product-set.jpg"/>
+            </image-group>
+        </images>
+        <tax-class-id>standard</tax-class-id>
+        <page-attributes/>
+        <product-set-products>
+            <product-set-product product-id="product-1"/>
+            <product-set-product product-id="product-2"/>
+            <product-set-product product-id="product-3"/>
+        </product-set-products>
+    </product>
+    <product product-id="product-set-4">
+        <ean/>
+        <upc/>
+        <unit/>
+        <min-order-quantity>1.0</min-order-quantity>
+        <step-quantity>1.0</step-quantity>
+        <display-name xml:lang="x-default">Product set</display-name>
+        <short-description xml:lang="x-default">Product description</short-description>
+        <long-description xml:lang="x-default">Product details</long-description>
+        <online-flag>true</online-flag>
+        <available-flag>true</available-flag>
+        <searchable-flag>true</searchable-flag>
+        <images>
+            <image-group view-type="large">
+                <image path="large/product-set.jpg"/>
+            </image-group>
+            <image-group view-type="medium">
+                <image path="medium/product-set.jpg"/>
+            </image-group>
+            <image-group view-type="small">
+                <image path="small/product-set.jpg"/>
+            </image-group>
+        </images>
+        <tax-class-id>standard</tax-class-id>
+        <page-attributes/>
+        <product-set-products>
+            <product-set-product product-id="product-1"/>
+            <product-set-product product-id="product-2"/>
+            <product-set-product product-id="product-3"/>
+        </product-set-products>
+    </product>
+    <product product-id="product-set-5">
+        <ean/>
+        <upc/>
+        <unit/>
+        <min-order-quantity>1.0</min-order-quantity>
+        <step-quantity>1.0</step-quantity>
+        <display-name xml:lang="x-default">Product set</display-name>
+        <short-description xml:lang="x-default">Product description</short-description>
+        <long-description xml:lang="x-default">Product details</long-description>
+        <online-flag>true</online-flag>
+        <available-flag>true</available-flag>
+        <searchable-flag>true</searchable-flag>
+        <images>
+            <image-group view-type="large">
+                <image path="large/product-set.jpg"/>
+            </image-group>
+            <image-group view-type="medium">
+                <image path="medium/product-set.jpg"/>
+            </image-group>
+            <image-group view-type="small">
+                <image path="small/product-set.jpg"/>
+            </image-group>
+        </images>
+        <tax-class-id>standard</tax-class-id>
+        <page-attributes/>
+        <product-set-products>
+            <product-set-product product-id="product-1"/>
+            <product-set-product product-id="product-2"/>
+            <product-set-product product-id="product-3"/>
+        </product-set-products>
+    </product>
+
+    <product product-id="product-variation-1">
+        <ean/>
+        <upc/>
+        <unit/>
+        <min-order-quantity>1.0</min-order-quantity>
+        <step-quantity>1.0</step-quantity>
+        <display-name xml:lang="x-default">Variations - variation1 green</display-name>
+        <short-description xml:lang="x-default">short description</short-description>
+        <online-flag>true</online-flag>
+        <available-flag>false</available-flag>
+        <searchable-flag>true</searchable-flag>
+        <manufacturer-sku>0000101</manufacturer-sku>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="color">Green</custom-attribute>
+            <custom-attribute attribute-id="size">Medium</custom-attribute>
+        </custom-attributes>
+        <pinterest-enabled-flag>false</pinterest-enabled-flag>
+        <facebook-enabled-flag>false</facebook-enabled-flag>
+        <store-attributes>
+            <force-price-flag>false</force-price-flag>
+            <non-inventory-flag>false</non-inventory-flag>
+            <non-revenue-flag>false</non-revenue-flag>
+            <non-discountable-flag>false</non-discountable-flag>
+        </store-attributes>
+    </product>
+    <product product-id="product-variation-2">
+        <ean/>
+        <upc/>
+        <unit/>
+        <min-order-quantity>1.0</min-order-quantity>
+        <step-quantity>1.0</step-quantity>
+        <display-name xml:lang="x-default">Variations - variation2 blue</display-name>
+        <short-description xml:lang="x-default">short description</short-description>
+        <online-flag>true</online-flag>
+        <available-flag>false</available-flag>
+        <searchable-flag>true</searchable-flag>
+        <manufacturer-sku>0000102</manufacturer-sku>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="color">Blue</custom-attribute>
+            <custom-attribute attribute-id="size">Medium</custom-attribute>
+        </custom-attributes>
+        <pinterest-enabled-flag>false</pinterest-enabled-flag>
+        <facebook-enabled-flag>false</facebook-enabled-flag>
+        <store-attributes>
+            <force-price-flag>false</force-price-flag>
+            <non-inventory-flag>false</non-inventory-flag>
+            <non-revenue-flag>false</non-revenue-flag>
+            <non-discountable-flag>false</non-discountable-flag>
+        </store-attributes>
+    </product>
+    <product product-id="product-variation-3">
+        <ean/>
+        <upc/>
+        <unit/>
+        <min-order-quantity>1.0</min-order-quantity>
+        <step-quantity>1.0</step-quantity>
+        <display-name xml:lang="x-default">Variations - variation3 red</display-name>
+        <short-description xml:lang="x-default">short description</short-description>
+        <online-flag>true</online-flag>
+        <available-flag>false</available-flag>
+        <searchable-flag>true</searchable-flag>
+        <manufacturer-sku>0000103</manufacturer-sku>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="color">Red</custom-attribute>
+            <custom-attribute attribute-id="size">Medium</custom-attribute>
+        </custom-attributes>
+        <pinterest-enabled-flag>false</pinterest-enabled-flag>
+        <facebook-enabled-flag>false</facebook-enabled-flag>
+        <store-attributes>
+            <force-price-flag>false</force-price-flag>
+            <non-inventory-flag>false</non-inventory-flag>
+            <non-revenue-flag>false</non-revenue-flag>
+            <non-discountable-flag>false</non-discountable-flag>
+        </store-attributes>
+    </product>
+    <product product-id="product-variation-4">
+        <ean/>
+        <upc/>
+        <unit/>
+        <min-order-quantity>1.0</min-order-quantity>
+        <step-quantity>1.0</step-quantity>
+        <display-name xml:lang="x-default">Variations - variation4 brown</display-name>
+        <short-description xml:lang="x-default">short description</short-description>
+        <online-flag>true</online-flag>
+        <available-flag>false</available-flag>
+        <searchable-flag>true</searchable-flag>
+        <manufacturer-sku>0000104</manufacturer-sku>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="color">Brown</custom-attribute>
+            <custom-attribute attribute-id="size">Medium</custom-attribute>
+        </custom-attributes>
+        <pinterest-enabled-flag>false</pinterest-enabled-flag>
+        <facebook-enabled-flag>false</facebook-enabled-flag>
+        <store-attributes>
+            <force-price-flag>false</force-price-flag>
+            <non-inventory-flag>false</non-inventory-flag>
+            <non-revenue-flag>false</non-revenue-flag>
+            <non-discountable-flag>false</non-discountable-flag>
+        </store-attributes>
+    </product>
+    <product product-id="product-variation-5">
+        <ean/>
+        <upc/>
+        <unit/>
+        <min-order-quantity>1.0</min-order-quantity>
+        <step-quantity>1.0</step-quantity>
+        <display-name xml:lang="x-default">Variations - variation5 black</display-name>
+        <short-description xml:lang="x-default">short description</short-description>
+        <online-flag>true</online-flag>
+        <available-flag>false</available-flag>
+        <searchable-flag>true</searchable-flag>
+        <manufacturer-sku>0000105</manufacturer-sku>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="color">Black</custom-attribute>
+            <custom-attribute attribute-id="size">Medium</custom-attribute>
+        </custom-attributes>
+        <pinterest-enabled-flag>false</pinterest-enabled-flag>
+        <facebook-enabled-flag>false</facebook-enabled-flag>
+        <store-attributes>
+            <force-price-flag>false</force-price-flag>
+            <non-inventory-flag>false</non-inventory-flag>
+            <non-revenue-flag>false</non-revenue-flag>
+            <non-discountable-flag>false</non-discountable-flag>
+        </store-attributes>
+    </product>
+    <product product-id="product-variation-6">
+        <ean/>
+        <upc/>
+        <unit/>
+        <min-order-quantity>1.0</min-order-quantity>
+        <step-quantity>1.0</step-quantity>
+        <display-name xml:lang="x-default">Variations - variation6 white</display-name>
+        <short-description xml:lang="x-default">short description</short-description>
+        <online-flag>true</online-flag>
+        <available-flag>false</available-flag>
+        <searchable-flag>true</searchable-flag>
+        <manufacturer-sku>0000106</manufacturer-sku>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="color">White</custom-attribute>
+            <custom-attribute attribute-id="size">Large</custom-attribute>
+        </custom-attributes>
+        <pinterest-enabled-flag>false</pinterest-enabled-flag>
+        <facebook-enabled-flag>false</facebook-enabled-flag>
+        <store-attributes>
+            <force-price-flag>false</force-price-flag>
+            <non-inventory-flag>false</non-inventory-flag>
+            <non-revenue-flag>false</non-revenue-flag>
+            <non-discountable-flag>false</non-discountable-flag>
+        </store-attributes>
+    </product>
+    <product product-id="product-variation-7">
+        <ean/>
+        <upc/>
+        <unit/>
+        <min-order-quantity>1.0</min-order-quantity>
+        <step-quantity>1.0</step-quantity>
+        <display-name xml:lang="x-default">Variations - variation7 yellow</display-name>
+        <short-description xml:lang="x-default">short description</short-description>
+        <online-flag>true</online-flag>
+        <available-flag>false</available-flag>
+        <searchable-flag>true</searchable-flag>
+        <manufacturer-sku>5896548</manufacturer-sku>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="color">Yellow</custom-attribute>
+            <custom-attribute attribute-id="size">Small</custom-attribute>
+        </custom-attributes>
+        <pinterest-enabled-flag>false</pinterest-enabled-flag>
+        <facebook-enabled-flag>false</facebook-enabled-flag>
+        <store-attributes>
+            <force-price-flag>false</force-price-flag>
+            <non-inventory-flag>false</non-inventory-flag>
+            <non-revenue-flag>false</non-revenue-flag>
+            <non-discountable-flag>false</non-discountable-flag>
+        </store-attributes>
+    </product>
+
+    <product product-id="product-variation-master-1">
+        <ean/>
+        <upc/>
+        <unit/>
+        <min-order-quantity>1</min-order-quantity>
+        <step-quantity>1</step-quantity>
+        <display-name xml:lang="x-default">Product variation master</display-name>
+        <short-description xml:lang="x-default">Variation master short description</short-description>
+        <online-flag>true</online-flag>
+        <available-flag>true</available-flag>
+        <searchable-flag>true</searchable-flag>
+        <images>
+            <image-group view-type="large">
+                <image path="large/product-variation.jpg"/>
+            </image-group>
+            <image-group view-type="large">
+                <variation attribute-id="color" value="Black"/>
+                <image path="large/product-variation-black.jpg"/>
+            </image-group>
+            <image-group view-type="large">
+                <variation attribute-id="color" value="Blue"/>
+                <image path="large/product-variation-blue.jpg"/>
+            </image-group>
+            <image-group view-type="large">
+                <variation attribute-id="color" value="Brown"/>
+                <image path="large/product-variation-brown.jpg"/>
+            </image-group>
+            <image-group view-type="large">
+                <variation attribute-id="color" value="Green"/>
+                <image path="large/product-variation-green.jpg"/>
+            </image-group>
+            <image-group view-type="large">
+                <variation attribute-id="color" value="Yellow"/>
+                <image path="large/product-variation-yellow.jpg"/>
+            </image-group>
+            <image-group view-type="large">
+                <variation attribute-id="color" value="White"/>
+                <image path="large/product-variation-white.jpg"/>
+            </image-group>
+            <image-group view-type="large">
+                <variation attribute-id="color" value="Red"/>
+                <image path="large/product-variation-red.jpg"/>
+            </image-group>
+            <image-group view-type="medium">
+                <image path="medium/product-variation.jpg"/>
+            </image-group>
+            <image-group view-type="medium">
+                <variation attribute-id="color" value="Black"/>
+                <image path="medium/product-variation-black.jpg"/>
+            </image-group>
+            <image-group view-type="medium">
+                <variation attribute-id="color" value="Blue"/>
+                <image path="medium/product-variation-blue.jpg"/>
+            </image-group>
+            <image-group view-type="medium">
+                <variation attribute-id="color" value="Brown"/>
+                <image path="medium/product-variation-brown.jpg"/>
+            </image-group>
+            <image-group view-type="medium">
+                <variation attribute-id="color" value="Green"/>
+                <image path="medium/product-variation-green.jpg"/>
+            </image-group>
+            <image-group view-type="medium">
+                <variation attribute-id="color" value="Yellow"/>
+                <image path="medium/product-variation-yellow.jpg"/>
+            </image-group>
+            <image-group view-type="medium">
+                <variation attribute-id="color" value="White"/>
+                <image path="medium/product-variation-white.jpg"/>
+            </image-group>
+            <image-group view-type="medium">
+                <variation attribute-id="color" value="Red"/>
+                <image path="medium/product-variation-red.jpg"/>
+            </image-group>
+            <image-group view-type="small">
+                <image path="small/product-variation.jpg"/>
+            </image-group>
+            <image-group view-type="swatch">
+                <variation attribute-id="color" value="Black"/>
+                <image path="swatch/black.jpg"/>
+            </image-group>
+            <image-group view-type="swatch">
+                <variation attribute-id="color" value="Blue"/>
+                <image path="swatch/blue.jpg"/>
+            </image-group>
+            <image-group view-type="swatch">
+                <variation attribute-id="color" value="Brown"/>
+                <image path="swatch/brown.jpg"/>
+            </image-group>
+            <image-group view-type="swatch">
+                <variation attribute-id="color" value="Green"/>
+                <image path="swatch/green.jpg"/>
+            </image-group>
+            <image-group view-type="swatch">
+                <variation attribute-id="color" value="Red"/>
+                <image path="swatch/red.jpg"/>
+            </image-group>
+            <image-group view-type="swatch">
+                <variation attribute-id="color" value="White"/>
+                <image path="swatch/white.jpg"/>
+            </image-group>
+            <image-group view-type="swatch">
+                <variation attribute-id="color" value="Yellow"/>
+                <image path="swatch/yellow.jpg"/>
+            </image-group>
+        </images>
+        <brand>Brand B</brand>
+        <manufacturer-sku>0000100</manufacturer-sku>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="tabDescription">Description tab content from product custom attribute</custom-attribute>
+        </custom-attributes>
+        <variations>
+            <attributes>
+                <shared-variation-attribute attribute-id="color" variation-attribute-id="color"/>
+                <shared-variation-attribute attribute-id="size" variation-attribute-id="size"/>
+            </attributes>
+            <variants>
+                <variant product-id="product-variation-1"/>
+                <variant product-id="product-variation-2"/>
+                <variant product-id="product-variation-3"/>
+                <variant product-id="product-variation-4"/>
+                <variant product-id="product-variation-5"/>
+                <variant product-id="product-variation-6"/>
+                <variant product-id="product-variation-7"/>
+            </variants>
+        </variations>
+        <pinterest-enabled-flag>false</pinterest-enabled-flag>
+        <facebook-enabled-flag>false</facebook-enabled-flag>
+        <store-attributes>
+            <force-price-flag>false</force-price-flag>
+            <non-inventory-flag>false</non-inventory-flag>
+            <non-revenue-flag>false</non-revenue-flag>
+            <non-discountable-flag>false</non-discountable-flag>
+        </store-attributes>
+    </product>
+    <product product-id="product-variation-master-2">
+        <ean/>
+        <upc/>
+        <unit/>
+        <min-order-quantity>1</min-order-quantity>
+        <step-quantity>1</step-quantity>
+        <display-name xml:lang="x-default">Product variation master</display-name>
+        <short-description xml:lang="x-default">Variation master short description</short-description>
+        <online-flag>true</online-flag>
+        <available-flag>true</available-flag>
+        <searchable-flag>true</searchable-flag>
+        <images>
+            <image-group view-type="large">
+                <image path="large/product-variation.jpg"/>
+            </image-group>
+            <image-group view-type="large">
+                <variation attribute-id="color" value="Black"/>
+                <image path="large/product-variation-black.jpg"/>
+            </image-group>
+            <image-group view-type="large">
+                <variation attribute-id="color" value="Blue"/>
+                <image path="large/product-variation-blue.jpg"/>
+            </image-group>
+            <image-group view-type="large">
+                <variation attribute-id="color" value="Brown"/>
+                <image path="large/product-variation-brown.jpg"/>
+            </image-group>
+            <image-group view-type="large">
+                <variation attribute-id="color" value="Green"/>
+                <image path="large/product-variation-green.jpg"/>
+            </image-group>
+            <image-group view-type="large">
+                <variation attribute-id="color" value="Yellow"/>
+                <image path="large/product-variation-yellow.jpg"/>
+            </image-group>
+            <image-group view-type="large">
+                <variation attribute-id="color" value="White"/>
+                <image path="large/product-variation-white.jpg"/>
+            </image-group>
+            <image-group view-type="large">
+                <variation attribute-id="color" value="Red"/>
+                <image path="large/product-variation-red.jpg"/>
+            </image-group>
+            <image-group view-type="medium">
+                <image path="medium/product-variation.jpg"/>
+            </image-group>
+            <image-group view-type="medium">
+                <variation attribute-id="color" value="Black"/>
+                <image path="medium/product-variation-black.jpg"/>
+            </image-group>
+            <image-group view-type="medium">
+                <variation attribute-id="color" value="Blue"/>
+                <image path="medium/product-variation-blue.jpg"/>
+            </image-group>
+            <image-group view-type="medium">
+                <variation attribute-id="color" value="Brown"/>
+                <image path="medium/product-variation-brown.jpg"/>
+            </image-group>
+            <image-group view-type="medium">
+                <variation attribute-id="color" value="Green"/>
+                <image path="medium/product-variation-green.jpg"/>
+            </image-group>
+            <image-group view-type="medium">
+                <variation attribute-id="color" value="Yellow"/>
+                <image path="medium/product-variation-yellow.jpg"/>
+            </image-group>
+            <image-group view-type="medium">
+                <variation attribute-id="color" value="White"/>
+                <image path="medium/product-variation-white.jpg"/>
+            </image-group>
+            <image-group view-type="medium">
+                <variation attribute-id="color" value="Red"/>
+                <image path="medium/product-variation-red.jpg"/>
+            </image-group>
+            <image-group view-type="small">
+                <image path="small/product-variation.jpg"/>
+            </image-group>
+            <image-group view-type="swatch">
+                <variation attribute-id="color" value="Black"/>
+                <image path="swatch/black.jpg"/>
+            </image-group>
+            <image-group view-type="swatch">
+                <variation attribute-id="color" value="Blue"/>
+                <image path="swatch/blue.jpg"/>
+            </image-group>
+            <image-group view-type="swatch">
+                <variation attribute-id="color" value="Brown"/>
+                <image path="swatch/brown.jpg"/>
+            </image-group>
+            <image-group view-type="swatch">
+                <variation attribute-id="color" value="Green"/>
+                <image path="swatch/green.jpg"/>
+            </image-group>
+            <image-group view-type="swatch">
+                <variation attribute-id="color" value="Red"/>
+                <image path="swatch/red.jpg"/>
+            </image-group>
+            <image-group view-type="swatch">
+                <variation attribute-id="color" value="White"/>
+                <image path="swatch/white.jpg"/>
+            </image-group>
+            <image-group view-type="swatch">
+                <variation attribute-id="color" value="Yellow"/>
+                <image path="swatch/yellow.jpg"/>
+            </image-group>
+        </images>
+        <brand>Brand B</brand>
+        <manufacturer-sku>0000100</manufacturer-sku>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="tabDescription">Description tab content from product custom attribute</custom-attribute>
+        </custom-attributes>
+        <variations>
+            <attributes>
+                <shared-variation-attribute attribute-id="color" variation-attribute-id="color"/>
+                <shared-variation-attribute attribute-id="size" variation-attribute-id="size"/>
+            </attributes>
+            <variants>
+                <variant product-id="product-variation-1"/>
+                <variant product-id="product-variation-2"/>
+                <variant product-id="product-variation-3"/>
+                <variant product-id="product-variation-4"/>
+                <variant product-id="product-variation-5"/>
+                <variant product-id="product-variation-6"/>
+                <variant product-id="product-variation-7"/>
+            </variants>
+        </variations>
+        <pinterest-enabled-flag>false</pinterest-enabled-flag>
+        <facebook-enabled-flag>false</facebook-enabled-flag>
+        <store-attributes>
+            <force-price-flag>false</force-price-flag>
+            <non-inventory-flag>false</non-inventory-flag>
+            <non-revenue-flag>false</non-revenue-flag>
+            <non-discountable-flag>false</non-discountable-flag>
+        </store-attributes>
+    </product>
+    <product product-id="product-variation-master-3">
+        <ean/>
+        <upc/>
+        <unit/>
+        <min-order-quantity>1</min-order-quantity>
+        <step-quantity>1</step-quantity>
+        <display-name xml:lang="x-default">Product variation master</display-name>
+        <short-description xml:lang="x-default">Variation master short description</short-description>
+        <online-flag>true</online-flag>
+        <available-flag>true</available-flag>
+        <searchable-flag>true</searchable-flag>
+        <images>
+            <image-group view-type="large">
+                <image path="large/product-variation.jpg"/>
+            </image-group>
+            <image-group view-type="large">
+                <variation attribute-id="color" value="Black"/>
+                <image path="large/product-variation-black.jpg"/>
+            </image-group>
+            <image-group view-type="large">
+                <variation attribute-id="color" value="Blue"/>
+                <image path="large/product-variation-blue.jpg"/>
+            </image-group>
+            <image-group view-type="large">
+                <variation attribute-id="color" value="Brown"/>
+                <image path="large/product-variation-brown.jpg"/>
+            </image-group>
+            <image-group view-type="large">
+                <variation attribute-id="color" value="Green"/>
+                <image path="large/product-variation-green.jpg"/>
+            </image-group>
+            <image-group view-type="large">
+                <variation attribute-id="color" value="Yellow"/>
+                <image path="large/product-variation-yellow.jpg"/>
+            </image-group>
+            <image-group view-type="large">
+                <variation attribute-id="color" value="White"/>
+                <image path="large/product-variation-white.jpg"/>
+            </image-group>
+            <image-group view-type="large">
+                <variation attribute-id="color" value="Red"/>
+                <image path="large/product-variation-red.jpg"/>
+            </image-group>
+            <image-group view-type="medium">
+                <image path="medium/product-variation.jpg"/>
+            </image-group>
+            <image-group view-type="medium">
+                <variation attribute-id="color" value="Black"/>
+                <image path="medium/product-variation-black.jpg"/>
+            </image-group>
+            <image-group view-type="medium">
+                <variation attribute-id="color" value="Blue"/>
+                <image path="medium/product-variation-blue.jpg"/>
+            </image-group>
+            <image-group view-type="medium">
+                <variation attribute-id="color" value="Brown"/>
+                <image path="medium/product-variation-brown.jpg"/>
+            </image-group>
+            <image-group view-type="medium">
+                <variation attribute-id="color" value="Green"/>
+                <image path="medium/product-variation-green.jpg"/>
+            </image-group>
+            <image-group view-type="medium">
+                <variation attribute-id="color" value="Yellow"/>
+                <image path="medium/product-variation-yellow.jpg"/>
+            </image-group>
+            <image-group view-type="medium">
+                <variation attribute-id="color" value="White"/>
+                <image path="medium/product-variation-white.jpg"/>
+            </image-group>
+            <image-group view-type="medium">
+                <variation attribute-id="color" value="Red"/>
+                <image path="medium/product-variation-red.jpg"/>
+            </image-group>
+            <image-group view-type="small">
+                <image path="small/product-variation.jpg"/>
+            </image-group>
+            <image-group view-type="swatch">
+                <variation attribute-id="color" value="Black"/>
+                <image path="swatch/black.jpg"/>
+            </image-group>
+            <image-group view-type="swatch">
+                <variation attribute-id="color" value="Blue"/>
+                <image path="swatch/blue.jpg"/>
+            </image-group>
+            <image-group view-type="swatch">
+                <variation attribute-id="color" value="Brown"/>
+                <image path="swatch/brown.jpg"/>
+            </image-group>
+            <image-group view-type="swatch">
+                <variation attribute-id="color" value="Green"/>
+                <image path="swatch/green.jpg"/>
+            </image-group>
+            <image-group view-type="swatch">
+                <variation attribute-id="color" value="Red"/>
+                <image path="swatch/red.jpg"/>
+            </image-group>
+            <image-group view-type="swatch">
+                <variation attribute-id="color" value="White"/>
+                <image path="swatch/white.jpg"/>
+            </image-group>
+            <image-group view-type="swatch">
+                <variation attribute-id="color" value="Yellow"/>
+                <image path="swatch/yellow.jpg"/>
+            </image-group>
+        </images>
+        <brand>Brand B</brand>
+        <manufacturer-sku>0000100</manufacturer-sku>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="tabDescription">Description tab content from product custom attribute</custom-attribute>
+        </custom-attributes>
+        <variations>
+            <attributes>
+                <shared-variation-attribute attribute-id="color" variation-attribute-id="color"/>
+                <shared-variation-attribute attribute-id="size" variation-attribute-id="size"/>
+            </attributes>
+            <variants>
+                <variant product-id="product-variation-1"/>
+                <variant product-id="product-variation-2"/>
+                <variant product-id="product-variation-3"/>
+                <variant product-id="product-variation-4"/>
+                <variant product-id="product-variation-5"/>
+                <variant product-id="product-variation-6"/>
+                <variant product-id="product-variation-7"/>
+            </variants>
+        </variations>
+        <pinterest-enabled-flag>false</pinterest-enabled-flag>
+        <facebook-enabled-flag>false</facebook-enabled-flag>
+        <store-attributes>
+            <force-price-flag>false</force-price-flag>
+            <non-inventory-flag>false</non-inventory-flag>
+            <non-revenue-flag>false</non-revenue-flag>
+            <non-discountable-flag>false</non-discountable-flag>
+        </store-attributes>
+    </product>
+
+    <variation-attribute attribute-id="color" variation-attribute-id="color">
+        <display-name xml:lang="x-default">Color</display-name>
+        <variation-attribute-values>
+            <variation-attribute-value value="Red">
+                <display-value xml:lang="x-default">Red</display-value>
+                <description xml:lang="x-default">Red color</description>
+            </variation-attribute-value>
+            <variation-attribute-value value="Black">
+                <display-value xml:lang="x-default">Black</display-value>
+                <description xml:lang="x-default">Black color</description>
+            </variation-attribute-value>
+            <variation-attribute-value value="White">
+                <display-value xml:lang="x-default">White</display-value>
+                <description xml:lang="x-default">White color</description>
+            </variation-attribute-value>
+            <variation-attribute-value value="Yellow">
+                <display-value xml:lang="x-default">Yellow</display-value>
+                <description xml:lang="x-default">Yellow color</description>
+            </variation-attribute-value>
+            <variation-attribute-value value="Blue">
+                <display-value xml:lang="x-default">Blue</display-value>
+                <description xml:lang="x-default">Blue color</description>
+            </variation-attribute-value>
+            <variation-attribute-value value="Green">
+                <display-value xml:lang="x-default">Green</display-value>
+                <description xml:lang="x-default">Green color</description>
+            </variation-attribute-value>
+            <variation-attribute-value value="Purple">
+                <display-value xml:lang="x-default">Purple</display-value>
+                <description xml:lang="x-default">Purple color</description>
+            </variation-attribute-value>
+            <variation-attribute-value value="Violet">
+                <display-value xml:lang="x-default">Violet</display-value>
+                <description xml:lang="x-default">Violet color</description>
+            </variation-attribute-value>
+            <variation-attribute-value value="Brown">
+                <display-value xml:lang="x-default">Brown</display-value>
+                <description xml:lang="x-default">Brown color</description>
+            </variation-attribute-value>
+            <variation-attribute-value value="Orange">
+                <display-value xml:lang="x-default">Orange</display-value>
+                <description xml:lang="x-default">Orange color</description>
+            </variation-attribute-value>
+        </variation-attribute-values>
+    </variation-attribute>
+
+    <variation-attribute attribute-id="size" variation-attribute-id="size">
+        <display-name xml:lang="x-default">Size</display-name>
+        <variation-attribute-values>
+            <variation-attribute-value value="Small">
+                <display-value xml:lang="x-default">Small</display-value>
+                <description xml:lang="x-default">Small size</description>
+            </variation-attribute-value>
+            <variation-attribute-value value="Medium">
+                <display-value xml:lang="x-default">Medium</display-value>
+                <description xml:lang="x-default">Medium size</description>
+            </variation-attribute-value>
+            <variation-attribute-value value="Large">
+                <display-value xml:lang="x-default">Large</display-value>
+                <description xml:lang="x-default">Large size</description>
+            </variation-attribute-value>
+        </variation-attribute-values>
+    </variation-attribute>
+
+    <recommendation source-id="product-1" source-type="product" target-id="product-2" type="1"/>
+    <recommendation source-id="product-1" source-type="product" target-id="product-3" type="1"/>
+    <recommendation source-id="product-1" source-type="product" target-id="product-4" type="1"/>
+    <recommendation source-id="product-1" source-type="product" target-id="product-5" type="1"/>
+    <recommendation source-id="product-1" source-type="product" target-id="product-variation-master" type="1"/>
+    <recommendation source-id="product-1" source-type="product" target-id="product-bundle" type="1"/>
+
+    <recommendation source-id="product-variation-master" source-type="product" target-id="product-2" type="1"/>
+    <recommendation source-id="product-variation-master" source-type="product" target-id="product-3" type="1"/>
+    <recommendation source-id="product-variation-master" source-type="product" target-id="product-4" type="1"/>
+    <recommendation source-id="product-variation-master" source-type="product" target-id="product-5" type="1"/>
+
+</catalog>

@@ -1,99 +1,97 @@
 #!/usr/bin/env node
 
-const
-    path = require('path'),
-    config = require(path.join(process.cwd(), 'package.json')),
-    catalogReducer = config.catalogReducer || require('./default'),
-    minifiedMaster = catalogReducer.src.minifiedMaster,
-    masterCatalogFile = catalogReducer.src.master,
-    masterFolder = path.dirname(masterCatalogFile),
-    navigationCatalogFile = catalogReducer.src.navigation,
-    navigationFolder = path.dirname(navigationCatalogFile),
-    categoriesConfiguration = catalogReducer.categoriesConfig,
-    productsConfig = catalogReducer.productsConfig,
-    NavigationCatalogWorker = require('./lib/catalog/workers/NavigationCatalogWorker'),
-    MasterCatalogWorker = require('./lib/catalog/workers/MasterCatalogWorker'),
-    MasterCatalogFilter = require('./lib/catalog/workers/MasterCatalogFilter'),
-    { removeFilesExcept } = require('./lib/tools/cleanup'),
-    { log } = require('./lib/tools/logger');
+import ProductAssignmentWorker from '#workers/ProductAssignmentWorker.js';
+import ProductDefinitionWorker from '#workers/ProductDefinitionWorker.js';
 
-if (!catalogReducer.enabledCache) {
-    cleanupFolders();
-}
+import reducers from '#reducers/index.js';
+import { processSrc, renameReducedToOriginal } from '#tools/files.js';
+import { beep, logUsedRAM } from '#tools/logger.js';
 
-
-let
-    navigationWorker = new NavigationCatalogWorker(navigationCatalogFile),
-    masterWorker = new MasterCatalogWorker(masterCatalogFile),
-    masterCatalogFilter = new MasterCatalogFilter(masterCatalogFile, minifiedMaster + '.temp');
+import {
+    src,
+    behavior,
+    specificCategoryConfigs,
+    generalCategoryConfigs,
+    productsConfig,
+    generateMissingRecords
+} from './constants.js';
 
 /**
- * Filter product by final registry in navigation catalog
+ * @description Entry point
  */
-masterCatalogFilter.setMatchFilter(tag => {
-    let
-        id = tag.attributes['product-id'],
-        { finalProductList } = navigationWorker.registry;
-    
-    return !!finalProductList[id];
-});
+(async () => {
+    console.time('Done in');
 
-/**
- * when finished first parsing of master catalog we need to start parsing of navigation catalog
- */
-masterWorker.on('end', () => navigationWorker.start());
+    const {
+        allFiles,
+        masterFiles,
+        navigationFiles,
+        inventoryFiles,
+        priceBookFiles
+    } = await processSrc(src);
 
-/**
- * when finished parsing of navigation catalog we know which products assigned to which categories
- */
-navigationWorker.on('end', () => {
-    /**
-     * Adding dependendencies to navigation catalog registry. Product may be not category assignement
-     * but his owner assigned to navigation catalog
-     */
-    navigationWorker.registry.updateProducts(masterWorker.registry.products);
 
-    /**
-     * We have all needed data, so we don't need master catalog registry
-     */
-    masterWorker.destroy();
+    const productAssignmentWorker = new ProductAssignmentWorker(navigationFiles);
+    const productDefinitionWorker = new ProductDefinitionWorker(masterFiles);
 
-    /**
-     * Now we may reduce catalog data by configuration
-     */
-    navigationWorker.registry.optimize(categoriesConfiguration, productsConfig);
+    const keepAsItIsCategories = Object
+        .entries(specificCategoryConfigs)
+        .filter(([, value]) => value === 'keepAsIs')
+        .map(([category]) => category);
 
-    /**
-     * We have info about all products that we need in navigation worker.
-     * Now we may read master catalog again and write to optimized file
-     * only products that existing in navigation catalog worker registry.
-     */
-    masterCatalogFilter.start().on('end', () => {
-        let masterCatalogAssignmentsFilter = new MasterCatalogFilter(minifiedMaster + '.temp', minifiedMaster);
+    const specificCategories = Object
+        .keys(specificCategoryConfigs)
+        .filter(category => !keepAsItIsCategories.includes(category));
 
-        masterCatalogAssignmentsFilter.setMatchFilter(tag => {
-            let
-                id = tag.attributes['product-id'],
-                { finalProductList } = navigationWorker.registry;
+    const {
+        allCategories,
+        assignments: specificProductIDs,
+        keepAsItIsProducts
+    } = await productAssignmentWorker.parseCategories(specificCategories, keepAsItIsCategories);
 
-            return !!finalProductList[id];
-        });
+    const reduced = await productDefinitionWorker.filterProductsByCategories(
+        specificProductIDs,
+        specificCategoryConfigs,
+        keepAsItIsProducts,
+        generalCategoryConfigs.$default,
+        productsConfig
+    );
 
-        masterCatalogAssignmentsFilter.start('category-assignment').on('end', () => {
-            if (catalogReducer.cleanupData) {
-                cleanupFolders();
-            }
+    const categoriesThatShouldUseDefaultConfig = Array
+        .from(allCategories)
+        .filter(category => !specificCategories.includes(category));
 
-            log('Done');
-        });
-    });
-});
+    const allReducedProducts = [...keepAsItIsProducts, ...reduced.categorized, ...reduced.default];
 
-//first parsing master catalog to collect products with their dependencies
-masterWorker.start();
+    await Promise.all([
+        reducers.navigation(
+            navigationFiles,
+            keepAsItIsProducts,
+            reduced,
+            categoriesThatShouldUseDefaultConfig
+        ),
+        reducers.master(masterFiles, allReducedProducts),
+        reducers.inventory(
+            inventoryFiles,
+            allReducedProducts,
+            reduced.nonMasters,
+            generateMissingRecords.inventoryAllocation
+        ),
+        reducers.priceBook(
+            priceBookFiles,
+            allReducedProducts,
+            reduced.nonMasters,
+            generateMissingRecords.price
+        )
+    ]);
 
-function cleanupFolders () {
-    log(`Cleanup folders ${masterFolder} and ${navigationFolder}`);
-    removeFilesExcept(masterFolder, [masterCatalogFile, navigationCatalogFile, minifiedMaster]);
-    removeFilesExcept(navigationFolder, [masterCatalogFile, navigationCatalogFile, minifiedMaster]);
-}
+    if (behavior === 'updateExisting') {
+        await renameReducedToOriginal(allFiles);
+    }
+
+    logUsedRAM();
+
+    console.timeEnd('Done in');
+
+    beep();
+})();

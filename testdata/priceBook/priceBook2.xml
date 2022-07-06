@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pricebooks xmlns="http://www.demandware.com/xml/impex/pricebook/2006-10-31">
+    <pricebook>
+        <header pricebook-id="list-x">
+            <currency>AED</currency>
+            <display-name xml:lang="x-default">Boilerplate AED List Prices</display-name>
+            <online-flag>true</online-flag>
+            <!-- this is list pricebook, so it should have all prices, including generated -->
+            <parent></parent>
+        </header>
+        <price-tables>
+            <price-table product-id="x-product-1">
+                <amount quantity="1">250.00</amount>
+            </price-table>
+        </price-tables>
+    </pricebook>
+</pricebooks>

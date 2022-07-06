@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pricebooks xmlns="http://www.demandware.com/xml/impex/pricebook/2006-10-31">
+    <pricebook>
+        <header pricebook-id="list-1">
+            <currency>AED</currency>
+            <display-name xml:lang="x-default">Boilerplate AED List Prices</display-name>
+            <online-flag>true</online-flag>
+        </header>
+        <price-tables>
+            <price-table product-id="product-1">
+                <amount quantity="1">250.00</amount>
+            </price-table>
+            <price-table product-id="product-2">
+                <amount quantity="1">250.00</amount>
+            </price-table>
+            <price-table product-id="product-3">
+                <amount quantity="1">250.00</amount>
+            </price-table>
+            <price-table product-id="product-4">
+                <amount quantity="1">250.00</amount>
+            </price-table>
+            <price-table product-id="product-5">
+                <amount quantity="1">250.00</amount>
+            </price-table>
+            <price-table product-id="offline-product-1">
+                <amount quantity="1">250.00</amount>
+            </price-table>
+            <price-table product-id="product-bundle-1">
+                <amount quantity="1">250.00</amount>
+            </price-table>
+            <price-table product-id="product-bundle-2">
+                <amount quantity="1">250.00</amount>
+            </price-table>
+            <price-table product-id="product-bundle-3">
+                <amount quantity="1">250.00</amount>
+            </price-table>
+            <price-table product-id="product-bundle-4">
+                <amount quantity="1">250.00</amount>
+            </price-table>
+            <price-table product-id="product-bundle-5">
+                <amount quantity="1">250.00</amount>
+            </price-table>
+            <price-table product-id="product-variation-master-1">
+                <amount quantity="1">250.00</amount>
+            </price-table>
+            <price-table product-id="product-variation-master-2">
+                <amount quantity="1">250.00</amount>
+            </price-table>
+            <price-table product-id="product-variation-master-3">
+                <amount quantity="1">250.00</amount>
+            </price-table>
+            <price-table product-id="product-set-1">
+                <amount quantity="1">250.00</amount>
+            </price-table>
+            <price-table product-id="product-set-2">
+                <amount quantity="1">250.00</amount>
+            </price-table>
+            <price-table product-id="product-set-3">
+                <amount quantity="1">250.00</amount>
+            </price-table>
+            <price-table product-id="product-set-4">
+                <amount quantity="1">250.00</amount>
+            </price-table>
+            <price-table product-id="product-set-5">
+                <amount quantity="1">250.00</amount>
+            </price-table>
+            <price-table product-id="product-variation-1">
+                <amount quantity="1">250.00</amount>
+            </price-table>
+            <price-table product-id="product-variation-2">
+                <amount quantity="1">250.00</amount>
+            </price-table>
+            <price-table product-id="product-variation-3">
+                <amount quantity="1">250.00</amount>
+            </price-table>
+            <price-table product-id="product-variation-4">
+                <amount quantity="1">250.00</amount>
+            </price-table>
+            <price-table product-id="product-variation-5">
+                <amount quantity="1">250.00</amount>
+            </price-table>
+            <price-table product-id="product-variation-6">
+                <amount quantity="1">250.00</amount>
+            </price-table>
+            <price-table product-id="product-variation-7">
+                <amount quantity="1">250.00</amount>
+            </price-table>
+            <price-table product-id="product-vg-brown-l">
+                <amount quantity="1">11.99</amount>
+            </price-table>
+            <price-table product-id="product-vg-brown-m">
+                <amount quantity="1">11.99</amount>
+            </price-table>
+            <price-table product-id="product-vg-brown-s">
+                <amount quantity="1">11.99</amount>
+            </price-table>
+            <price-table product-id="product-vg-brown-xl">
+                <amount quantity="1">11.99</amount>
+            </price-table>
+            <price-table product-id="product-vg-brown-xs">
+                <amount quantity="1">11.99</amount>
+            </price-table>
+            <price-table product-id="product-vg-green-l">
+                <amount quantity="1">11.99</amount>
+            </price-table>
+            <price-table product-id="product-vg-green-m">
+                <amount quantity="1">11.99</amount>
+            </price-table>
+            <price-table product-id="product-vg-green-s">
+                <amount quantity="1">11.99</amount>
+            </price-table>
+            <price-table product-id="product-vg-green-xl">
+                <amount quantity="1">11.99</amount>
+            </price-table>
+            <price-table product-id="product-vg-green-xs">
+                <amount quantity="1">11.99</amount>
+            </price-table>
+            <price-table product-id="product-vg-orange-l">
+                <amount quantity="1">11.99</amount>
+            </price-table>
+            <price-table product-id="product-vg-orange-m">
+                <amount quantity="1">11.99</amount>
+            </price-table>
+            <price-table product-id="product-vg-orange-s">
+                <amount quantity="1">11.99</amount>
+            </price-table>
+            <price-table product-id="product-vg-orange-xl">
+                <amount quantity="1">11.99</amount>
+            </price-table>
+            <price-table product-id="product-vg-orange-xs">
+                <amount quantity="1">11.99</amount>
+            </price-table>
+            <price-table product-id="product-vg-white-l">
+                <amount quantity="1">11.99</amount>
+            </price-table>
+            <price-table product-id="product-vg-white-m">
+                <amount quantity="1">11.99</amount>
+            </price-table>
+            <price-table product-id="product-vg-white-s">
+                <amount quantity="1">11.99</amount>
+            </price-table>
+            <price-table product-id="product-vg-white-xl">
+                <amount quantity="1">11.99</amount>
+            </price-table>
+            <price-table product-id="product-vg-white-xs">
+                <amount quantity="1">11.99</amount>
+            </price-table>
+        </price-tables>
+    </pricebook>
+</pricebooks>

@@ -1,0 +1,20 @@
+{
+    "behavior": "createNew",
+    "outPostfix": "_reduced",
+    "categoriesConfig": {
+        "$default": {
+            "master": 1,
+            "masterWithVariationGroups": 1,
+            "set": 1,
+            "bundle": 1,
+            "standard": 0
+        }
+    },
+    "generateMissingRecords": {
+        "inventoryAllocation": false,
+        "price": false
+    },
+    "productsConfig": {
+        "onlineFlagCheck": true
+    }
+}

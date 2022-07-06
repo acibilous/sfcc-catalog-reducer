@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inventory xmlns="http://www.demandware.com/xml/impex/inventory/2007-05-31">
+    <inventory-list>
+        <header list-id="boilerplate-inventory-global">
+            <default-instock>false</default-instock>
+            <description>Product Sku inventory</description>
+            <use-bundle-inventory-only>false</use-bundle-inventory-only>
+            <on-order>false</on-order>
+        </header>
+
+        <records>
+            <record product-id="placeholder-that-will-be-replaced-with-generated-inventory-records"></record>
+        </records>
+    </inventory-list>
+</inventory>
