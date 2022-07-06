@@ -11,12 +11,13 @@
             "./testdata/navigation/navigation2.xml"
         ],
         "inventories": [
-            "testdata/inventory/inventory1.xml"
+            "./testdata/inventory/inventory1.xml",
+            "./testdata/inventory/inventory2.xml"
         ],
         "priceBooks": [
-            "testdata/priceBook/priceBook1.xml",
-            "testdata/priceBook/priceBook2.xml",
-            "testdata/priceBook/priceBookChild.xml"
+            "./testdata/priceBook/priceBook1.xml",
+            "./testdata/priceBook/priceBook2.xml",
+            "./testdata/priceBook/priceBookChild.xml"
         ]
     },
     "productsConfig": {
