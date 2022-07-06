@@ -14,7 +14,7 @@
         "inventoryAllocation": false,
         "price": false
     },
-    "productsConfing": {
+    "productsConfig": {
         "onlineFlagCheck": true
     }
 }

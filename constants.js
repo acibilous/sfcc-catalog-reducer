@@ -80,9 +80,7 @@ const productionConfig = {
  */
 const config = isTestEnv ? testConfig : productionConfig;
 
-export const productsConfig = config.productsConfig || defaults.productsConfig;
-export const behavior = config.behavior || defaults.behavior;
-export const outPostfix = config.outPostfix || defaults.outPostfix;
+export const { productsConfig, behavior, outPostfix } = config;
 
 /**
  * @type {import('#types').GeneralCategoryConfigs}
