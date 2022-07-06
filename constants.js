@@ -68,6 +68,10 @@ if (!isTestEnv) {
 
         process.exit(0);
     }
+
+    if (catalogReducerConfig.categoriesConfig?.default) {
+        console.log('If you want to set $default category, make sure you placed "$" before "default" in "categoriesConfig"');
+    }
 }
 
 const productionConfig = {
