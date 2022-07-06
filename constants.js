@@ -69,8 +69,20 @@ if (!isTestEnv) {
         process.exit(0);
     }
 
-    if (catalogReducerConfig.categoriesConfig?.default) {
+    if (!catalogReducerConfig.categoriesConfig) {
+        console.log('Property "categoriesConfig" is required for catalog reducer config');
+
+        process.exit(0);
+    }
+
+    if (catalogReducerConfig.categoriesConfig.default) {
         console.log('If you want to set $default category, make sure you placed "$" before "default" in "categoriesConfig"');
+    }
+
+    if (!('$default' in catalogReducerConfig.categoriesConfig)) {
+        console.log('"$default" category is mandatory for categories config');
+
+        process.exit(0);
     }
 }
 
