@@ -67,8 +67,7 @@ import {
         reducers.navigation(
             navigationFiles,
             keepAsItIsProducts,
-            reduced.categorized,
-            reduced.default,
+            reduced,
             categoriesThatShouldUseDefaultConfig
         ),
         reducers.master(masterFiles, allReducedProducts),
