@@ -45,6 +45,15 @@ if (!isTestEnv) {
         process.exit(0);
     }
 
+    if (Object.values(catalogReducerConfig.src).some(
+            (patternsArray) => !(patternsArray instanceof Array) || patternsArray.some(pattern => typeof pattern !== 'string')
+        )
+    ) {
+        console.log('Options of "src" should contain only an array of strings');
+
+        process.exit(0);
+    }
+
     if (!catalogReducerConfig.src?.masters || !catalogReducerConfig.src?.navigations) {
         console.log('Please, provide master and navigation catalogs in catalog reducer config');
 
