@@ -45,7 +45,6 @@ Add file `catalogReducerConfig.json` to the root of your project with configurat
 ```json
 {
     "src": {
-        "finalCacheDir": "./testdata/cache", // empty folder that could keep cache while calculation
         "masters": ["./testdata/master/*.xml"], // master catalog files
         "navigations": ["./testdata/navigation/*.xml"], // navigation catalog
         "inventories": ["./testdata/inventory/*.xml"], // inventory-list catalogs (OPTIONAL)
@@ -53,8 +52,6 @@ Add file `catalogReducerConfig.json` to the root of your project with configurat
     },
     "behavior": "createNew", // script behavior could be either 'createNew' or 'updateExisting' (OPTIONAL, createNew by default)
     "outPostfix": "_reduced", // ending part of out files, works with behavior=createNew (OPTIONAL, _reduced by default)
-    "enabledCache": true, // to read catalogs data from JSONs if exist
-    "cleanupData": false, // to remove catalogs data JSONs after processing
     "categoriesConfig": { // Sets amount of products (with their dependencies) should to keep after reducing for every type
         "$default": {
             "master": 1,
