@@ -2,6 +2,11 @@
 
 >At all module based on modifyied [SaxJS](https://www.npmjs.com/package/sax) library. It's using nodejs streams to work with huge xml files.
 
+## Idea
+
+Usually production catalog is huge and SFCC sandboxes cannot handle a big amount of catalog data without performance degradation. On the other hand, a sandbox is an instance for developing a site and it does not require an entire catalog to be present on it. 
+Will be enough to have few properly configured categories and all types of products. All other categories in the navigation catalog can have assigned some dummy products, just for the proper rendering navigation menu. Based on such assumption was created this tool, that allows specifying a few categories that will be kept untouched (see "keepAsIs" config) or preserve in it specific products (by specifying IDs) that are for sure properly configured, or just set amount of product per each product type (master, standard, set, bundle) to be preserved in each category.
+
 ## How it works?
 
 Reducing of catalogs works based on the next logic:
