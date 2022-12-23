@@ -942,7 +942,7 @@
     <category-assignment category-id="deals" product-id="product-vg-brown"/>
     <category-assignment category-id="deals" product-id="product-vg-orange"/>
     <category-assignment category-id="deals" product-id="master-product-vg"/>
-    <category-assignment category-id="pool" product-id="offline-product-1"/>
+    <category-assignment category-id="pool &amp; ducks" product-id="offline-product-1"/>
 
     <recommendation source-id="product-1" source-type="product" target-id="product-2" type="1"/>
     <recommendation source-id="product-1" source-type="product" target-id="product-3" type="1"/>
