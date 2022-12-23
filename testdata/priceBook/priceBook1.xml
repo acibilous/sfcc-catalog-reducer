@@ -7,6 +7,9 @@
             <online-flag>true</online-flag>
         </header>
         <price-tables>
+            <price-table product-id="some-unused-product-that-will-be-filtered-out">
+                <amount quantity="1">0.00</amount>
+            </price-table>
             <price-table product-id="product-1">
                 <amount quantity="1">250.00</amount>
             </price-table>
