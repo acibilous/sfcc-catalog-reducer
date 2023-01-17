@@ -187,6 +187,22 @@
         </product-listing-page-meta-tag-rules>
     </category>
 
+    <category category-id="pool &amp; ducks">
+        <display-name xml:lang="x-default">Pool &amp; Ducks</display-name>
+        <online-flag>true</online-flag>
+        <parent>root</parent>
+        <position>0.0</position>
+        <page-attributes>
+            <page-title xml:lang="x-default">Category 0 page title</page-title>
+            <page-description xml:lang="x-default">Category 0 page description</page-description>
+            <page-keywords xml:lang="x-default">Category 0 keywords</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="showInMenu">true</custom-attribute>
+            <custom-attribute attribute-id="slotBannerImage">images/slot/landing/category-banner.jpg</custom-attribute>
+        </custom-attributes>
+    </category>
+
     <category category-id="category">
         <display-name xml:lang="x-default">Category</display-name>
         <online-flag>true</online-flag>
