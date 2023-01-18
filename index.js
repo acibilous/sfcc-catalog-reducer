@@ -61,7 +61,7 @@ import {
         .from(allCategories)
         .filter(category => !specificCategories.includes(category) && !keepAsItIsCategories.includes(category));
 
-    const allReducedProducts = [...keepAsItIsProducts, ...reduced.categorized, ...reduced.default];
+    const allReducedProducts = [...keepAsItIsProducts, ...reduced.allCategorized, ...reduced.default];
 
     await Promise.all([
         reducers.navigation(
