@@ -2,6 +2,12 @@
 
 >At all module based on modifyied [SaxJS](https://www.npmjs.com/package/sax) library. It's using nodejs streams to work with huge xml files.
 
+## Guide
+
+Check out [video guide](http://www.youtube.com/watch?v=JMn834x89jo) to this package
+
+[![Youtube video guide for sfcc-catalog-reducer](http://img.youtube.com/vi/JMn834x89jo/mqdefault.jpg)](http://www.youtube.com/watch?v=JMn834x89jo "sfcc-catalog-reducer: guide to npm package")
+
 ## Idea
 
 Usually production catalog is huge and SFCC sandboxes cannot handle a big amount of catalog data without performance degradation. On the other hand, a sandbox is an instance for developing a site and it does not require an entire catalog to be present on it. 
